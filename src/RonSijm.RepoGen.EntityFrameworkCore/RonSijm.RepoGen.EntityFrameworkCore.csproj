@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Description>Entity Framework Core integration dependency for RonSijm.RepoGen.</Description>
+    <PackageId>RonSijm.RepoGen.EntityFrameworkCore</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../RonSijm.RepoGen/RonSijm.RepoGen.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+  </ItemGroup>
+</Project>

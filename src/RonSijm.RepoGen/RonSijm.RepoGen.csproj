@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Public attributes for generating strongly typed Entity Framework selectors.</Description>
+    <PackageId>RonSijm.RepoGen</PackageId>
+  </PropertyGroup>
+</Project>

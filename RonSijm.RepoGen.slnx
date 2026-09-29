@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/RonSijm.RepoGen/RonSijm.RepoGen.csproj" />
+    <Project Path="src/RonSijm.RepoGen.EntityFrameworkCore/RonSijm.RepoGen.EntityFrameworkCore.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Generator/RonSijm.RepoGen.Generator.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Design/RonSijm.RepoGen.Design.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Tool/RonSijm.RepoGen.Tool.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/RonSijm.RepoGen.Tests/RonSijm.RepoGen.Tests.csproj" />
+    <Project Path="tests/RonSijm.RepoGen.EntityFrameworkCore.Tests/RonSijm.RepoGen.EntityFrameworkCore.Tests.csproj" />
+    <Project Path="tests/RonSijm.RepoGen.Generator.Tests/RonSijm.RepoGen.Generator.Tests.csproj" />
+    <Project Path="tests/RonSijm.RepoGen.Tool.Tests/RonSijm.RepoGen.Tool.Tests.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/RonSijm.RepoGen.Sample/RonSijm.RepoGen.Sample.csproj" />
+  </Folder>
+</Solution>
