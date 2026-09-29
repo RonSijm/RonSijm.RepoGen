@@ -187,6 +187,57 @@ public sealed class RepositorySourceRendererTests
         source.Should().NotContain("PatientSelector ByEmail(global::System.String email);");
         source.Should().Contain("PatientCollectionSelector ByActiveApimSubscriptionName(global::System.String name);");
     }
+
+    [Fact]
+    public void GeneratesNamedProjectionsAndCanDisableAdHocProjectionExpressions()
+    {
+        using var context = new RepositoryTestDbContext(
+            new DbContextOptionsBuilder<RepositoryTestDbContext>()
+                .UseInMemoryDatabase(nameof(GeneratesNamedProjectionsAndCanDisableAdHocProjectionExpressions))
+                .Options);
+
+        var model = RepositoryModelFactory.Create(
+            context,
+            typeof(RepositoryTestDbContext).Assembly,
+            design: new ProjectionRestrictedRepositoryDesigner().CreateModel());
+        var repositorySource = RepositorySourceRenderer.Render(model);
+        var projectionSource = ProjectionSourceRenderer.Render(model);
+
+        projectionSource.Should().Contain("ProjectToPatientDto(");
+        projectionSource.Should().Contain("ProjectToCustomName(");
+        projectionSource.Should().NotContain("ProjectToPatientDtos(");
+        projectionSource.Should().Contain("GetPatientDtosAsync(");
+        projectionSource.Should().Contain("GetCustomPatientsAsync(");
+        projectionSource.Should().Contain(
+            "((global::RonSijm.RepoGen.BaseEntitySelector<global::RonSijm.RepoGen.Tool.Tests.Patient>)selector).ProjectToAsync");
+        projectionSource.Should().Contain(
+            "((global::RonSijm.RepoGen.BaseCollectionSelector<global::RonSijm.RepoGen.Tool.Tests.Patient>)selector).ProjectToListAsync");
+        repositorySource.Should().Contain(
+            "Ad-hoc projections are disabled for this entity. Configure the projection with HasProjection or HasQuery in the repository designer.");
+        repositorySource.Should().Contain("ProjectToAsync<TProjection>(");
+        repositorySource.Should().Contain("ProjectToListAsync<TProjection>(");
+        repositorySource.Should().Contain("ToPagedListAsync<TProjection>(");
+        repositorySource.Should().Contain("ToDictionaryAsync<TKey, TElement>(");
+        repositorySource.Should().Contain("error: true");
+    }
+
+    [Fact]
+    public void RejectsMissingConfiguredProjectionReferences()
+    {
+        var createModel = () => new MissingProjectionRepositoryDesigner().CreateModel();
+
+        createModel.Should().Throw<InvalidOperationException>()
+            .WithMessage("*GetPatients*no matching HasProjection*");
+    }
+
+    [Fact]
+    public void RejectsAmbiguousConfiguredProjectionTypeReferences()
+    {
+        var createModel = () => new AmbiguousProjectionRepositoryDesigner().CreateModel();
+
+        createModel.Should().Throw<InvalidOperationException>()
+            .WithMessage("*GetPatients*2 projections match*ProjectTo(\"methodName\")*");
+    }
 }
 
 internal sealed class TestRepositoryDesigner : RepositoryDesigner
@@ -280,6 +331,55 @@ internal sealed class MinimalRepositoryDesigner : RepositoryDesigner
             entity.HasQuery("GetPatients")
                 .ProjectTo(patient => new PatientDto(patient.Id, patient.Name))
                 .Cache()
+                .List();
+        });
+    }
+}
+
+internal sealed class ProjectionRestrictedRepositoryDesigner : RepositoryDesigner
+{
+    protected override void OnModelCreating(RepositoryModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Patient>(entity =>
+        {
+            entity.ProjectionEnabled = false;
+            entity.HasQuery("GetPatientDtos")
+                .ProjectTo<PatientDto>()
+                .List();
+            entity.HasQuery("GetCustomPatients")
+                .ProjectTo("ProjectToCustomName")
+                .List();
+            entity.HasProjection<PatientDto>(patient => new PatientDto(patient.Id, patient.Name));
+            entity.HasProjection<PatientPracticeDto>(
+                "ProjectToCustomName",
+                patient => new PatientPracticeDto(patient.Id, patient.PracticeId));
+        });
+    }
+}
+
+internal sealed class MissingProjectionRepositoryDesigner : RepositoryDesigner
+{
+    protected override void OnModelCreating(RepositoryModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Patient>(entity =>
+            entity.HasQuery("GetPatients")
+                .ProjectTo<PatientDto>()
+                .List());
+    }
+}
+
+internal sealed class AmbiguousProjectionRepositoryDesigner : RepositoryDesigner
+{
+    protected override void OnModelCreating(RepositoryModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Patient>(entity =>
+        {
+            entity.HasProjection<PatientDto>(patient => new PatientDto(patient.Id, patient.Name));
+            entity.HasProjection<PatientDto>(
+                "ProjectToAlternatePatientDto",
+                patient => new PatientDto(patient.Id, patient.Email));
+            entity.HasQuery("GetPatients")
+                .ProjectTo<PatientDto>()
                 .List();
         });
     }

@@ -62,9 +62,63 @@ public sealed class RepositoryModelBuilder
         return this;
     }
 
-    internal RepositoryDesign Build() => new(
-        entities.Values.OrderBy(entity => entity.EntityType.FullName).ToArray(),
-        options);
+    internal RepositoryDesign Build()
+    {
+        foreach (var entity in entities.Values)
+        {
+            ResolveProjectionReferences(entity);
+        }
+
+        return new RepositoryDesign(
+            entities.Values.OrderBy(entity => entity.EntityType.FullName).ToArray(),
+            options);
+    }
+
+    private static void ResolveProjectionReferences(RepositoryEntityDesign entity)
+    {
+        foreach (var query in entity.Queries)
+        {
+            RepositoryProjectionDesign[] matches;
+            string reference;
+            if (query.ProjectionTypeReference is not null)
+            {
+                matches = entity.Projections
+                    .Where(projection => projection.ProjectionType == query.ProjectionTypeReference)
+                    .ToArray();
+                reference = $"type '{query.ProjectionTypeReference.FullName}'";
+            }
+            else if (query.ProjectionMethodNameReference is not null)
+            {
+                matches = entity.Projections
+                    .Where(projection => string.Equals(
+                        projection.MethodName,
+                        query.ProjectionMethodNameReference,
+                        StringComparison.Ordinal))
+                    .ToArray();
+                reference = $"method name '{query.ProjectionMethodNameReference}'";
+            }
+            else
+            {
+                continue;
+            }
+
+            if (matches.Length == 0)
+            {
+                throw new InvalidOperationException(
+                    $"Query '{entity.EntityType.FullName}.{query.MethodName}' references a configured projection by {reference}, " +
+                    "but no matching HasProjection was configured for that entity.");
+            }
+
+            if (matches.Length > 1)
+            {
+                throw new InvalidOperationException(
+                    $"Query '{entity.EntityType.FullName}.{query.MethodName}' references a configured projection by {reference}, " +
+                    $"but {matches.Length} projections match. Reference a unique projection with ProjectTo(\"methodName\").");
+            }
+
+            query.Projection = matches[0];
+        }
+    }
 }
 
 public sealed class RepositoryGenerationOptionsBuilder
@@ -154,6 +208,16 @@ public sealed class RepositoryEntityBuilder<TEntity>
         this.design = design;
     }
 
+    /// <summary>
+    /// Gets or sets whether consumers may supply ad-hoc projection expressions for this entity.
+    /// Designer-defined projections and named queries remain available when this is disabled.
+    /// </summary>
+    public bool ProjectionEnabled
+    {
+        get => design.ProjectionEnabled;
+        set => design.ProjectionEnabled = value;
+    }
+
     public RepositoryAccessorBuilder HasAccessor<TProperty>(Expression<Func<TEntity, TProperty>> property)
     {
         var propertyInfo = GetProperty(property);
@@ -174,15 +238,44 @@ public sealed class RepositoryEntityBuilder<TEntity>
     }
 
     public RepositoryProjectionBuilder<TEntity> ProjectTo<TProjection>(Expression<Func<TEntity, TProjection>> projection)
+        => AddProjection(projection, methodName: null, useExactMethodName: false);
+
+    public RepositoryProjectionBuilder<TEntity> HasProjection<TProjection>(
+        Expression<Func<TEntity, TProjection>> projection)
+        => AddProjection(
+            projection,
+            "ProjectTo" + GetTypeNameWithoutGenericArity(typeof(TProjection)),
+            useExactMethodName: true);
+
+    public RepositoryProjectionBuilder<TEntity> HasProjection<TProjection>(
+        string methodName,
+        Expression<Func<TEntity, TProjection>> projection)
+        => AddProjection(projection, RequireMethodName(methodName), useExactMethodName: true);
+
+    private RepositoryProjectionBuilder<TEntity> AddProjection<TProjection>(
+        Expression<Func<TEntity, TProjection>> projection,
+        string? methodName,
+        bool useExactMethodName)
     {
         if (projection is null)
         {
             throw new ArgumentNullException(nameof(projection));
         }
 
-        var projectionDesign = new RepositoryProjectionDesign(typeof(TProjection), projection);
+        var projectionDesign = new RepositoryProjectionDesign(
+            typeof(TProjection),
+            projection,
+            methodName,
+            useExactMethodName);
         design.ProjectionsList.Add(projectionDesign);
         return new RepositoryProjectionBuilder<TEntity>(projectionDesign);
+    }
+
+    private static string GetTypeNameWithoutGenericArity(Type type)
+    {
+        var name = type.Name;
+        var genericMarker = name.IndexOf('`');
+        return genericMarker < 0 ? name : name.Substring(0, genericMarker);
     }
 
     public RepositoryQueryBuilder<TEntity> HasQuery(string methodName)
@@ -466,6 +559,31 @@ public sealed class RepositoryQueryBuilder<TEntity>
         }
 
         design.Projection = new RepositoryProjectionDesign(typeof(TProjection), projection);
+        design.ProjectionTypeReference = null;
+        design.ProjectionMethodNameReference = null;
+        design.Group = null;
+        return this;
+    }
+
+    public RepositoryQueryBuilder<TEntity> ProjectTo<TProjection>()
+    {
+        design.Projection = null;
+        design.ProjectionTypeReference = typeof(TProjection);
+        design.ProjectionMethodNameReference = null;
+        design.Group = null;
+        return this;
+    }
+
+    public RepositoryQueryBuilder<TEntity> ProjectTo(string methodName)
+    {
+        if (string.IsNullOrWhiteSpace(methodName))
+        {
+            throw new ArgumentException("A projection method name is required.", nameof(methodName));
+        }
+
+        design.Projection = null;
+        design.ProjectionTypeReference = null;
+        design.ProjectionMethodNameReference = methodName.Trim();
         design.Group = null;
         return this;
     }
@@ -573,6 +691,9 @@ public sealed class RepositoryQueryBuilder<TEntity>
             throw new ArgumentNullException(nameof(projection));
         }
 
+        design.Projection = null;
+        design.ProjectionTypeReference = null;
+        design.ProjectionMethodNameReference = null;
         design.Group = new RepositoryGroupedQueryDesign(typeof(TResult), keySelector, projection);
         return HasResult(RepositoryQueryResultKind.GroupedList);
     }
@@ -955,6 +1076,8 @@ public sealed class RepositoryEntityDesign
 
     public Type EntityType { get; }
 
+    public bool ProjectionEnabled { get; internal set; } = true;
+
     public IReadOnlyCollection<string> ExcludedProperties => excludedProperties;
 
     public IReadOnlyList<RepositoryAccessorDesign> Accessors => new ReadOnlyCollection<RepositoryAccessorDesign>(accessors);
@@ -1016,10 +1139,16 @@ public sealed class RepositoryProjectionDesign
 {
     private readonly List<RepositoryIncludeDesign> includes = new();
 
-    internal RepositoryProjectionDesign(Type projectionType, LambdaExpression expression)
+    internal RepositoryProjectionDesign(
+        Type projectionType,
+        LambdaExpression expression,
+        string? methodName = null,
+        bool useExactMethodName = false)
     {
         ProjectionType = projectionType;
         Expression = expression;
+        MethodName = methodName;
+        UseExactMethodName = useExactMethodName;
     }
 
     public Type ProjectionType { get; }
@@ -1027,6 +1156,8 @@ public sealed class RepositoryProjectionDesign
     public LambdaExpression Expression { get; }
 
     public string? MethodName { get; internal set; }
+
+    public bool UseExactMethodName { get; }
 
     public IReadOnlyList<RepositoryIncludeDesign> Includes =>
         new ReadOnlyCollection<RepositoryIncludeDesign>(includes);
@@ -1055,6 +1186,10 @@ public sealed class RepositoryQueryDesign
     public IReadOnlyList<RepositorySortDesign> Sorts => new ReadOnlyCollection<RepositorySortDesign>(sorts);
 
     public RepositoryProjectionDesign? Projection { get; internal set; }
+
+    internal Type? ProjectionTypeReference { get; set; }
+
+    internal string? ProjectionMethodNameReference { get; set; }
 
     public RepositoryDynamicSortDesign? DynamicSort { get; internal set; }
 

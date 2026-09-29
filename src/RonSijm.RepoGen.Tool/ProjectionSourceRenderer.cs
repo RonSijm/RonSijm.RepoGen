@@ -263,18 +263,21 @@ internal static class ProjectionSourceRenderer
     private static string RenderQueryTerminal(EntityRepositoryModel entity, ConfiguredQueryModel query)
     {
         var cancellation = "cancellationToken";
+        var selector = entity.ProjectionEnabled
+            ? "selector"
+            : $"((global::RonSijm.RepoGen.BaseCollectionSelector<{entity.EntityTypeName}>)selector)";
         return query.ResultKind switch
         {
-            RepositoryQueryResultKind.List => $"selector.ProjectToListAsync({query.ProjectionExpressionSource}, {cancellation})",
-            RepositoryQueryResultKind.Single => $"selector.ProjectToSingleAsync({query.ProjectionExpressionSource}, {cancellation})",
-            RepositoryQueryResultKind.SingleOrDefault => $"selector.ProjectToSingleOrDefaultAsync({query.ProjectionExpressionSource}, {cancellation})",
-            RepositoryQueryResultKind.FirstOrDefault => $"selector.ProjectToFirstOrDefaultAsync({query.ProjectionExpressionSource}, {cancellation})",
-            RepositoryQueryResultKind.Paged => $"selector.ToPagedListAsync({query.ProjectionExpressionSource}, page, pageSize, {cancellation})",
-            RepositoryQueryResultKind.CursorPaged => $"selector.ToCursorPagedListAsync({query.ProjectionExpressionSource}, {query.Cursor!.CursorSelectorExpressionSource}, cursorPage.PageSize, {cancellation})",
-            RepositoryQueryResultKind.GroupedList => $"selector.GroupBy({query.Group!.KeySelectorExpressionSource}).ProjectToListAsync({query.Group.ProjectionExpressionSource}, {cancellation})",
+            RepositoryQueryResultKind.List => $"{selector}.ProjectToListAsync({query.ProjectionExpressionSource}, {cancellation})",
+            RepositoryQueryResultKind.Single => $"{selector}.ProjectToSingleAsync({query.ProjectionExpressionSource}, {cancellation})",
+            RepositoryQueryResultKind.SingleOrDefault => $"{selector}.ProjectToSingleOrDefaultAsync({query.ProjectionExpressionSource}, {cancellation})",
+            RepositoryQueryResultKind.FirstOrDefault => $"{selector}.ProjectToFirstOrDefaultAsync({query.ProjectionExpressionSource}, {cancellation})",
+            RepositoryQueryResultKind.Paged => $"{selector}.ToPagedListAsync({query.ProjectionExpressionSource}, page, pageSize, {cancellation})",
+            RepositoryQueryResultKind.CursorPaged => $"{selector}.ToCursorPagedListAsync({query.ProjectionExpressionSource}, {query.Cursor!.CursorSelectorExpressionSource}, cursorPage.PageSize, {cancellation})",
+            RepositoryQueryResultKind.GroupedList => $"{selector}.GroupBy({query.Group!.KeySelectorExpressionSource}).ProjectToListAsync({query.Group.ProjectionExpressionSource}, {cancellation})",
             RepositoryQueryResultKind.Exists => $"{Qualify(entity.Namespace, entity.EntityName + "CollectionSelectorExtensions")}.ExistsAsync(selector, {cancellation})",
             RepositoryQueryResultKind.Count => $"{Qualify(entity.Namespace, entity.EntityName + "CollectionSelectorExtensions")}.CountAsync(selector, {cancellation})",
-            RepositoryQueryResultKind.Stream => $"selector.StreamAsync({query.ProjectionExpressionSource}, {cancellation})",
+            RepositoryQueryResultKind.Stream => $"{selector}.StreamAsync({query.ProjectionExpressionSource}, {cancellation})",
             _ => throw new InvalidOperationException($"Unsupported configured query result kind '{query.ResultKind}'.")
         };
     }
@@ -363,7 +366,8 @@ internal static class ProjectionSourceRenderer
         builder.Append(indentation).Append("    this ").Append(selectorType).AppendLine(" selector,");
         builder.Append(indentation).AppendLine("    global::System.Threading.CancellationToken cancellationToken = default)");
         builder.Append(indentation).AppendLine("{");
-        builder.Append(indentation).Append("    return ").Append(RenderSelectorWithIncludes(projection))
+        var singleSelector = RenderProjectionSelector(entity, projection, collection: false);
+        builder.Append(indentation).Append("    return ").Append(singleSelector)
             .Append(".ProjectToAsync(").Append(projection.ExpressionSource)
             .AppendLine(", cancellationToken);");
         builder.Append(indentation).AppendLine("}");
@@ -373,7 +377,8 @@ internal static class ProjectionSourceRenderer
         builder.Append(indentation).Append("    this ").Append(collectionSelectorType).AppendLine(" selector,");
         builder.Append(indentation).AppendLine("    global::System.Threading.CancellationToken cancellationToken = default)");
         builder.Append(indentation).AppendLine("{");
-        builder.Append(indentation).Append("    return ").Append(RenderSelectorWithIncludes(projection))
+        var collectionSelector = RenderProjectionSelector(entity, projection, collection: true);
+        builder.Append(indentation).Append("    return ").Append(collectionSelector)
             .Append(".ProjectToListAsync(").Append(projection.ExpressionSource)
             .AppendLine(", cancellationToken);");
         builder.Append(indentation).AppendLine("}");
@@ -389,6 +394,21 @@ internal static class ProjectionSourceRenderer
         }
 
         return selector;
+    }
+
+    private static string RenderProjectionSelector(
+        EntityRepositoryModel entity,
+        ProjectionModel projection,
+        bool collection)
+    {
+        var selector = RenderSelectorWithIncludes(projection);
+        if (entity.ProjectionEnabled)
+        {
+            return selector;
+        }
+
+        var baseSelector = collection ? "BaseCollectionSelector" : "BaseEntitySelector";
+        return $"((global::RonSijm.RepoGen.{baseSelector}<{entity.EntityTypeName}>){selector})";
     }
 
     private static string Qualify(string @namespace, string typeName) =>

@@ -24,6 +24,7 @@ internal sealed record EntityRepositoryModel(
     string EntityTypeName,
     string ContextTypeName,
     bool GenerateSelectors,
+    bool ProjectionEnabled,
     IReadOnlyList<LookupModel> Lookups,
     IReadOnlyList<FilterModel> Filters,
     IReadOnlyList<SortModel> DefaultSorts,

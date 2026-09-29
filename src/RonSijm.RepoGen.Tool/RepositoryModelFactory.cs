@@ -139,6 +139,15 @@ internal static class RepositoryModelFactory
         var selectorFullName = string.IsNullOrEmpty(entityType.Namespace)
             ? entityType.Name + "Selector"
             : entityType.Namespace + "." + entityType.Name + "Selector";
+        var selectorExists = targetAssembly.GetType(selectorFullName, throwOnError: false, ignoreCase: false) is not null;
+        var projectionEnabled = entityDesign?.ProjectionEnabled ?? true;
+        if (!projectionEnabled && selectorExists && !generateSelectors)
+        {
+            throw new InvalidOperationException(
+                $"Entity '{entityType.FullName}' disables ad-hoc projections. Regenerate with --generate-selectors " +
+                "so RepoGen can emit the restricted selector surface.");
+        }
+
         var filters = CreateFilters(entityDesign);
         ValidateMethodSignatures(entityType, lookups, filters);
 
@@ -148,8 +157,8 @@ internal static class RepositoryModelFactory
             entityType.Name,
             CSharpTypeName(entityType),
             contextTypeName,
-            generateSelectors ||
-            targetAssembly.GetType(selectorFullName, throwOnError: false, ignoreCase: false) is null,
+            generateSelectors || !selectorExists,
+            projectionEnabled,
             lookups,
             filters,
             CreateDefaultSorts(entityDesign),
@@ -301,6 +310,21 @@ internal static class RepositoryModelFactory
 
         return design.Projections.Select(projection =>
         {
+            if (projection.UseExactMethodName)
+            {
+                var exactMethodName = projection.MethodName
+                    ?? throw new InvalidOperationException(
+                        $"Configured projection '{projection.ProjectionType.FullName}' requires a method name.");
+                return new ProjectionModel(
+                    projection.ProjectionType.Namespace ?? string.Empty,
+                    projection.ProjectionType.IsPublic ? "public" : "internal",
+                    CSharpTypeName(projection.ProjectionType),
+                    exactMethodName,
+                    exactMethodName,
+                    ProjectionExpressionRenderer.Render(projection.Expression),
+                    CreateProjectionIncludes(entity, projection));
+            }
+
             var suffix = projection.MethodName;
             if (string.IsNullOrWhiteSpace(suffix))
             {

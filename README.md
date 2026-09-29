@@ -169,7 +169,7 @@ public sealed class PatientRepositoryDesigner : RepositoryDesigner
                 patient => patient.LastName,
                 patient => patient.DateOfBirth);
             entity.Include(patient => patient.Practice);
-            entity.ProjectTo<PatientSummaryDto>(patient =>
+            entity.HasProjection<PatientSummaryDto>(patient =>
                 new PatientSummaryDto(patient.Id, patient.DisplayName));
         });
     }
@@ -198,8 +198,42 @@ selector. Repeated `HasDefaultSort` calls create `OrderBy`/`ThenBy` defaults, an
 configures eager-loaded navigations. `HasSortableFields` generates a case-insensitive
 `OrderBy(string fieldName, bool descending)` overload that only recognizes the configured
 properties; it does not construct expressions through reflection or accept arbitrary member names.
-`ProjectTo` expressions are emitted as typed selector extensions and remain inside the EF
-`IQueryable`, so only the projected columns are selected.
+`HasProjection` expressions are emitted as typed selector extensions and remain inside the EF
+`IQueryable`, so only the projected columns are selected. By default, the method name is
+`ProjectTo{ProjectionType}` on both single and collection selectors. Supply a name as the first
+argument when the application contract needs a different method name:
+
+```csharp
+entity.HasProjection<PatientSummaryDto>(
+    "ProjectToPatientListItem",
+    patient => new PatientSummaryDto(patient.Id, patient.DisplayName));
+```
+
+Named queries can reuse those mappings without repeating the expression:
+
+```csharp
+entity.HasQuery("GetPatientSummaries")
+    .AsNoTracking()
+    .ProjectTo<PatientSummaryDto>()
+    .List();
+
+entity.HasQuery("GetPatientListItems")
+    .AsNoTracking()
+    .ProjectTo("ProjectToPatientListItem")
+    .List();
+```
+
+The typed form requires exactly one `HasProjection` for that result type. If several mappings
+produce the same type, use the method-name form to select one explicitly. Missing and ambiguous
+references fail while the designer model is created, before source generation starts.
+
+Set `entity.ProjectionEnabled = false` to hide and compile-time block the ad-hoc projection
+terminals for that entity. Designer-defined `HasProjection` methods and named `HasQuery`
+operations remain available, which lets a project require all DTO shapes to be reviewed in the
+repository designer. The default is `true` for backwards compatibility. `ProjectTo<T>` remains
+available in the designer as the legacy naming API. When regenerating over existing selector
+types, pass `--generate-selectors`; RepoGen reports a clear error instead of silently emitting an
+unenforced restriction.
 
 For application services, prefer a complete named operation over rebuilding selector chains at
 each call site:
@@ -268,7 +302,7 @@ Navigation properties referenced by a configured projection are detected from th
 included automatically for that projection only:
 
 ```csharp
-entity.ProjectTo<PatientWithVisitsDto>(patient =>
+entity.HasProjection<PatientWithVisitsDto>(patient =>
     new PatientWithVisitsDto(patient.Id, patient.Visits.ToList()));
 ```
 
@@ -276,7 +310,7 @@ When navigation usage is hidden behind an expression that cannot be inferred, co
 projection include explicitly:
 
 ```csharp
-entity.ProjectTo<PatientSummaryDto>(patient =>
+entity.HasProjection<PatientSummaryDto>(patient =>
         new PatientSummaryDto(patient.Id, patient.DisplayName))
     .Include(patient => patient.Practice);
 ```

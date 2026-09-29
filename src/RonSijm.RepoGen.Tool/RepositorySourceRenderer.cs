@@ -1007,7 +1007,152 @@ internal static class RepositorySourceRenderer
         builder.Append(indentation).Append("        return new(Context, global::Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AsTracking(Query)")
             .Append(cacheInvalidatorArgument).AppendLine(");");
         builder.Append(indentation).AppendLine("    }");
+        AppendProjectionRestrictions(builder, entity, baseSelectorName, indentation + "    ");
         builder.Append(indentation).AppendLine("}");
+    }
+
+    private static void AppendProjectionRestrictions(
+        StringBuilder builder,
+        EntityRepositoryModel entity,
+        string baseSelectorName,
+        string indentation)
+    {
+        if (entity.ProjectionEnabled)
+        {
+            return;
+        }
+
+        const string message =
+            "Ad-hoc projections are disabled for this entity. Configure the projection with HasProjection or HasQuery in the repository designer.";
+        var entityType = entity.EntityTypeName;
+
+        builder.AppendLine();
+        if (baseSelectorName == "BaseEntitySelector")
+        {
+            AppendDisabledProjectionMethod(
+                builder,
+                indentation,
+                message,
+                "public new global::System.Threading.Tasks.Task<TProjection?> ProjectToAsync<TProjection>(",
+                $"global::System.Linq.Expressions.Expression<global::System.Func<{entityType}, TProjection>> projection,",
+                "global::System.Threading.CancellationToken cancellationToken = default");
+            return;
+        }
+
+        AppendDisabledProjectionMethod(
+            builder,
+            indentation,
+            message,
+            "public new global::RonSijm.RepoGen.GroupedCollectionSelector<" + entityType + ", TKey> GroupBy<TKey>(",
+            $"global::System.Linq.Expressions.Expression<global::System.Func<{entityType}, TKey>> keySelector");
+        AppendDisabledProjectionMethod(
+            builder,
+            indentation,
+            message,
+            "public new global::System.Threading.Tasks.Task<global::System.Collections.Generic.IReadOnlyList<TProjection>> ProjectToListAsync<TProjection>(",
+            $"global::System.Linq.Expressions.Expression<global::System.Func<{entityType}, TProjection>> projection,",
+            "global::System.Threading.CancellationToken cancellationToken = default");
+        AppendDisabledProjectionMethod(
+            builder,
+            indentation,
+            message,
+            "public new global::System.Threading.Tasks.Task<TProjection> ProjectToSingleAsync<TProjection>(",
+            $"global::System.Linq.Expressions.Expression<global::System.Func<{entityType}, TProjection>> projection,",
+            "global::System.Threading.CancellationToken cancellationToken = default");
+        AppendDisabledProjectionMethod(
+            builder,
+            indentation,
+            message,
+            "public new global::System.Threading.Tasks.Task<TProjection?> ProjectToSingleOrDefaultAsync<TProjection>(",
+            $"global::System.Linq.Expressions.Expression<global::System.Func<{entityType}, TProjection>> projection,",
+            "global::System.Threading.CancellationToken cancellationToken = default");
+        AppendDisabledProjectionMethod(
+            builder,
+            indentation,
+            message,
+            "public new global::System.Threading.Tasks.Task<TProjection?> ProjectToFirstOrDefaultAsync<TProjection>(",
+            $"global::System.Linq.Expressions.Expression<global::System.Func<{entityType}, TProjection>> projection,",
+            "global::System.Threading.CancellationToken cancellationToken = default");
+        AppendDisabledProjectionMethod(
+            builder,
+            indentation,
+            message,
+            "public new global::System.Collections.Generic.IAsyncEnumerable<TProjection> StreamAsync<TProjection>(",
+            $"global::System.Linq.Expressions.Expression<global::System.Func<{entityType}, TProjection>> projection,",
+            "global::System.Threading.CancellationToken cancellationToken = default");
+        AppendDisabledProjectionMethod(
+            builder,
+            indentation,
+            message,
+            "public new global::System.Threading.Tasks.Task<global::RonSijm.RepoGen.PagedResult<TProjection>> ToPagedListAsync<TProjection>(",
+            $"global::System.Linq.Expressions.Expression<global::System.Func<{entityType}, TProjection>> projection,",
+            "int page,",
+            "int pageSize,",
+            "global::System.Threading.CancellationToken cancellationToken = default");
+        AppendDisabledProjectionMethod(
+            builder,
+            indentation,
+            message,
+            "public new global::System.Threading.Tasks.Task<global::RonSijm.RepoGen.CursorPagedResult<TProjection, TCursor>> ToCursorPagedListAsync<TProjection, TCursor>(",
+            $"global::System.Linq.Expressions.Expression<global::System.Func<{entityType}, TProjection>> projection,",
+            $"global::System.Linq.Expressions.Expression<global::System.Func<{entityType}, TCursor>> cursorSelector,",
+            "int pageSize,",
+            "global::System.Threading.CancellationToken cancellationToken = default");
+        AppendDisabledProjectionMethod(
+            builder,
+            indentation,
+            message,
+            "public new global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<TKey, TElement>> ToDictionaryAsync<TKey, TElement>(",
+            $"global::System.Func<{entityType}, TKey> keySelector,",
+            $"global::System.Func<{entityType}, TElement> elementSelector,",
+            "global::System.Threading.CancellationToken cancellationToken = default)",
+            "where TKey : notnull");
+
+        builder.Append(indentation).Append("public new global::System.Threading.Tasks.Task<global::RonSijm.RepoGen.PagedResult<")
+            .Append(entityType).AppendLine(">> ToPagedListAsync(");
+        builder.Append(indentation).AppendLine("    int page,");
+        builder.Append(indentation).AppendLine("    int pageSize,");
+        builder.Append(indentation).AppendLine("    global::System.Threading.CancellationToken cancellationToken = default)");
+        builder.Append(indentation).AppendLine("{");
+        builder.Append(indentation).AppendLine("    return base.ToPagedListAsync(page, pageSize, cancellationToken);");
+        builder.Append(indentation).AppendLine("}");
+        builder.AppendLine();
+
+        builder.Append(indentation).Append("public new global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<TKey, ")
+            .Append(entityType).AppendLine(">> ToDictionaryAsync<TKey>(");
+        builder.Append(indentation).Append("    global::System.Func<").Append(entityType).AppendLine(", TKey> keySelector,");
+        builder.Append(indentation).AppendLine("    global::System.Threading.CancellationToken cancellationToken = default)");
+        builder.Append(indentation).AppendLine("    where TKey : notnull");
+        builder.Append(indentation).AppendLine("{");
+        builder.Append(indentation).AppendLine("    return base.ToDictionaryAsync(keySelector, cancellationToken);");
+        builder.Append(indentation).AppendLine("}");
+        builder.AppendLine();
+    }
+
+    private static void AppendDisabledProjectionMethod(
+        StringBuilder builder,
+        string indentation,
+        string message,
+        string declaration,
+        params string[] parameters)
+    {
+        builder.Append(indentation).AppendLine("[global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]");
+        builder.Append(indentation).Append("[global::System.Obsolete(\"").Append(message).AppendLine("\", error: true)]");
+        builder.Append(indentation).AppendLine(declaration);
+        foreach (var parameter in parameters)
+        {
+            builder.Append(indentation).Append("    ").AppendLine(parameter);
+        }
+
+        if (!parameters[^1].StartsWith("where ", StringComparison.Ordinal))
+        {
+            builder.Append(indentation).AppendLine(")");
+        }
+
+        builder.Append(indentation).AppendLine("{");
+        builder.Append(indentation).Append("    throw new global::System.NotSupportedException(\"").Append(message).AppendLine("\");");
+        builder.Append(indentation).AppendLine("}");
+        builder.AppendLine();
     }
 
     private static void AppendDynamicSortingExtensions(
