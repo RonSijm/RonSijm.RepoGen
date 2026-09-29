@@ -1,4 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\BuildSettings\NuGetVersioning.props" />
+
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Incremental source generator for RonSijm.RepoGen.</Description>
@@ -7,6 +9,9 @@
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <!-- Analyzer packages embed symbols because their assemblies live outside lib/. -->
+    <DebugType>embedded</DebugType>
+    <IncludeSymbols>false</IncludeSymbols>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" PrivateAssets="all" />

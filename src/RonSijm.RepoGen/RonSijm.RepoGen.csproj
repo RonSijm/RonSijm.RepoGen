@@ -1,4 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\BuildSettings\NuGetVersioning.props" />
+
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Public attributes for generating strongly typed Entity Framework selectors.</Description>

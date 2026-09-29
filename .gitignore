@@ -167,6 +167,7 @@ $RECYCLE.BIN/
 
 # Compiled nuget files
 *.nupkg
+*.snupkg
 artifacts/
 build/Artifacts/*
 !build/Artifacts/.gitkeep

@@ -1,0 +1,22 @@
+<Project>
+  <PropertyGroup>
+    <Authors>Ron Sijm</Authors>
+    <Company>Ron Sijm</Company>
+    <VersionPrefix>0.0.1</VersionPrefix>
+    <PackageProjectUrl>https://github.com/RonSijm/RonSijm.RepoGen</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/RonSijm/RonSijm.RepoGen</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)..\packages</PackageOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <DebugType>portable</DebugType>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EnableSourceLink>true</EnableSourceLink>
+  </PropertyGroup>
+</Project>
