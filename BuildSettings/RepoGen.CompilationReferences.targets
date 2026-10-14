@@ -1,0 +1,15 @@
+<Project>
+  <PropertyGroup>
+    <!-- Opt-in, design-time input only. A normal application build exports nothing. -->
+    <RepoGenExportCompilationReferences Condition="'$(RepoGenExportCompilationReferences)' == ''">false</RepoGenExportCompilationReferences>
+  </PropertyGroup>
+  <Target Name="RepoGenExportCompilationReferences" AfterTargets="ResolveReferences" DependsOnTargets="ResolveReferences"
+          Condition="'$(RepoGenExportCompilationReferences)' == 'true' and '$(DesignTimeBuild)' != 'true'">
+    <PropertyGroup>
+      <RepoGenCompilationReferencesFile Condition="'$(RepoGenCompilationReferencesFile)' == ''">$(TargetDir)RepoGen.CompilationReferences.txt</RepoGenCompilationReferencesFile>
+    </PropertyGroup>
+    <MakeDir Directories="$([System.IO.Path]::GetDirectoryName('$(RepoGenCompilationReferencesFile)'))" />
+    <WriteLinesToFile File="$(RepoGenCompilationReferencesFile)" Lines="@(ReferencePath->'%(FullPath)')"
+                      Overwrite="true" WriteOnlyWhenDifferent="true" Encoding="UTF-8" />
+  </Target>
+</Project>

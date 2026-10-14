@@ -1,0 +1,681 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.ScopedResourcesContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemorySharedLinks",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolder",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.IResourceLinksReader"
+      ],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.IResourceLinksWriter"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "FindAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderView?\u003E",
+          "parameters": [
+            {
+              "name": "key",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderKey"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Links",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolder"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "MergeResourcesAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderView\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.ChangeFolderResources"
+            }
+          ],
+          "collections": [
+            {
+              "navigation": "Links",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource",
+              "key": "global::RonSijm.RepoGen.Abstractions.RepositoryCollectionKeys.Require(new global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E(child.PartitionId, child.ResourceId))",
+              "maximumItems": 10,
+              "missingItems": "Keep",
+              "add": true,
+              "updates": [
+                "Caption",
+                "Version"
+              ],
+              "expectedVersions": [
+                "Version"
+              ],
+              "conditional": false,
+              "visibilityPolicies": 0,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource",
+              "linkReconciliation": {
+                "target": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredResource",
+                "ownerForeignKeys": [
+                  "PartitionId",
+                  "FolderId"
+                ],
+                "targetForeignKeys": [
+                  "PartitionId",
+                  "ResourceId"
+                ],
+                "targetPrincipalKeys": [
+                  "PartitionId",
+                  "Id"
+                ],
+                "targets": "ExistingReferencesOnlyNeverCreatedUpdatedOrDeleted",
+                "targetPolicies": "NotImplicitlyInjected",
+                "foreignKeys": "DatabaseEnforcedNotFixtureSimulated",
+                "mutation": "TrackedExplicitJoinRowsNotSkipNavigationGraph",
+                "nullTargets": "Unsupported",
+                "sharedReferenceColumns": {
+                  "columns": [
+                    {
+                      "property": "PartitionId",
+                      "ownerProperty": "PartitionId",
+                      "referenceKeyIndex": 0
+                    }
+                  ],
+                  "matching": "CompleteTargetKeyMustAgreeWithSelectedOwner",
+                  "comparison": "DefaultClrMatchingNotProviderOrFixtureKeyComparison",
+                  "validation": "AllSuppliedKeysBeforeCollectionLoadingOrMutation",
+                  "ownership": "BoundFromSelectedOwnerNeverTransferredOrNormalized"
+                }
+              },
+              "compositeMatchingKey": {
+                "properties": [
+                  "PartitionId",
+                  "ResourceId"
+                ],
+                "equality": "DefaultClrValueTuple",
+                "nullComponents": "RejectBeforeMutation",
+                "scope": "SelectedOwnerVisibleChildren",
+                "mutable": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReplaceResourcesAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderView\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.ChangeFolderResources"
+            }
+          ],
+          "collections": [
+            {
+              "navigation": "Links",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource",
+              "key": "global::RonSijm.RepoGen.Abstractions.RepositoryCollectionKeys.Require(new global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E(child.PartitionId, child.ResourceId))",
+              "maximumItems": 10,
+              "missingItems": "Delete",
+              "add": true,
+              "updates": [
+                "Caption",
+                "Version"
+              ],
+              "expectedVersions": [
+                "Version"
+              ],
+              "conditional": false,
+              "visibilityPolicies": 0,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource",
+              "linkReconciliation": {
+                "target": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredResource",
+                "ownerForeignKeys": [
+                  "PartitionId",
+                  "FolderId"
+                ],
+                "targetForeignKeys": [
+                  "PartitionId",
+                  "ResourceId"
+                ],
+                "targetPrincipalKeys": [
+                  "PartitionId",
+                  "Id"
+                ],
+                "targets": "ExistingReferencesOnlyNeverCreatedUpdatedOrDeleted",
+                "targetPolicies": "NotImplicitlyInjected",
+                "foreignKeys": "DatabaseEnforcedNotFixtureSimulated",
+                "mutation": "TrackedExplicitJoinRowsNotSkipNavigationGraph",
+                "nullTargets": "Unsupported",
+                "sharedReferenceColumns": {
+                  "columns": [
+                    {
+                      "property": "PartitionId",
+                      "ownerProperty": "PartitionId",
+                      "referenceKeyIndex": 0
+                    }
+                  ],
+                  "matching": "CompleteTargetKeyMustAgreeWithSelectedOwner",
+                  "comparison": "DefaultClrMatchingNotProviderOrFixtureKeyComparison",
+                  "validation": "AllSuppliedKeysBeforeCollectionLoadingOrMutation",
+                  "ownership": "BoundFromSelectedOwnerNeverTransferredOrNormalized"
+                }
+              },
+              "compositeMatchingKey": {
+                "properties": [
+                  "PartitionId",
+                  "ResourceId"
+                ],
+                "equality": "DefaultClrValueTuple",
+                "nullComponents": "RejectBeforeMutation",
+                "scope": "SelectedOwnerVisibleChildren",
+                "mutable": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "StageResourcesAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.ChangeFolderResources"
+            }
+          ],
+          "collections": [
+            {
+              "navigation": "Links",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource",
+              "key": "global::RonSijm.RepoGen.Abstractions.RepositoryCollectionKeys.Require(new global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E(child.PartitionId, child.ResourceId))",
+              "maximumItems": 10,
+              "missingItems": "Delete",
+              "add": true,
+              "updates": [
+                "Caption",
+                "Version"
+              ],
+              "expectedVersions": [
+                "Version"
+              ],
+              "conditional": false,
+              "visibilityPolicies": 0,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource",
+              "linkReconciliation": {
+                "target": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredResource",
+                "ownerForeignKeys": [
+                  "PartitionId",
+                  "FolderId"
+                ],
+                "targetForeignKeys": [
+                  "PartitionId",
+                  "ResourceId"
+                ],
+                "targetPrincipalKeys": [
+                  "PartitionId",
+                  "Id"
+                ],
+                "targets": "ExistingReferencesOnlyNeverCreatedUpdatedOrDeleted",
+                "targetPolicies": "NotImplicitlyInjected",
+                "foreignKeys": "DatabaseEnforcedNotFixtureSimulated",
+                "mutation": "TrackedExplicitJoinRowsNotSkipNavigationGraph",
+                "nullTargets": "Unsupported",
+                "sharedReferenceColumns": {
+                  "columns": [
+                    {
+                      "property": "PartitionId",
+                      "ownerProperty": "PartitionId",
+                      "referenceKeyIndex": 0
+                    }
+                  ],
+                  "matching": "CompleteTargetKeyMustAgreeWithSelectedOwner",
+                  "comparison": "DefaultClrMatchingNotProviderOrFixtureKeyComparison",
+                  "validation": "AllSuppliedKeysBeforeCollectionLoadingOrMutation",
+                  "ownership": "BoundFromSelectedOwnerNeverTransferredOrNormalized"
+                }
+              },
+              "compositeMatchingKey": {
+                "properties": [
+                  "PartitionId",
+                  "ResourceId"
+                ],
+                "equality": "DefaultClrValueTuple",
+                "nullComponents": "RejectBeforeMutation",
+                "scope": "SelectedOwnerVisibleChildren",
+                "mutable": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredResource",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedLinks",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolder",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedLinks.StoredFolderRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "FindAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderKey)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderView?\u003E",
+            "script": "OnFindAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolder",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredResource"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolder.Links",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.PartitionId, entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.PartitionId, entity.FolderId }"
+                },
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource.Resource",
+                  "collection": false,
+                  "required": true,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.PartitionId, entity.ResourceId }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.PartitionId, entity.Id }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "MergeResourcesAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.ChangeFolderResources)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderView\u003E\u003E",
+            "script": "OnMergeResourcesAsync",
+            "status": "Generated",
+            "reason": "Explicit saved-state result query after shared save; detached declared relationships, projection-owned related visibility, no atomic returning/provider guarantees.",
+            "stream": false,
+            "reasons": [],
+            "collectionSimulation": {
+              "optIn": "SimulateCollectionWrites",
+              "targets": "OwnerScopedVisibleSavedChildren",
+              "ownership": "CompleteMappedPrincipalToForeignKeysNeverInput",
+              "matching": "DefaultClrEquality",
+              "collections": [
+                {
+                  "navigation": "Links",
+                  "childStore": "__RepoGenStoredFolderResourceWrites",
+                  "maximumItems": 10,
+                  "missingItems": "Keep",
+                  "additions": true,
+                  "updates": true,
+                  "conditional": false
+                }
+              ],
+              "pendingTargets": "RejectOwnerScopedModifiedAddedDeletedChildrenIncludingHidden",
+              "saving": "SharedUnitOfWorkIncludesUnrelatedPendingWrites",
+              "rollback": "RestoreCommandOnlyBeforeSaveCheckpointForSavedRows",
+              "results": "ExplicitReturnsSavedQuery",
+              "entityGraphs": "NotPersistedOrInferred",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolder.Links",
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource.Resource"
+              ],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "ReplaceResourcesAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.ChangeFolderResources)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderView\u003E\u003E",
+            "script": "OnReplaceResourcesAsync",
+            "status": "Generated",
+            "reason": "Explicit saved-state result query after shared save; detached declared relationships, projection-owned related visibility, no atomic returning/provider guarantees.",
+            "stream": false,
+            "reasons": [],
+            "collectionSimulation": {
+              "optIn": "SimulateCollectionWrites",
+              "targets": "OwnerScopedVisibleSavedChildren",
+              "ownership": "CompleteMappedPrincipalToForeignKeysNeverInput",
+              "matching": "DefaultClrEquality",
+              "collections": [
+                {
+                  "navigation": "Links",
+                  "childStore": "__RepoGenStoredFolderResourceWrites",
+                  "maximumItems": 10,
+                  "missingItems": "Delete",
+                  "additions": true,
+                  "updates": true,
+                  "conditional": false
+                }
+              ],
+              "pendingTargets": "RejectOwnerScopedModifiedAddedDeletedChildrenIncludingHidden",
+              "saving": "SharedUnitOfWorkIncludesUnrelatedPendingWrites",
+              "rollback": "RestoreCommandOnlyBeforeSaveCheckpointForSavedRows",
+              "results": "ExplicitReturnsSavedQuery",
+              "entityGraphs": "NotPersistedOrInferred",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolder.Links",
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource.Resource"
+              ],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "StageResourcesAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.ChangeFolderResources)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageResourcesAsync",
+            "status": "Generated",
+            "reason": "Explicit bounded child-store reconciliation; mapped ownership, scalar writes, shared Stage/Save, no entity-graph or provider guarantees.",
+            "stream": false,
+            "reasons": [],
+            "collectionSimulation": {
+              "optIn": "SimulateCollectionWrites",
+              "targets": "OwnerScopedVisibleSavedChildren",
+              "ownership": "CompleteMappedPrincipalToForeignKeysNeverInput",
+              "matching": "DefaultClrEquality",
+              "collections": [
+                {
+                  "navigation": "Links",
+                  "childStore": "__RepoGenStoredFolderResourceWrites",
+                  "maximumItems": 10,
+                  "missingItems": "Delete",
+                  "additions": true,
+                  "updates": true,
+                  "conditional": false
+                }
+              ],
+              "pendingTargets": "RejectOwnerScopedModifiedAddedDeletedChildrenIncludingHidden",
+              "saving": "SharedUnitOfWorkIncludesUnrelatedPendingWrites",
+              "rollback": "RestoreCommandOnlyBeforeSaveCheckpointForSavedRows",
+              "results": "SavedScalarParentProjectionOnly",
+              "entityGraphs": "NotPersistedOrInferred",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            }
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedLinks.StoredFolderResourceRepositoryTestDouble",
+        "operations": []
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredResource",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedLinks.StoredResourceRepositoryTestDouble",
+        "operations": []
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedLinks.ScopedResourcesContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedLinks.ScopedResourcesContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolder",
+          "property": "StoredFolderStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E",
+          "keySource": "static entity =\u003E new global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E(entity.PartitionId, entity.Id)",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderSeed(entity.PartitionId, entity.Id, entity.Version)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderSeed(entity.PartitionId, entity.Id, entity.Version)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedLinks.__RepoGenStoredFolderReadRow",
+            "members": [
+              "PartitionId",
+              "Id",
+              "Version"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Links",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedLinks.__RepoGenStoredFolderResourceReadRow",
+                "collection": true,
+                "required": false
+              }
+            ]
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredFolderResource",
+          "property": "StoredFolderResourceStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderResourceSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32, global::System.Int32\u003E",
+          "keySource": "static entity =\u003E new global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32, global::System.Int32\u003E(entity.PartitionId, entity.FolderId, entity.ResourceId)",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderResourceSeed(entity.PartitionId, entity.FolderId, entity.ResourceId, entity.Caption, entity.Version)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.FolderResourceSeed(entity.PartitionId, entity.FolderId, entity.ResourceId, entity.Caption, entity.Version)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedLinks.__RepoGenStoredFolderResourceReadRow",
+            "members": [
+              "PartitionId",
+              "FolderId",
+              "ResourceId",
+              "Caption",
+              "Version"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Resource",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedLinks.__RepoGenStoredResourceReadRow",
+                "collection": false,
+                "required": true
+              }
+            ]
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedLinks.StoredResource",
+          "property": "StoredResourceStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.ResourceSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E",
+          "keySource": "static entity =\u003E new global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E(entity.PartitionId, entity.Id)",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedLinks.ResourceSeed(entity.PartitionId, entity.Id, entity.Name)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedLinks.__RepoGenStoredResourceReadRow",
+            "members": [
+              "PartitionId",
+              "Id",
+              "Name"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedParticipatingStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true,
+      "collections": "PerCommandExplicitBoundedOwnerScopedLeafChildStores"
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemorySharedLinks"
+}

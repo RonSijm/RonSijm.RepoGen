@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryPartitions.PartitionDirectoryContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryPartitions",
+  "contextLifetime": "asyncLease",
+  "contextKeyType": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryPartitions.PartitionKey",
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryPartitions.PartitionSetting",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryPartitions.ISettingLookup"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "FindAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryPartitions.SettingView?\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryPartitions.SettingLookup"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryPartitions.PartitionSetting"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "Scripted",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryPartitions",
+    "executesDesignerPipeline": false,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryPartitions.PartitionSetting",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryPartitions.PartitionSettingRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "FindAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryPartitions.SettingLookup)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryPartitions.SettingView?\u003E",
+            "script": "OnFindAsync",
+            "status": "RequiresOverride",
+            "reason": "Arrange a typed test handler/result before invocation; no query or persistence behavior is inferred.",
+            "stream": false
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryPartitions.PartitionDirectoryContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryPartitions.PartitionDirectoryContextRepositoryData",
+      "contextKey": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryPartitions.PartitionKey",
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": false,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryPartitions.PartitionSetting",
+          "property": "PartitionSettingStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryPartitions.SettingSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.String",
+          "keySource": "static entity =\u003E entity.Code",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryPartitions.SettingSeed() { Code = entity.Code, Value = entity.Value }",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly"
+        }
+      ]
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryPartitions"
+}

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>RonSijm.RepoGen.ConfigurationExamples.Reports</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Models/Models.csproj" />
+    <ProjectReference Include="../Contracts/Contracts.csproj" />
+    <ProjectReference Include="../../../src/RonSijm.RepoGen.EntityFrameworkCore/RonSijm.RepoGen.EntityFrameworkCore.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+  </ItemGroup>
+  <Import Project="../ExampleSources.props" />
+</Project>

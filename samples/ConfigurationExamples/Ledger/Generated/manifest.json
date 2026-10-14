@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Ledger.LedgerContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Ledger.Generated",
+  "contextLifetime": "asyncLease",
+  "contextKeyType": "global::System.String",
+  "commandTimeoutSeconds": 5,
+  "features": {
+    "cacheDecorator": true,
+    "closedCaching": true,
+    "atomicWriter": "global::RonSijm.RepoGen.Sqlite.SqliteAtomicWriter",
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Ledger.LedgerEntry",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Live"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "GetAfterAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CursorPagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow, global::System.Int32\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest"
+            },
+            {
+              "name": "cursorPage",
+              "type": "global::RonSijm.RepoGen.Abstractions.CursorPageRequest\u003Cglobal::System.Int32\u003E"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Ledger.LedgerEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "CursorPaged",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": true,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "GetCachedEntriesAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Ledger.LedgerEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow",
+              "conditional": false
+            }
+          ],
+          "cache": true,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "GetEntriesAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Ledger.LedgerEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "GetPageAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest"
+            },
+            {
+              "name": "page",
+              "type": "int"
+            },
+            {
+              "name": "pageSize",
+              "type": "int"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Ledger.LedgerEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "Paged",
+          "pageConsistency": "Serializable",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "EnsureEntryAsync",
+          "kind": "InsertIfAbsent",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow\u003E\u003E",
+          "persistence": "atomicTransaction",
+          "conflictColumns": [
+            "Code"
+          ],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 1,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CreateLedgerEntry"
+            }
+          ]
+        },
+        {
+          "name": "PatchEntryAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.PatchLedgerEntry"
+            }
+          ]
+        },
+        {
+          "name": "StageDeletionAsync",
+          "kind": "TrackedDelete",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DeleteLedgerEntry"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

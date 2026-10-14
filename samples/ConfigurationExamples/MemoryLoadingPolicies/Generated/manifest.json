@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.AutoLoadedCatalogContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryLoadingPolicies",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogEntry",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogGroup",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.IExplicitCatalogReader"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Visible"
+      ],
+      "loadProfiles": [
+        {
+          "name": "Entries",
+          "paths": [
+            "Entries"
+          ]
+        }
+      ],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "CardsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogGroupCard\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogGroup"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "ignoreAutoIncludes": true
+        },
+        {
+          "name": "DetailAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogGroupDetail?\u003E",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [
+            "Entries"
+          ],
+          "loading": [
+            {
+              "path": "Entries",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogGroup"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "ignoreAutoIncludes": true
+        },
+        {
+          "name": "EntriesAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogEntryCard\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogEntry",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogGroup"
+          ],
+          "sourceOperators": [
+            "Join",
+            "OrderBy",
+            "Select"
+          ],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "ignoreAutoIncludes": true
+        },
+        {
+          "name": "PageAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogGroupCard\u003E\u003E",
+          "parameters": [
+            {
+              "name": "page",
+              "type": "int"
+            },
+            {
+              "name": "pageSize",
+              "type": "int"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogGroup"
+          ],
+          "sourceOperators": [],
+          "terminal": "Paged",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "ignoreAutoIncludes": true
+        },
+        {
+          "name": "StreamAsync",
+          "result": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogGroupCard\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogGroup"
+          ],
+          "sourceOperators": [],
+          "terminal": "Stream",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "ignoreAutoIncludes": true
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryLoadingPolicies",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogEntry",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryLoadingPolicies.StoredCatalogEntryRepositoryTestDouble",
+        "operations": []
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogGroup",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryLoadingPolicies.StoredCatalogGroupRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "CardsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogGroupCard\u003E\u003E",
+            "script": "OnCardsAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          },
+          {
+            "signature": "DetailAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogGroupDetail?\u003E",
+            "script": "OnDetailAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogGroup"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogGroup.Entries",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.GroupId }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "EntriesAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogEntryCard\u003E\u003E",
+            "script": "OnEntriesAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "sourceSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogGroup",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogEntry"
+              ],
+              "operators": [
+                "Join",
+                "OrderBy",
+                "Select"
+              ],
+              "visibility": "EachRootBeforeComposition"
+            }
+          },
+          {
+            "signature": "PageAsync(global::System.Int32,global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogGroupCard\u003E\u003E",
+            "script": "OnPageAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          },
+          {
+            "signature": "StreamAsync()",
+            "returns": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogGroupCard\u003E",
+            "script": "OnStreamAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": true,
+            "reasons": []
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryLoadingPolicies.AutoLoadedCatalogContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryLoadingPolicies.AutoLoadedCatalogContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogEntry",
+          "property": "StoredCatalogEntryStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogEntrySeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogEntrySeed(entity.Id, entity.GroupId, entity.Name)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryLoadingPolicies.__RepoGenStoredCatalogEntryReadRow",
+            "members": [
+              "Id",
+              "GroupId",
+              "Name"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryLoadingPolicies.StoredCatalogGroup",
+          "property": "StoredCatalogGroupStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogGroupSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies.CatalogGroupSeed(entity.Id, entity.Name, entity.Hidden)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryLoadingPolicies.__RepoGenStoredCatalogGroupReadRow",
+            "members": [
+              "Id",
+              "Name",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Entries",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryLoadingPolicies.__RepoGenStoredCatalogEntryReadRow",
+                "collection": true,
+                "required": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedParticipatingStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryLoadingPolicies"
+}

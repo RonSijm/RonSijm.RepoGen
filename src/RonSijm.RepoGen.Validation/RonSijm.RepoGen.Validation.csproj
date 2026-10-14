@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\BuildSettings\NuGetVersioning.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <PackageId>RonSijm.RepoGen.Validation</PackageId>
+    <Description>Optional in-memory compiler validation for RepoGen design-time runners.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../RonSijm.RepoGen.Generation/RonSijm.RepoGen.Generation.csproj" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+  </ItemGroup>
+</Project>

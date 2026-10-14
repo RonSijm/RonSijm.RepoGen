@@ -1,0 +1,27 @@
+using System.Runtime.CompilerServices;
+using RonSijm.RepoGen.Tool;
+
+// Preserve existing assembly-qualified API lookups while code-first consumers reference the library directly.
+[assembly: TypeForwardedTo(typeof(RepositoryGenerator))]
+[assembly: TypeForwardedTo(typeof(RepositoryGenerationBundle))]
+[assembly: TypeForwardedTo(typeof(RepositoryGenerationBatch))]
+[assembly: TypeForwardedTo(typeof(RepositoryGenerationRequest))]
+[assembly: TypeForwardedTo(typeof(RepositoryOutputKind))]
+[assembly: TypeForwardedTo(typeof(RepositoryOutputLayout))]
+[assembly: TypeForwardedTo(typeof(GeneratedRepositoryFile))]
+[assembly: TypeForwardedTo(typeof(RepositoryOutputLocations))]
+[assembly: TypeForwardedTo(typeof(RepositoryOutputDifference))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiSnapshot))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiCompatibilityMode))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiChangeImpact))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiParameter))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiMethod))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiContract))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiDifference))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiDataKind))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiDataMemberKind))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiDataMember))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiDataConstructor))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiEnumValue))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiGenericParameter))]
+[assembly: TypeForwardedTo(typeof(RepositoryApiDataContract))]

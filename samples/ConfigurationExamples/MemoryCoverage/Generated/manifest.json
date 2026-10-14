@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryCoverage.MemoryCoverageContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryCoverage",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedEntry",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Visible"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "EfFilteredCountAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cint\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "Count",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "PortableListAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedItem\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "WithReviewerAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedItemWithReviewer\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Reviewer",
+              "collection": false,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "DeleteAsync",
+          "kind": "Delete",
+          "result": "global::System.Threading.Tasks.Task\u003Cint\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryCoverage",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedEntry",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryCoverage.ReviewedEntryRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "DeleteAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Int32\u003E",
+            "script": "OnDeleteAsync",
+            "status": "RequiresOverride",
+            "reason": "Write/persistence behavior is not simulated; arrange a typed test script.",
+            "stream": false,
+            "reasons": [
+              "Write/persistence behavior is not simulated; arrange a typed test script."
+            ]
+          },
+          {
+            "signature": "EfFilteredCountAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Int32\u003E",
+            "script": "OnEfFilteredCountAsync",
+            "status": "RequiresOverride",
+            "reason": "Active EF model query filters are not lowered into fixture reads. Declare RepoGen visibility policies or use a typed script. Designer requires a test override: EF model filters are verified against the real provider.",
+            "stream": false,
+            "reasons": [
+              "Active EF model query filters are not lowered into fixture reads. Declare RepoGen visibility policies or use a typed script.",
+              "Designer requires a test override: EF model filters are verified against the real provider."
+            ]
+          },
+          {
+            "signature": "PortableListAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedItem\u003E\u003E",
+            "script": "OnPortableListAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          },
+          {
+            "signature": "WithReviewerAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedItemWithReviewer\u003E\u003E",
+            "script": "OnWithReviewerAsync",
+            "status": "RequiresOverride",
+            "reason": "Designer requires a test override: Relational navigation loading belongs in provider tests; script the response in service tests. Include/load-profile paths require relational navigation loading and are not simulated. Navigation traversal/relationship fixup is not simulated. Seeded graphs do not establish relational visibility or join behavior.",
+            "stream": false,
+            "reasons": [
+              "Designer requires a test override: Relational navigation loading belongs in provider tests; script the response in service tests.",
+              "Include/load-profile paths require relational navigation loading and are not simulated.",
+              "Navigation traversal/relationship fixup is not simulated. Seeded graphs do not establish relational visibility or join behavior."
+            ]
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryCoverage.MemoryCoverageContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryCoverage.MemoryCoverageContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedEntry",
+          "property": "ReviewedEntryStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedEntry",
+          "shape": "EntityShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryCoverage.ReviewedEntry() { Id = entity.Id, Name = entity.Name, Hidden = entity.Hidden, ReviewerId = entity.ReviewerId }",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly"
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryCoverage"
+}

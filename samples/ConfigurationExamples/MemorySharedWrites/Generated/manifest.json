@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySharedWrites.DraftWorkspaceContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemorySharedWrites",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.Draft",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Visible"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "FindAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftCard?\u003E",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.Draft"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "CreateAsync",
+          "kind": "Create",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftCard\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 1,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftRequest"
+            }
+          ]
+        },
+        {
+          "name": "DeleteAsync",
+          "kind": "TrackedDelete",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftCard\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftRequest"
+            }
+          ]
+        },
+        {
+          "name": "RenameAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftCard\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftRequest"
+            }
+          ]
+        },
+        {
+          "name": "StageRenameAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftRequest"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.JournalEntry",
+      "readEnabled": false,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [
+        {
+          "name": "StageEntryAsync",
+          "kind": "Create",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftRequest"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedWrites",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.Draft",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedWrites.DraftRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "CreateAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftRequest)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftCard\u003E\u003E",
+            "script": "OnCreateAsync",
+            "status": "Generated",
+            "reason": "Portable staged/shared-save fixture write; scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          },
+          {
+            "signature": "DeleteAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftRequest)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftCard\u003E\u003E",
+            "script": "OnDeleteAsync",
+            "status": "Generated",
+            "reason": "Portable staged/shared-save fixture write; scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          },
+          {
+            "signature": "FindAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftCard?\u003E",
+            "script": "OnFindAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          },
+          {
+            "signature": "RenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftRequest)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftCard\u003E\u003E",
+            "script": "OnRenameAsync",
+            "status": "Generated",
+            "reason": "Portable staged/shared-save fixture write; scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          },
+          {
+            "signature": "StageRenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftRequest)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageRenameAsync",
+            "status": "Generated",
+            "reason": "Portable staged/shared-save fixture write; scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.JournalEntry",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedWrites.JournalEntryRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "StageEntryAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.DraftRequest)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageEntryAsync",
+            "status": "Generated",
+            "reason": "Portable staged/shared-save fixture write; scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedWrites.DraftWorkspaceContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySharedWrites.DraftWorkspaceContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.Draft",
+          "property": "DraftStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.Draft",
+          "shape": "EntityShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.Draft() { Id = entity.Id, Title = entity.Title, Version = entity.Version, Hidden = entity.Hidden }",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly"
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.JournalEntry",
+          "property": "JournalEntryStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.JournalEntry",
+          "shape": "EntityShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySharedWrites.JournalEntry() { Id = entity.Id, Text = entity.Text }",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly"
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemorySharedWrites"
+}

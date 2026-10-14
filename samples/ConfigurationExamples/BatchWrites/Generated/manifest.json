@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.BatchWrites.BatchWritesContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.BatchWrites",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.BatchWrites.BatchNote",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "ListNotesAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.BatchWrites.NoteSummary\u003E\u003E",
+          "parameters": [
+            {
+              "name": "ownerId",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.BatchWrites.BatchNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "DeleteNotesAsync",
+          "kind": "TrackedDelete",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.BatchWrites.NoteSummary\u003E\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.BatchWrites.EditNotesRequest"
+            }
+          ],
+          "batch": {
+            "item": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.BatchWrites.NoteEdit",
+            "key": "Code",
+            "maximumItems": 20,
+            "updates": [],
+            "expectedVersions": [
+              "Version"
+            ],
+            "missingItems": "NotFound",
+            "saveScope": "sharedContext",
+            "resultOrder": "input"
+          },
+          "allowedProtectedWrites": []
+        },
+        {
+          "name": "RenameNotesAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.BatchWrites.NoteSummary\u003E\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.BatchWrites.EditNotesRequest"
+            }
+          ],
+          "batch": {
+            "item": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.BatchWrites.NoteEdit",
+            "key": "Code",
+            "maximumItems": 20,
+            "updates": [
+              "Title",
+              "Version"
+            ],
+            "expectedVersions": [
+              "Version"
+            ],
+            "missingItems": "NotFound",
+            "saveScope": "sharedContext",
+            "resultOrder": "input"
+          },
+          "allowedProtectedWrites": []
+        },
+        {
+          "name": "StageRenamesAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.BatchWrites.EditNotesRequest"
+            }
+          ],
+          "batch": {
+            "item": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.BatchWrites.NoteEdit",
+            "key": "Code",
+            "maximumItems": 20,
+            "updates": [
+              "Title",
+              "Version"
+            ],
+            "expectedVersions": [
+              "Version"
+            ],
+            "missingItems": "NotFound",
+            "saveScope": "sharedContext",
+            "resultOrder": "input"
+          },
+          "allowedProtectedWrites": []
+        }
+      ],
+      "protectedWriteProperties": [
+        "OwnerId"
+      ]
+    }
+  ]
+}

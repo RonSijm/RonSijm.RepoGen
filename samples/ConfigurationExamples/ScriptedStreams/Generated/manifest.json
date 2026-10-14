@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ScriptedFeed.ScriptedFeedContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ScriptedFeed",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ScriptedFeed.FeedEntry",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "WatchAsync",
+          "result": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedFeed.FeedItem\u003E",
+          "parameters": [
+            {
+              "name": "afterId",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ScriptedFeed.FeedEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "Stream",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "Scripted",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ScriptedFeed",
+    "executesDesignerPipeline": false,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ScriptedFeed.FeedEntry",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ScriptedFeed.FeedEntryRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "WatchAsync(global::System.Int32)",
+            "returns": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedFeed.FeedItem\u003E",
+            "script": "OnWatchAsync",
+            "status": "RequiresOverride",
+            "reason": "Arrange a typed test handler/result before invocation; no query or persistence behavior is inferred.",
+            "stream": true
+          }
+        ]
+      }
+    ]
+  }
+}

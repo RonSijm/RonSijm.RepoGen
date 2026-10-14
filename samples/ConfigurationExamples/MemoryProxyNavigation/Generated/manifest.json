@@ -1,0 +1,729 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ProxyShelfContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ProxyShelves",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfCategoryRecord",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Items"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.IShelfCatalog"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Shelves"
+      ],
+      "loadProfiles": [
+        {
+          "name": "Full",
+          "paths": [
+            "Items",
+            "Items.Category"
+          ]
+        }
+      ],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "BrowseAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfCard\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Items",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "DetailAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfCard?\u003E",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [
+            "Full"
+          ],
+          "loading": [
+            {
+              "path": "Items",
+              "collection": true,
+              "filtered": false
+            },
+            {
+              "path": "Items.Category",
+              "collection": false,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "ItemsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfItemCard\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfCategoryRecord",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+          ],
+          "sourceOperators": [
+            "OrderBy",
+            "Select"
+          ],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "PageAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfCard\u003E\u003E",
+          "parameters": [
+            {
+              "name": "page",
+              "type": "int"
+            },
+            {
+              "name": "pageSize",
+              "type": "int"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Items",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+          ],
+          "sourceOperators": [],
+          "terminal": "Paged",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "RawCountsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Items",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "StreamAsync",
+          "result": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfCard\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Items",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+          ],
+          "sourceOperators": [],
+          "terminal": "Stream",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfCategoryRecord",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves.ShelfCategoryRecordRepositoryTestDouble",
+        "operations": []
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves.ShelfItemRecordRepositoryTestDouble",
+        "operations": []
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves.ShelfRecordRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "BrowseAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfCard\u003E\u003E",
+            "script": "OnBrowseAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfCategoryRecord",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord.Category",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.CategoryId }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }"
+                },
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord.Items",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.ShelfCode, entity.ShelfRegion }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "DetailAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfCard?\u003E",
+            "script": "OnDetailAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfCategoryRecord",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord.Category",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.CategoryId }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }"
+                },
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord.Items",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.ShelfCode, entity.ShelfRegion }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "ItemsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfItemCard\u003E\u003E",
+            "script": "OnItemsAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "sourceSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord"
+              ],
+              "operators": [
+                "OrderBy",
+                "Select"
+              ],
+              "visibility": "EachRootBeforeComposition"
+            },
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfCategoryRecord",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord.Category",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.CategoryId }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }"
+                },
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord.Shelf",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.ShelfCode, entity.ShelfRegion }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "PageAsync(global::System.Int32,global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfCard\u003E\u003E",
+            "script": "OnPageAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfCategoryRecord",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord.Category",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.CategoryId }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }"
+                },
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord.Items",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.ShelfCode, entity.ShelfRegion }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "RawCountsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+            "script": "OnRawCountsAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord.Items",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.ShelfCode, entity.ShelfRegion }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "StreamAsync()",
+            "returns": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfCard\u003E",
+            "script": "OnStreamAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": true,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfCategoryRecord",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord.Category",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.CategoryId }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }"
+                },
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord.Items",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.ShelfCode, entity.ShelfRegion }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves.ProxyShelfContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves.ProxyShelfContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfCategoryRecord",
+          "property": "ShelfCategoryRecordStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfCategorySeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Key",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfCategorySeed(entity.Key, entity.Caption)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves.__RepoGenShelfCategoryRecordReadRow",
+            "members": [
+              "Id",
+              "Name"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+          "property": "ShelfItemRecordStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfItemSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Key",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfItemSeed(entity.Key, entity.ShelfCode, entity.ShelfRegion, entity.CategoryKey, entity.Caption, entity.Quantity, entity.Hidden)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves.__RepoGenShelfItemRecordReadRow",
+            "members": [
+              "Id",
+              "ShelfCode",
+              "ShelfRegion",
+              "CategoryId",
+              "Name",
+              "Quantity",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Category",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves.__RepoGenShelfCategoryRecordReadRow",
+                "collection": false,
+                "required": false
+              },
+              {
+                "name": "Shelf",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves.__RepoGenShelfRecordReadRow",
+                "collection": false,
+                "required": false
+              }
+            ]
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+          "property": "ShelfRecordStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Key",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProxyShelves.ShelfSeed(entity.Key, entity.Code, entity.Region, entity.Caption, entity.Hidden)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves.__RepoGenShelfRecordReadRow",
+            "members": [
+              "Id",
+              "Code",
+              "Region",
+              "Name",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Items",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ProxyShelves.__RepoGenShelfItemRecordReadRow",
+                "collection": true,
+                "required": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedParticipatingStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.ProxyShelves",
+  "navigationVisibility": {
+    "requiredByDefault": true,
+    "operations": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+        "operation": "BrowseAsync()",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+            "navigation": "Items",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+            "policy": "Items",
+            "reviewReason": "Browse explicitly filters hidden children; RawCounts deliberately counts them too.",
+            "reviewScope": "entity"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+        "operation": "DetailAsync(global::System.Int32)",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+            "navigation": "Items",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+            "policy": "Items",
+            "reviewReason": "Browse explicitly filters hidden children; RawCounts deliberately counts them too.",
+            "reviewScope": "entity"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+        "operation": "ItemsAsync()",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+            "navigation": "Shelf",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+            "policy": "Shelves",
+            "reviewReason": "The item-root query deliberately includes hidden related shelf names.",
+            "reviewScope": "query"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+        "operation": "PageAsync(global::System.Int32,global::System.Int32)",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+            "navigation": "Items",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+            "policy": "Items",
+            "reviewReason": "Browse explicitly filters hidden children; RawCounts deliberately counts them too.",
+            "reviewScope": "entity"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+        "operation": "RawCountsAsync()",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+            "navigation": "Items",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+            "policy": "Items",
+            "reviewReason": "Browse explicitly filters hidden children; RawCounts deliberately counts them too.",
+            "reviewScope": "entity"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+        "operation": "StreamAsync()",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfRecord",
+            "navigation": "Items",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ProxyShelves.ShelfItemRecord",
+            "policy": "Items",
+            "reviewReason": "Browse explicitly filters hidden children; RawCounts deliberately counts them too.",
+            "reviewScope": "entity"
+          }
+        ]
+      }
+    ]
+  }
+}

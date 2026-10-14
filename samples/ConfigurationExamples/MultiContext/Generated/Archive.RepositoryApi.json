@@ -1,0 +1,92 @@
+{
+  "generatedBy": "RonSijm.RepoGen",
+  "schemaVersion": 2,
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MultiContext.ArchiveNoteContext",
+  "contracts": [
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ArchiveNotes.IReadStoredNoteRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.INoteArchiveReader"
+      ],
+      "methods": [
+        {
+          "signature": "ListNotesAsync()",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.StoredNoteSummary\u003E\u003E",
+          "parameters": [
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        }
+      ]
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ArchiveNotes.IStoredNoteRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ArchiveNotes.IReadStoredNoteRepository"
+      ],
+      "methods": []
+    }
+  ],
+  "dataContracts": [
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.StoredNoteSummary",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.StoredNoteSummary\u003E"
+      ],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "Text",
+          "kind": "Property",
+          "type": "global::System.String",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::System.Int32,global::System.String)",
+          "parameters": [
+            {
+              "name": "Id",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Text",
+              "type": "global::System.String",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    }
+  ]
+}

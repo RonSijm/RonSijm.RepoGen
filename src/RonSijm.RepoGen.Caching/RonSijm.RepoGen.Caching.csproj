@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../../BuildSettings/NuGetVersioning.props" />
+  <PropertyGroup><TargetFramework>net8.0</TargetFramework><Description>Optional EF-free memory caching adapter for RonSijm.RepoGen.</Description></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../RonSijm.RepoGen.Abstractions/RonSijm.RepoGen.Abstractions.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" />
+  </ItemGroup>
+</Project>

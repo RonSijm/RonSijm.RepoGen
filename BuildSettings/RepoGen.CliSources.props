@@ -1,0 +1,6 @@
+<Project>
+  <!-- One adapter inventory: the Tool compiles these; the Generation library compiles the remaining engine sources. -->
+  <ItemGroup>
+    <RepoGenCliSource Include="Program.cs;GeneratorOptions.cs;ProjectCompiler.cs;ProjectAssemblyLoadContext.cs;DbContextModelLoader.cs;RepositoryGeneratorApplication.cs" />
+  </ItemGroup>
+</Project>

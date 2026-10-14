@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryWriteTranslations.PatternNotesContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryWriteTranslations",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryWriteTranslations.StoredPatternNote",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.IPatternNoteReader"
+      ],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.IPatternNoteWriter"
+      ],
+      "visibilityPolicies": [
+        "Visible"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "FindAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.PatternNoteCard?\u003E",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryWriteTranslations.StoredPatternNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "DeleteMatchingAsync",
+          "kind": "Delete",
+          "result": "global::System.Threading.Tasks.Task\u003Cint\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "pattern",
+              "type": "global::System.String"
+            }
+          ]
+        },
+        {
+          "name": "RenameAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.PatternNoteCard\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 1,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.PatternNoteRename"
+            }
+          ]
+        },
+        {
+          "name": "StageRenameAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 1,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.PatternNoteRename"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryWriteTranslations",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryWriteTranslations.StoredPatternNote",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryWriteTranslations.StoredPatternNoteRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "DeleteMatchingAsync(global::System.String)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Int32\u003E",
+            "script": "OnDeleteMatchingAsync",
+            "status": "Generated",
+            "reason": "Explicit per-command scalar-call fixture translations; designed write/Stage/Save/result semantics remain, without provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "immediateSimulation": {
+              "optIn": "SimulateImmediateWrites",
+              "targets": "SavedVisibleMatchingRowsOnly",
+              "assignments": "AllSettersReadOriginalRow",
+              "returning": "AffectedCount",
+              "preparation": "ValuesFactoriesMappingsAndResultsBeforeCommit",
+              "pendingWrites": "NeitherFlushedNorRefreshed",
+              "transactions": "FixtureCheckpointRollback",
+              "order": "Unspecified",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            },
+            "expressionTranslations": {
+              "matching": "ExactClosedMethodOverloadAndFixedCallShape",
+              "semantics": "DesignerDeclaredFixtureOnlyNotProviderEquivalence",
+              "productionExpressions": "Unchanged",
+              "expressionExecutionDuringGeneration": "Never",
+              "translations": [
+                {
+                  "Name": "OrdinalIgnoreCasePatterns",
+                  "Method": "Microsoft.EntityFrameworkCore.DbFunctionsExtensions.Boolean Like(Microsoft.EntityFrameworkCore.DbFunctions, System.String, System.String)"
+                }
+              ]
+            }
+          },
+          {
+            "signature": "FindAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.PatternNoteCard?\u003E",
+            "script": "OnFindAsync",
+            "status": "Generated",
+            "reason": "Designer-declared expression translations over detached fixture snapshots; test semantics are explicit, not provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "expressionTranslations": {
+              "matching": "ExactClosedMethodOverloadAndFixedCallShape",
+              "semantics": "DesignerDeclaredFixtureOnlyNotProviderEquivalence",
+              "productionExpressions": "Unchanged",
+              "expressionExecutionDuringGeneration": "Never",
+              "translations": [
+                {
+                  "Name": "TitleLength",
+                  "Method": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryWriteTranslations.PatternNoteFunctions.Int32 Length(System.String)"
+                }
+              ]
+            }
+          },
+          {
+            "signature": "RenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.PatternNoteRename)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.PatternNoteCard\u003E\u003E",
+            "script": "OnRenameAsync",
+            "status": "Generated",
+            "reason": "Explicit per-command scalar-call fixture translations; designed write/Stage/Save/result semantics remain, without provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            },
+            "expressionTranslations": {
+              "matching": "ExactClosedMethodOverloadAndFixedCallShape",
+              "semantics": "DesignerDeclaredFixtureOnlyNotProviderEquivalence",
+              "productionExpressions": "Unchanged",
+              "expressionExecutionDuringGeneration": "Never",
+              "translations": [
+                {
+                  "Name": "NormalizedTitle",
+                  "Method": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryWriteTranslations.PatternNoteFunctions.System.String Normalize(System.String)"
+                },
+                {
+                  "Name": "OrdinalIgnoreCasePatterns",
+                  "Method": "Microsoft.EntityFrameworkCore.DbFunctionsExtensions.Boolean Like(Microsoft.EntityFrameworkCore.DbFunctions, System.String, System.String)"
+                },
+                {
+                  "Name": "TitleLength",
+                  "Method": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryWriteTranslations.PatternNoteFunctions.Int32 Length(System.String)"
+                }
+              ]
+            }
+          },
+          {
+            "signature": "StageRenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.PatternNoteRename)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageRenameAsync",
+            "status": "Generated",
+            "reason": "Explicit per-command scalar-call fixture translations; designed write/Stage/Save/result semantics remain, without provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "expressionTranslations": {
+              "matching": "ExactClosedMethodOverloadAndFixedCallShape",
+              "semantics": "DesignerDeclaredFixtureOnlyNotProviderEquivalence",
+              "productionExpressions": "Unchanged",
+              "expressionExecutionDuringGeneration": "Never",
+              "translations": [
+                {
+                  "Name": "NormalizedTitle",
+                  "Method": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryWriteTranslations.PatternNoteFunctions.System.String Normalize(System.String)"
+                },
+                {
+                  "Name": "OrdinalIgnoreCasePatterns",
+                  "Method": "Microsoft.EntityFrameworkCore.DbFunctionsExtensions.Boolean Like(Microsoft.EntityFrameworkCore.DbFunctions, System.String, System.String)"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryWriteTranslations.PatternNotesContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryWriteTranslations.PatternNotesContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryWriteTranslations.StoredPatternNote",
+          "property": "StoredPatternNoteStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.PatternNoteSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.PatternNoteSeed(entity.Id, entity.Title, entity.Version, entity.Hidden)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryWriteTranslations.PatternNoteSeed(entity.Id, entity.Title, entity.Version, entity.Hidden)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryWriteTranslations.__RepoGenStoredPatternNoteReadRow",
+            "members": [
+              "Id",
+              "Title",
+              "Version",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true,
+      "immediate": "PerCommandExplicitSavedScalarUpdateDeleteReturning"
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryWriteTranslations"
+}

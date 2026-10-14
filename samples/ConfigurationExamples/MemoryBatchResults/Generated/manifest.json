@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryBatchResults.BatchNotebookContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryBatchResults",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryBatchResults.BatchNote",
+      "readEnabled": false,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [
+        {
+          "name": "StageTextAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryBatchResults.BatchNotebook",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [
+        {
+          "name": "RenameManyAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryBatchResults.NotebookReceipt\u003E\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryBatchResults.RenameNotebooks"
+            }
+          ],
+          "batch": {
+            "item": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryBatchResults.RenameNotebook",
+            "key": "Code",
+            "maximumItems": 4,
+            "updates": [
+              "Name"
+            ],
+            "expectedVersions": [],
+            "missingItems": "NotFound",
+            "saveScope": "sharedContext",
+            "resultOrder": "input"
+          }
+        }
+      ]
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryBatchResults",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryBatchResults.BatchNote",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryBatchResults.BatchNoteRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "StageTextAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageTextAsync",
+            "status": "Generated",
+            "reason": "Portable staged/shared-save fixture write; scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryBatchResults.BatchNotebook",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryBatchResults.BatchNotebookRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "RenameManyAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryBatchResults.RenameNotebooks)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryBatchResults.NotebookReceipt\u003E\u003E\u003E",
+            "script": "OnRenameManyAsync",
+            "status": "Generated",
+            "reason": "Explicit saved-state result query after shared save; detached declared relationships, projection-owned related visibility, no atomic returning/provider guarantees.",
+            "stream": false,
+            "reasons": [],
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryBatchResults.BatchNotebook.Notes"
+              ],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated",
+              "batchOrder": "OneResultPerInputInInputOrder",
+              "batchCapture": "OneCoordinatedSnapshotForAllSavedInputKeys"
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryBatchResults.BatchNotebookContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryBatchResults.BatchNotebookContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryBatchResults.BatchNote",
+          "property": "BatchNoteStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryBatchResults.NoteRow",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryBatchResults.NoteRow(entity.Id, entity.TenantId, entity.NotebookId, entity.Text, entity.Archived)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryBatchResults.NoteRow(entity.Id, entity.TenantId, entity.NotebookId, entity.Text, entity.Archived)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryBatchResults.__RepoGenBatchNoteReadRow",
+            "members": [
+              "Id",
+              "TenantId",
+              "NotebookId",
+              "Text",
+              "Archived"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryBatchResults.BatchNotebook",
+          "property": "BatchNotebookStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryBatchResults.NotebookRow",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E",
+          "keySource": "static entity =\u003E new global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E(entity.TenantId, entity.Id)",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryBatchResults.NotebookRow(entity.TenantId, entity.Id, entity.Code, entity.Name)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryBatchResults.NotebookRow(entity.TenantId, entity.Id, entity.Code, entity.Name)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryBatchResults.__RepoGenBatchNotebookReadRow",
+            "members": [
+              "TenantId",
+              "Id",
+              "Code",
+              "Name"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Notes",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryBatchResults.__RepoGenBatchNoteReadRow",
+                "collection": true,
+                "required": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": false
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Generated.MemoryBatchResults"
+}

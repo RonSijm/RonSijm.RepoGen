@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Reporting.ReportingContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated",
+  "contextLifetime": "asyncLease",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": 8,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Reporting.Sale",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ISalesReports"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "GetRegionTotalsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.RegionTotal\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ReportRequest"
+            },
+            {
+              "name": "page",
+              "type": "int"
+            },
+            {
+              "name": "pageSize",
+              "type": "int"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Reporting.Sale"
+          ],
+          "sourceOperators": [],
+          "terminal": "Paged",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "GroupBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Reporting.Sale",
+              "conditional": false
+            },
+            {
+              "kind": "Where",
+              "input": "\u003Canonymous\u003E",
+              "conditional": true
+            },
+            {
+              "kind": "OrderByDescending",
+              "input": "\u003Canonymous\u003E",
+              "conditional": false
+            },
+            {
+              "kind": "OrderByDescending",
+              "input": "\u003Canonymous\u003E",
+              "conditional": true
+            },
+            {
+              "kind": "OrderByField",
+              "input": "\u003Canonymous\u003E",
+              "conditional": true
+            },
+            {
+              "kind": "ThenBy",
+              "input": "\u003Canonymous\u003E",
+              "conditional": false
+            },
+            {
+              "kind": "Skip",
+              "input": "\u003Canonymous\u003E",
+              "conditional": true
+            },
+            {
+              "kind": "Take",
+              "input": "\u003Canonymous\u003E",
+              "conditional": true
+            },
+            {
+              "kind": "Select",
+              "input": "\u003Canonymous\u003E",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "commandTimeout": {
+            "seconds": 3,
+            "source": "operation"
+          },
+          "resultFieldSorting": [
+            {
+              "stage": 4,
+              "input": "\u003Canonymous\u003E",
+              "field": "request.SortBy",
+              "descending": "request.Descending",
+              "fields": [
+                {
+                  "alias": "count",
+                  "expression": "static entity =\u003E entity.Count"
+                },
+                {
+                  "alias": "region",
+                  "expression": "static entity =\u003E entity.Region"
+                },
+                {
+                  "alias": "total",
+                  "expression": "static entity =\u003E entity.Total"
+                }
+              ],
+              "unspecified": "preserveOrder",
+              "defaultField": null,
+              "defaultDescending": false
+            }
+          ]
+        },
+        {
+          "name": "GetSalesCursorAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CursorPagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.SaleCursorRow, global::RonSijm.RepoGen.ConfigurationExamples.Contracts.SalesCursor\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.SalesCursorRequest"
+            },
+            {
+              "name": "cursorPage",
+              "type": "global::RonSijm.RepoGen.Abstractions.CursorPageRequest\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.SalesCursor\u003E"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Reporting.Sale"
+          ],
+          "sourceOperators": [],
+          "terminal": "CursorPaged",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": true,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.SaleCursorRow",
+              "conditional": false
+            },
+            {
+              "kind": "OrderByDescending",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.SaleCursorRow",
+              "conditional": true
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "commandTimeout": {
+            "seconds": 5,
+            "source": "entity"
+          },
+          "cursorRequest": {
+            "parameter": "request",
+            "seek": "(request.Descending ? (entity.Id \u003C cursor.Id) : (entity.Id \u003E cursor.Id))",
+            "mapping": "entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.SalesCursor(entity.Id, request.Descending, request.Region)"
+          },
+          "cursorValidations": [
+            {
+              "predicate": "((cursorPage.Cursor!.Descending == request.Descending) \u0026\u0026 (cursorPage.Cursor!.Region == request.Region))",
+              "message": "\u0022This cursor belongs to a different region or direction.\u0022"
+            }
+          ]
+        },
+        {
+          "name": "GetSalesWithLabelsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.SaleDetails\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Reporting.RegionLabel",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Reporting.Sale"
+          ],
+          "sourceOperators": [
+            "DefaultIfEmpty",
+            "GroupJoin",
+            "OrderBy",
+            "Select",
+            "SelectMany"
+          ],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "commandTimeout": {
+            "seconds": null,
+            "source": "operation"
+          }
+        },
+        {
+          "name": "GetScaledAmountAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Int32\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ReportAmountRequest"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Reporting.Sale"
+          ],
+          "sourceOperators": [],
+          "terminal": "Sum",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 1,
+          "commandTimeout": {
+            "seconds": 5,
+            "source": "entity"
+          }
+        },
+        {
+          "name": "GetTotalsByRegionAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyDictionary\u003Cglobal::System.String, global::System.Int32\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ReportAmountRequest"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Reporting.Sale"
+          ],
+          "sourceOperators": [],
+          "terminal": "Dictionary",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "GroupBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Reporting.Sale",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 1,
+          "commandTimeout": {
+            "seconds": 5,
+            "source": "entity"
+          }
+        }
+      ],
+      "commands": [],
+      "commandTimeout": {
+        "seconds": 5,
+        "source": "entity"
+      }
+    }
+  ]
+}

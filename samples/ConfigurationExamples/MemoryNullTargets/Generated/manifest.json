@@ -1,0 +1,478 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.NullTargetNotebookContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryNullTargets",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.INotebookSummaryReader"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Visible"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "HasMissingAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "PageAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookSummary\u003E\u003E",
+          "parameters": [
+            {
+              "name": "page",
+              "type": "int"
+            },
+            {
+              "name": "pageSize",
+              "type": "int"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Labels",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook"
+          ],
+          "sourceOperators": [],
+          "terminal": "Paged",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "StreamAsync",
+          "result": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookSummary\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Labels",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook"
+          ],
+          "sourceOperators": [],
+          "terminal": "Stream",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "SummariesAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookSummary\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Labels",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLabel",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLink",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNullTargets",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNullTargets.StoredNotebookRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "HasMissingAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+            "script": "OnHasMissingAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLabel",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLink"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook.Labels",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "join": {
+                    "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLink",
+                    "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.NotebookId }",
+                    "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.LabelId }",
+                    "requiredSource": true,
+                    "requiredTarget": false,
+                    "pairs": "UniqueOrdinaryStructuralKeys",
+                    "order": "JoinSnapshotOrder",
+                    "visibility": "NoImplicitRepoGenPolicyInjection",
+                    "optionalSource": "NotApplicable",
+                    "optionalTarget": "PreserveMissingTargetPerJoinRow",
+                    "nullPropagation": "ExplicitNullSafeClrExpressionsOnly",
+                    "missingTargetPolicy": "OptInNullSlotsNotSqlNullPropagationOrExplicitLoading"
+                  }
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "PageAsync(global::System.Int32,global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookSummary\u003E\u003E",
+            "script": "OnPageAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLabel",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLink"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook.Labels",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "join": {
+                    "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLink",
+                    "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.NotebookId }",
+                    "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.LabelId }",
+                    "requiredSource": true,
+                    "requiredTarget": false,
+                    "pairs": "UniqueOrdinaryStructuralKeys",
+                    "order": "JoinSnapshotOrder",
+                    "visibility": "NoImplicitRepoGenPolicyInjection",
+                    "optionalSource": "NotApplicable",
+                    "optionalTarget": "PreserveMissingTargetPerJoinRow",
+                    "nullPropagation": "ExplicitNullSafeClrExpressionsOnly",
+                    "missingTargetPolicy": "OptInNullSlotsNotSqlNullPropagationOrExplicitLoading"
+                  }
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "StreamAsync()",
+            "returns": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookSummary\u003E",
+            "script": "OnStreamAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": true,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLabel",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLink"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook.Labels",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "join": {
+                    "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLink",
+                    "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.NotebookId }",
+                    "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.LabelId }",
+                    "requiredSource": true,
+                    "requiredTarget": false,
+                    "pairs": "UniqueOrdinaryStructuralKeys",
+                    "order": "JoinSnapshotOrder",
+                    "visibility": "NoImplicitRepoGenPolicyInjection",
+                    "optionalSource": "NotApplicable",
+                    "optionalTarget": "PreserveMissingTargetPerJoinRow",
+                    "nullPropagation": "ExplicitNullSafeClrExpressionsOnly",
+                    "missingTargetPolicy": "OptInNullSlotsNotSqlNullPropagationOrExplicitLoading"
+                  }
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "SummariesAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookSummary\u003E\u003E",
+            "script": "OnSummariesAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLabel",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLink"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook.Labels",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "join": {
+                    "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLink",
+                    "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.NotebookId }",
+                    "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.LabelId }",
+                    "requiredSource": true,
+                    "requiredTarget": false,
+                    "pairs": "UniqueOrdinaryStructuralKeys",
+                    "order": "JoinSnapshotOrder",
+                    "visibility": "NoImplicitRepoGenPolicyInjection",
+                    "optionalSource": "NotApplicable",
+                    "optionalTarget": "PreserveMissingTargetPerJoinRow",
+                    "nullPropagation": "ExplicitNullSafeClrExpressionsOnly",
+                    "missingTargetPolicy": "OptInNullSlotsNotSqlNullPropagationOrExplicitLoading"
+                  }
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLabel",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNullTargets.StoredNotebookLabelRepositoryTestDouble",
+        "operations": []
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLink",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNullTargets.StoredNotebookLinkRepositoryTestDouble",
+        "operations": []
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNullTargets.NullTargetNotebookContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNullTargets.NullTargetNotebookContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebook",
+          "property": "StoredNotebookStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookSeed(entity.Id, entity.Title, entity.Hidden)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNullTargets.__RepoGenStoredNotebookReadRow",
+            "members": [
+              "Id",
+              "Title",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Labels",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNullTargets.__RepoGenStoredNotebookLabelReadRow",
+                "collection": true,
+                "required": false
+              }
+            ]
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLabel",
+          "property": "StoredNotebookLabelStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookLabelSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookLabelSeed(entity.Id, entity.Name, entity.Hidden)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNullTargets.__RepoGenStoredNotebookLabelReadRow",
+            "members": [
+              "Id",
+              "Name",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNullTargets.StoredNotebookLink",
+          "property": "StoredNotebookLinkStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookLinkSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNullTargets.NotebookLinkSeed(entity.Id, entity.NotebookId, entity.LabelId)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNullTargets.__RepoGenStoredNotebookLinkReadRow",
+            "members": [
+              "Id",
+              "NotebookId",
+              "LabelId"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedParticipatingStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryNullTargets"
+}

@@ -1,0 +1,178 @@
+{
+  "generatedBy": "RonSijm.RepoGen",
+  "schemaVersion": 1,
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Ledger.LedgerContext",
+  "contracts": [
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Ledger.Generated.ILedgerEntryRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Ledger.Generated.IReadLedgerEntryRepository",
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Ledger.Generated.IWriteLedgerEntryRepository"
+      ],
+      "methods": []
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Ledger.Generated.IReadLedgerEntryRepository",
+      "bases": [],
+      "methods": [
+        {
+          "signature": "GetAfterAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest,global::RonSijm.RepoGen.Abstractions.CursorPageRequest\u003Cglobal::System.Int32\u003E)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CursorPagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow, global::System.Int32\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cursorPage",
+              "type": "global::RonSijm.RepoGen.Abstractions.CursorPageRequest\u003Cglobal::System.Int32\u003E",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "GetCachedEntriesAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "GetEntriesAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "GetPageAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest,global::System.Int32,global::System.Int32)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRequest",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "page",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "pageSize",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        }
+      ]
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Ledger.Generated.IWriteLedgerEntryRepository",
+      "bases": [],
+      "methods": [
+        {
+          "signature": "EnsureEntryAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CreateLedgerEntry)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CreateLedgerEntry",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "PatchEntryAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.PatchLedgerEntry)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.LedgerRow\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.PatchLedgerEntry",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "StageDeletionAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DeleteLedgerEntry)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DeleteLedgerEntry",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        }
+      ]
+    }
+  ]
+}

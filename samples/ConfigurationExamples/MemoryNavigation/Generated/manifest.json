@@ -1,0 +1,669 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNavigation.NavigationCatalogContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryNavigation",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogCategory",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Entries"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.ICatalogBrowse"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Groups"
+      ],
+      "loadProfiles": [
+        {
+          "name": "Full",
+          "paths": [
+            "Entries",
+            "Entries.Category"
+          ]
+        }
+      ],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "BrowseAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroupCard\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Entries",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "DetailAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroupCard?\u003E",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [
+            "Full"
+          ],
+          "loading": [
+            {
+              "path": "Entries",
+              "collection": true,
+              "filtered": false
+            },
+            {
+              "path": "Entries.Category",
+              "collection": false,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "ItemsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntryCard\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogCategory",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+          ],
+          "sourceOperators": [
+            "OrderBy",
+            "Select"
+          ],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "PageAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroupCard\u003E\u003E",
+          "parameters": [
+            {
+              "name": "page",
+              "type": "int"
+            },
+            {
+              "name": "pageSize",
+              "type": "int"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Entries",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+          ],
+          "sourceOperators": [],
+          "terminal": "Paged",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "RawCountsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Entries",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "StreamAsync",
+          "result": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroupCard\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Entries",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+          ],
+          "sourceOperators": [],
+          "terminal": "Stream",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNavigation",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogCategory",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNavigation.CatalogCategoryRepositoryTestDouble",
+        "operations": []
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNavigation.CatalogEntryRepositoryTestDouble",
+        "operations": []
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNavigation.CatalogGroupRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "BrowseAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroupCard\u003E\u003E",
+            "script": "OnBrowseAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogCategory",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry.Category",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.CategoryId }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }"
+                },
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup.Entries",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.GroupCode, entity.GroupRegion }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "DetailAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroupCard?\u003E",
+            "script": "OnDetailAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogCategory",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry.Category",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.CategoryId }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }"
+                },
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup.Entries",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.GroupCode, entity.GroupRegion }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "ItemsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntryCard\u003E\u003E",
+            "script": "OnItemsAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "sourceSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry"
+              ],
+              "operators": [
+                "OrderBy",
+                "Select"
+              ],
+              "visibility": "EachRootBeforeComposition"
+            },
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogCategory",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry.Category",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.CategoryId }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }"
+                },
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry.Group",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.GroupCode, entity.GroupRegion }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "PageAsync(global::System.Int32,global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroupCard\u003E\u003E",
+            "script": "OnPageAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogCategory",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry.Category",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.CategoryId }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }"
+                },
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup.Entries",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.GroupCode, entity.GroupRegion }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "RawCountsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+            "script": "OnRawCountsAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup.Entries",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.GroupCode, entity.GroupRegion }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "StreamAsync()",
+            "returns": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroupCard\u003E",
+            "script": "OnStreamAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": true,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogCategory",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry.Category",
+                  "collection": false,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.CategoryId }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }"
+                },
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup.Entries",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Code, entity.Region }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.GroupCode, entity.GroupRegion }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNavigation.NavigationCatalogContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNavigation.NavigationCatalogContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogCategory",
+          "property": "CatalogCategoryStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogCategory",
+          "shape": "EntityShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogCategory() { Id = entity.Id, Name = entity.Name }",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly"
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+          "property": "CatalogEntryStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+          "shape": "EntityShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry() { Id = entity.Id, GroupCode = entity.GroupCode, GroupRegion = entity.GroupRegion, CategoryId = entity.CategoryId, Title = entity.Title, Quantity = entity.Quantity, Hidden = entity.Hidden }",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly"
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+          "property": "CatalogGroupStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+          "shape": "EntityShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup() { Id = entity.Id, Code = entity.Code, Region = entity.Region, Name = entity.Name, Hidden = entity.Hidden }",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly"
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedParticipatingStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryNavigation",
+  "navigationVisibility": {
+    "requiredByDefault": true,
+    "operations": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+        "operation": "BrowseAsync()",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+            "navigation": "Entries",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+            "policy": "Entries",
+            "reviewReason": "Cards explicitly filter hidden entries; RawCounts deliberately counts every related entry.",
+            "reviewScope": "entity"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+        "operation": "DetailAsync(global::System.Int32)",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+            "navigation": "Entries",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+            "policy": "Entries",
+            "reviewReason": "Cards explicitly filter hidden entries; RawCounts deliberately counts every related entry.",
+            "reviewScope": "entity"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+        "operation": "ItemsAsync()",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+            "navigation": "Group",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+            "policy": "Groups",
+            "reviewReason": "The replacement entry root does not implicitly filter its navigation to groups.",
+            "reviewScope": "query"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+        "operation": "PageAsync(global::System.Int32,global::System.Int32)",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+            "navigation": "Entries",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+            "policy": "Entries",
+            "reviewReason": "Cards explicitly filter hidden entries; RawCounts deliberately counts every related entry.",
+            "reviewScope": "entity"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+        "operation": "RawCountsAsync()",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+            "navigation": "Entries",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+            "policy": "Entries",
+            "reviewReason": "Cards explicitly filter hidden entries; RawCounts deliberately counts every related entry.",
+            "reviewScope": "entity"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+        "operation": "StreamAsync()",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogGroup",
+            "navigation": "Entries",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNavigation.CatalogEntry",
+            "policy": "Entries",
+            "reviewReason": "Cards explicitly filter hidden entries; RawCounts deliberately counts every related entry.",
+            "reviewScope": "entity"
+          }
+        ]
+      }
+    ]
+  }
+}

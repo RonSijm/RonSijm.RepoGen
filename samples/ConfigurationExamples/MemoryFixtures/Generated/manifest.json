@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNotebook.MemoryNotebookContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryNotebook",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryLabel",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "CountAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cint\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryLabel"
+          ],
+          "sourceOperators": [],
+          "terminal": "Count",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryNote",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.IMemoryNoteLookup"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "FindAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryNoteSummary?\u003E",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "Scripted",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNotebook",
+    "executesDesignerPipeline": false,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryLabel",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNotebook.MemoryLabelRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "CountAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Int32\u003E",
+            "script": "OnCountAsync",
+            "status": "RequiresOverride",
+            "reason": "Arrange a typed test handler/result before invocation; no query or persistence behavior is inferred.",
+            "stream": false
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryNote",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNotebook.MemoryNoteRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "FindAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryNoteSummary?\u003E",
+            "script": "OnFindAsync",
+            "status": "RequiresOverride",
+            "reason": "Arrange a typed test handler/result before invocation; no query or persistence behavior is inferred.",
+            "stream": false
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNotebook.MemoryNotebookContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNotebook.MemoryNotebookContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": false,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryLabel",
+          "property": "MemoryLabelStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryLabel",
+          "shape": "EntityShape",
+          "key": "global::System.String",
+          "keySource": "static entity =\u003E entity.Code",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryLabel() { Code = entity.Code, Text = entity.Text }",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly"
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryNote",
+          "property": "MemoryNoteStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryNote",
+          "shape": "EntityShape",
+          "key": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.NoteKey",
+          "keySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.NoteKey(entity.Id)",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNotebook.MemoryNote() { Id = entity.Id, Name = entity.Name, Labels = global::System.Linq.Enumerable.ToList(entity.Labels) }",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly"
+        }
+      ]
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryNotebook"
+}

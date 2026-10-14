@@ -1,0 +1,26 @@
+using Microsoft.Extensions.DependencyInjection;
+using RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryLoadingPolicies;
+using RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryLoadingPolicies;
+
+await using var provider = new ServiceCollection().AddAutoLoadedCatalogContextRepositoryTestDoubles().BuildServiceProvider();
+await using var scope = provider.CreateAsyncScope();
+var fixture = scope.ServiceProvider.GetRequiredService<AutoLoadedCatalogContextRepositoryFixture>();
+var reader = scope.ServiceProvider.GetRequiredService<IExplicitCatalogReader>();
+fixture.Data.StoredCatalogGroupStore.SeedRange([new(1, "Main"), new(2, "Empty"), new(3, "Hidden", true)]);
+fixture.Data.StoredCatalogEntryStore.SeedRange([new(1, 1, "Alpha"), new(2, 1, "Beta"), new(3, 3, "Hidden group entry")]);
+fixture.Data.CaptureBaseline();
+if (!(await reader.CardsAsync()).Select(row => row.Id).SequenceEqual([1, 2])) throw new InvalidOperationException("Suppressing model loading must retain root visibility.");
+var detail = await reader.DetailAsync(1) ?? throw new InvalidOperationException("Expected a visible catalog group.");
+if (!detail.Entries.Select(row => row.Name).SequenceEqual(["Alpha", "Beta"])) throw new InvalidOperationException("Explicit loading and projection must still use related rows.");
+detail.Entries.Clear();
+if ((await reader.DetailAsync(1))!.Entries.Count != 2 || await reader.DetailAsync(3) is not null) throw new InvalidOperationException("Detached results and visibility must remain intact.");
+if (!(await reader.EntriesAsync()).Select(row => row.Id).SequenceEqual([1, 2])) throw new InvalidOperationException("Every From root must retain its designed policy.");
+var page = await reader.PageAsync(2, 1);
+if (page.TotalCount != 2 || page.Items.Single().Id != 2) throw new InvalidOperationException("Counted paging must still use the designed read.");
+await using var stream = reader.StreamAsync().GetAsyncEnumerator();
+if (!await stream.MoveNextAsync()) throw new InvalidOperationException("Expected a first streamed card.");
+fixture.Data.Clear();
+if (!await stream.MoveNextAsync() || stream.Current.Id != 2 || (await reader.CardsAsync()).Count != 0) throw new InvalidOperationException("Enumeration must retain its snapshot while fresh reads see cleared stores.");
+fixture.Data.RestoreBaseline();
+if ((await reader.CardsAsync()).Count != 2) throw new InvalidOperationException("Baseline restore must retain the loading policy.");
+Console.WriteLine("MemoryLoadingPolicies: per-query model-loading suppression, retained explicit profiles, mapped DTOs, From roots, pages, streams and snapshot isolation passed without EF/models.");

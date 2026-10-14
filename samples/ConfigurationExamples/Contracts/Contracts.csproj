@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>RonSijm.RepoGen.ConfigurationExamples.Contracts</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../*/Contracts/*.cs" Link="%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../../src/RonSijm.RepoGen.Abstractions/RonSijm.RepoGen.Abstractions.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(RepoGenBootstrap)' == 'true'">
+    <!-- Proves DTO/port inputs and the runner build before generated facade files exist. -->
+    <Compile Remove="Generated/**/*.g.cs" />
+  </ItemGroup>
+</Project>
