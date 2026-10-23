@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedAccessors.AliasDirectoryContext",
+  "surface": "cqrsSelectors",
+  "contractNamespace": null,
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedAccessors.AliasEntry",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [],
+      "mappedPropertyBindings": {
+        "scope": "DesignTimeMetadataOnlyNoRuntimePropertyNames",
+        "accessors": [
+          {
+            "method": "BySearchCode",
+            "name": "SearchCode",
+            "modelType": "global::System.String",
+            "shadow": true,
+            "unique": true
+          },
+          {
+            "method": "ByState",
+            "name": "State",
+            "modelType": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.AliasState",
+            "shadow": true,
+            "unique": false
+          }
+        ],
+        "expectedVersions": [],
+        "assignments": "NoneTokenAdvancementMustBeConfiguredSeparately",
+        "fixtures": "ShadowAndNonPublicTokenStateRequiresTypedOverride"
+      }
+    }
+  ],
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.MappedAccessors.Persistence"
+}

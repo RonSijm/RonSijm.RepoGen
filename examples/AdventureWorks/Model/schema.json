@@ -1,0 +1,10 @@
+{
+  "source": "sql-server-samples/samples/databases/adventure-works/oltp-install-script/instawdb.sql",
+  "sha256": "91aec19bce484f6578d7035be737cd644a1bb2250f3a30fdeafcd2f278a5b649",
+  "tables": 71,
+  "columns": 486,
+  "primaryKeys": 71,
+  "foreignKeys": 90,
+  "indexes": 93,
+  "computedColumns": 10
+}

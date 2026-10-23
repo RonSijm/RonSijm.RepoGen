@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.QueueResultsContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryNativeResults",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.QueueTicket",
+      "readEnabled": false,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.IQueueTicketWriter"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [
+        {
+          "name": "RelabelAsync",
+          "kind": "Update",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.QueueTicketReceipt\u003E\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Revision"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.QueueRelabelRequest"
+            }
+          ],
+          "nativeSavedResultQuery": {
+            "optIn": "ReturnsSavedMany",
+            "maximumRows": 20,
+            "key": [
+              "Id"
+            ],
+            "selection": "DirectlyUpdatedCompletePrimaryKeysNotMutationPredicate",
+            "tracking": "AsNoTrackingNoSharedSave",
+            "transaction": "BeforeOwnedCommitOrBorrowedSavepointRelease",
+            "rowBound": "AbortAndRollbackNotTakeOrPreselection",
+            "cardinality": "ExactlyOneResultPerDirectlyUpdatedKeyNoSilentShortening",
+            "ordering": "Unspecified",
+            "filters": "RootModelFiltersAndDeclaredVisibilityUnlessBypassedRelatedVisibilityExplicit",
+            "failure": "OriginalExceptionNotRepositorySavedResultException",
+            "nativeReturningGraph": false
+          }
+        },
+        {
+          "name": "RelabelAtMostOneAsync",
+          "kind": "Update",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.QueueTicketReceipt\u003E\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Revision"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.QueueRelabelRequest"
+            }
+          ],
+          "nativeSavedResultQuery": {
+            "optIn": "ReturnsSavedMany",
+            "maximumRows": 1,
+            "key": [
+              "Id"
+            ],
+            "selection": "DirectlyUpdatedCompletePrimaryKeysNotMutationPredicate",
+            "tracking": "AsNoTrackingNoSharedSave",
+            "transaction": "BeforeOwnedCommitOrBorrowedSavepointRelease",
+            "rowBound": "AbortAndRollbackNotTakeOrPreselection",
+            "cardinality": "ExactlyOneResultPerDirectlyUpdatedKeyNoSilentShortening",
+            "ordering": "Unspecified",
+            "filters": "RootModelFiltersAndDeclaredVisibilityUnlessBypassedRelatedVisibilityExplicit",
+            "failure": "OriginalExceptionNotRepositorySavedResultException",
+            "nativeReturningGraph": false
+          }
+        }
+      ]
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.TicketQueue",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.ITicketQueueReader"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "NameAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.String\u003E",
+          "parameters": [
+            {
+              "name": "queueId",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.TicketQueue"
+          ],
+          "sourceOperators": [],
+          "terminal": "Single",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeResults",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.QueueTicket",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeResults.QueueTicketRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "RelabelAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.QueueRelabelRequest)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.QueueTicketReceipt\u003E\u003E",
+            "script": "OnRelabelAsync",
+            "status": "Generated",
+            "reason": "Explicit bounded fresh native-update results over a detached prepared root overlay and saved-only declared relationships before fixture publication; complete-key correlation, retained staging and no provider guarantees. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "immediateSimulation": {
+              "optIn": "SimulateImmediateWrites",
+              "targets": "SavedVisibleMatchingRowsOnly",
+              "assignments": "AllSettersReadOriginalRow",
+              "returning": "BoundedFreshCompleteKeyResultQueryBeforePublication",
+              "preparation": "ValuesFactoriesMappingsAndResultsBeforeCommit",
+              "pendingWrites": "NeitherFlushedNorRefreshed",
+              "transactions": "FixtureCheckpointRollback",
+              "order": "Unspecified",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSavedMany",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "PreparedRootOverlayWithSavedOnlyRelatedRowsBeforeNativeUpdateCommit",
+              "capture": "DetachedPreparedRootAndParticipatingSavedTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.QueueTicket.Queue",
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.TicketQueue.Tickets"
+              ],
+              "failure": "OriginalFailureBeforeFixturePublicationOwnedTransactionOrBorrowedSavepointRollback",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated",
+              "maximumRows": 20,
+              "resultOrder": "UnspecifiedOneResultPerDirectlyUpdatedKey",
+              "rowBound": "AbortNotTakeNoPartialPublication"
+            }
+          },
+          {
+            "signature": "RelabelAtMostOneAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.QueueRelabelRequest)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.QueueTicketReceipt\u003E\u003E",
+            "script": "OnRelabelAtMostOneAsync",
+            "status": "Generated",
+            "reason": "Explicit bounded fresh native-update results over a detached prepared root overlay and saved-only declared relationships before fixture publication; complete-key correlation, retained staging and no provider guarantees. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "immediateSimulation": {
+              "optIn": "SimulateImmediateWrites",
+              "targets": "SavedVisibleMatchingRowsOnly",
+              "assignments": "AllSettersReadOriginalRow",
+              "returning": "BoundedFreshCompleteKeyResultQueryBeforePublication",
+              "preparation": "ValuesFactoriesMappingsAndResultsBeforeCommit",
+              "pendingWrites": "NeitherFlushedNorRefreshed",
+              "transactions": "FixtureCheckpointRollback",
+              "order": "Unspecified",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSavedMany",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "PreparedRootOverlayWithSavedOnlyRelatedRowsBeforeNativeUpdateCommit",
+              "capture": "DetachedPreparedRootAndParticipatingSavedTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.QueueTicket.Queue",
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.TicketQueue.Tickets"
+              ],
+              "failure": "OriginalFailureBeforeFixturePublicationOwnedTransactionOrBorrowedSavepointRollback",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated",
+              "maximumRows": 1,
+              "resultOrder": "UnspecifiedOneResultPerDirectlyUpdatedKey",
+              "rowBound": "AbortNotTakeNoPartialPublication"
+            }
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.TicketQueue",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeResults.TicketQueueRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "NameAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.String\u003E",
+            "script": "OnNameAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeResults.QueueResultsContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeResults.QueueResultsContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.QueueTicket",
+          "property": "QueueTicketStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.QueueTicketSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.QueueTicketSeed(entity.Id, entity.QueueId, entity.Code, entity.Label, entity.Revision)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.QueueTicketSeed(entity.Id, entity.QueueId, entity.Code, entity.Label, entity.Revision)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeResults.__RepoGenQueueTicketReadRow",
+            "members": [
+              "Id",
+              "QueueId",
+              "Code",
+              "Label",
+              "Revision"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Queue",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeResults.__RepoGenTicketQueueReadRow",
+                "collection": false,
+                "required": true
+              }
+            ]
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeResults.TicketQueue",
+          "property": "TicketQueueStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.TicketQueueSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeResults.TicketQueueSeed(entity.Id, entity.Name)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeResults.__RepoGenTicketQueueReadRow",
+            "members": [
+              "Id",
+              "Name"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Tickets",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeResults.__RepoGenQueueTicketReadRow",
+                "collection": true,
+                "required": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": false
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true,
+      "immediate": "PerCommandExplicitSavedScalarUpdateDeleteReturning"
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryNativeResults"
+}

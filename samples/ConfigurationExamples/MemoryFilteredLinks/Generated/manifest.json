@@ -1,0 +1,707 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredCatalogContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryFilteredLinks",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "AllCardsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredArticleCard\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Labels",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "CardsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredArticleCard\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Labels",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "PageAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredArticleCard\u003E\u003E",
+          "parameters": [
+            {
+              "name": "page",
+              "type": "int"
+            },
+            {
+              "name": "pageSize",
+              "type": "int"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Labels",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle"
+          ],
+          "sourceOperators": [],
+          "terminal": "Paged",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "RenameAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredArticleCard\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "input",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.RenameArticleInput"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Public"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "UsageAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredLabelUsage\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Articles",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryFilteredLinks",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryFilteredLinks.FilteredArticleRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "AllCardsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredArticleCard\u003E\u003E",
+            "script": "OnAllCardsAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle.Labels",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.TenantId, entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "join": {
+                    "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                    "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.TenantId, entity.ArticleId }",
+                    "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.LabelId }",
+                    "requiredSource": true,
+                    "requiredTarget": true,
+                    "pairs": "UniqueOrdinaryStructuralKeys",
+                    "order": "JoinSnapshotOrder",
+                    "visibility": "NoImplicitRepoGenPolicyInjection"
+                  }
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "CardsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredArticleCard\u003E\u003E",
+            "script": "OnCardsAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar model filters before declared collection/optional-reference loading on detached snapshots; required filtered references, many-to-many graphs and write/provider semantics remain separate. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilters": {
+              "optIn": "UseInMemoryModelQueryFilter",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                }
+              ],
+              "application": "BeforeDeclaredNavigationLoadingThenDesignerVisibilityAndQueryPipeline",
+              "bypass": "IgnoreQueryFiltersOnlyNotBypassVisibility",
+              "scope": "OptedInExplicitClrManyToManyNoRequiredFilteredReferencesOrGraphWrites",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated",
+              "navigationOptIn": "UseInMemoryModelQueryFilter(includeNavigations: true)OnEveryFilteredParticipant"
+            },
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle.Labels",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.TenantId, entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "join": {
+                    "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                    "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.TenantId, entity.ArticleId }",
+                    "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.LabelId }",
+                    "requiredSource": true,
+                    "requiredTarget": true,
+                    "pairs": "UniqueOrdinaryStructuralKeys",
+                    "order": "JoinSnapshotOrder",
+                    "visibility": "NoImplicitRepoGenPolicyInjection",
+                    "modelFilters": {
+                      "source": true,
+                      "target": true,
+                      "join": true,
+                      "application": "EachDatasetBeforeDeclaredLoading",
+                      "requiredFilteredTarget": "OmitLinkNotOwner",
+                      "optionalFilteredTarget": "NotApplicable",
+                      "validation": "UnfilteredPrincipalKeysAndVisibleJoinPairsNoProviderGuarantees"
+                    }
+                  }
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "PageAsync(global::System.Int32,global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredArticleCard\u003E\u003E",
+            "script": "OnPageAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar model filters before declared collection/optional-reference loading on detached snapshots; required filtered references, many-to-many graphs and write/provider semantics remain separate. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilters": {
+              "optIn": "UseInMemoryModelQueryFilter",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                }
+              ],
+              "application": "BeforeDeclaredNavigationLoadingThenDesignerVisibilityAndQueryPipeline",
+              "bypass": "IgnoreQueryFiltersOnlyNotBypassVisibility",
+              "scope": "OptedInExplicitClrManyToManyNoRequiredFilteredReferencesOrGraphWrites",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated",
+              "navigationOptIn": "UseInMemoryModelQueryFilter(includeNavigations: true)OnEveryFilteredParticipant"
+            },
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle.Labels",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.TenantId, entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "join": {
+                    "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                    "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.TenantId, entity.ArticleId }",
+                    "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.LabelId }",
+                    "requiredSource": true,
+                    "requiredTarget": true,
+                    "pairs": "UniqueOrdinaryStructuralKeys",
+                    "order": "JoinSnapshotOrder",
+                    "visibility": "NoImplicitRepoGenPolicyInjection",
+                    "modelFilters": {
+                      "source": true,
+                      "target": true,
+                      "join": true,
+                      "application": "EachDatasetBeforeDeclaredLoading",
+                      "requiredFilteredTarget": "OmitLinkNotOwner",
+                      "optionalFilteredTarget": "NotApplicable",
+                      "validation": "UnfilteredPrincipalKeysAndVisibleJoinPairsNoProviderGuarantees"
+                    }
+                  }
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "RenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.RenameArticleInput)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredArticleCard\u003E\u003E",
+            "script": "OnRenameAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar command selection and filtered ordinary saved DTO graphs after shared Save; related graph permissions and local null guards remain, without graph mutations or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+                "PredicateSource": "static entity =\u003E !(entity.Archived)"
+              },
+              "selection": "SavedRowsBeforeDesignerVisibilityAndPredicates",
+              "savedResults": "ReappliedToFreshSavedRows",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarWritesAndFilteredSavedReadsNoGraphMutationsNativeReturningOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedModelQueryFilters": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                }
+              ],
+              "relatedOptIn": "PerEntityUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "application": "AfterSharedSaveBeforeNavigationLoadingAndResultVisibility",
+              "rootReadPermission": "CommandOwnedNotInheritedFromEntityReads",
+              "mutations": "ScalarOnlyNoFilteredReconciliationOrGraphPersistence",
+              "missingResults": "PostSaveFailureNeverSilentlyShortenBatches",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle.Labels"
+              ],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated",
+              "joinRelationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle.Labels",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.TenantId, entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "join": {
+                    "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                    "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.TenantId, entity.ArticleId }",
+                    "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.LabelId }",
+                    "requiredSource": true,
+                    "requiredTarget": true,
+                    "pairs": "UniqueOrdinaryStructuralKeys",
+                    "order": "JoinSnapshotOrder",
+                    "visibility": "NoImplicitRepoGenPolicyInjection",
+                    "modelFilters": {
+                      "source": true,
+                      "target": true,
+                      "join": true,
+                      "application": "EachDatasetBeforeDeclaredLoading",
+                      "requiredFilteredTarget": "OmitLinkNotOwner",
+                      "optionalFilteredTarget": "NotApplicable",
+                      "validation": "UnfilteredPrincipalKeysAndVisibleJoinPairsNoProviderGuarantees"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryFilteredLinks.FilteredArticleLabelRepositoryTestDouble",
+        "operations": []
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryFilteredLinks.FilteredLabelRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "UsageAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredLabelUsage\u003E\u003E",
+            "script": "OnUsageAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar model filters before declared collection/optional-reference loading on detached snapshots; required filtered references, many-to-many graphs and write/provider semantics remain separate. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilters": {
+              "optIn": "UseInMemoryModelQueryFilter",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                }
+              ],
+              "application": "BeforeDeclaredNavigationLoadingThenDesignerVisibilityAndQueryPipeline",
+              "bypass": "IgnoreQueryFiltersOnlyNotBypassVisibility",
+              "scope": "OptedInExplicitClrManyToManyNoRequiredFilteredReferencesOrGraphWrites",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated",
+              "navigationOptIn": "UseInMemoryModelQueryFilter(includeNavigations: true)OnEveryFilteredParticipant"
+            },
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel.Articles",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.TenantId, entity.Id }",
+                  "join": {
+                    "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+                    "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.LabelId }",
+                    "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.TenantId, entity.ArticleId }",
+                    "requiredSource": true,
+                    "requiredTarget": true,
+                    "pairs": "UniqueOrdinaryStructuralKeys",
+                    "order": "JoinSnapshotOrder",
+                    "visibility": "NoImplicitRepoGenPolicyInjection",
+                    "modelFilters": {
+                      "source": true,
+                      "target": true,
+                      "join": true,
+                      "application": "EachDatasetBeforeDeclaredLoading",
+                      "requiredFilteredTarget": "OmitLinkNotOwner",
+                      "optionalFilteredTarget": "NotApplicable",
+                      "validation": "UnfilteredPrincipalKeysAndVisibleJoinPairsNoProviderGuarantees"
+                    }
+                  }
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryFilteredLinks.FilteredCatalogContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryFilteredLinks.FilteredCatalogContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticle",
+          "property": "FilteredArticleStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredArticleSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E",
+          "keySource": "static entity =\u003E new global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E(entity.TenantId, entity.Id)",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredArticleSeed(entity.TenantId, entity.Id, entity.Title, entity.Archived)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredArticleSeed(entity.TenantId, entity.Id, entity.Title, entity.Archived)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryFilteredLinks.__RepoGenFilteredArticleReadRow",
+            "members": [
+              "TenantId",
+              "Id",
+              "Title",
+              "Archived"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Labels",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryFilteredLinks.__RepoGenFilteredLabelReadRow",
+                "collection": true,
+                "required": false
+              }
+            ]
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredArticleLabel",
+          "property": "FilteredArticleLabelStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredLinkSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredLinkSeed(entity.Id, entity.TenantId, entity.ArticleId, entity.LabelId, entity.Archived)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryFilteredLinks.__RepoGenFilteredArticleLabelReadRow",
+            "members": [
+              "Id",
+              "TenantId",
+              "ArticleId",
+              "LabelId",
+              "Archived"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryFilteredLinks.FilteredLabel",
+          "property": "FilteredLabelStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredLabelSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryFilteredLinks.FilteredLabelSeed(entity.Id, entity.Name, entity.Archived, entity.Hidden)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryFilteredLinks.__RepoGenFilteredLabelReadRow",
+            "members": [
+              "Id",
+              "Name",
+              "Archived",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Articles",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryFilteredLinks.__RepoGenFilteredArticleReadRow",
+                "collection": true,
+                "required": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedParticipatingStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Generated.MemoryFilteredLinks"
+}

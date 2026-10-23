@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Library.LibraryContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated",
+  "contextLifetime": "asyncLease",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Library.Book",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.IBookLibrary"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [
+        {
+          "name": "Summary",
+          "paths": [
+            "Author",
+            "Author.Address"
+          ]
+        },
+        {
+          "name": "Details",
+          "paths": [
+            "Chapters",
+            "Chapters.Notes",
+            "Reviews"
+          ]
+        }
+      ],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "GetAuthorNamesAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String?\u003E\u003E",
+          "parameters": [
+            {
+              "name": "titles",
+              "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String?\u003E?"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Author",
+              "collection": false,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Library.Book"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "GetBookDetailsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.BookDetails?\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.BookDetailsRequest"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [
+            "Details",
+            "Summary"
+          ],
+          "loading": [
+            {
+              "path": "Author",
+              "collection": false,
+              "filtered": false
+            },
+            {
+              "path": "Author.Address",
+              "collection": false,
+              "filtered": false
+            },
+            {
+              "path": "Chapters",
+              "collection": true,
+              "filtered": true
+            },
+            {
+              "path": "Chapters.Notes",
+              "collection": true,
+              "filtered": true
+            },
+            {
+              "path": "Reviews",
+              "collection": true,
+              "filtered": true
+            }
+          ],
+          "loadingStrategy": "SplitQuery",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Library.Book"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ]
+}

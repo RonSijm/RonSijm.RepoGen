@@ -1,0 +1,1088 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewBoardsContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MappedCollectionSetters",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewBoard",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.IReviewBoardReader"
+      ],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.IReviewBoardWriter"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "BoardsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardView\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Items",
+              "collection": true,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewBoard"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "MergeAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardView\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "revision"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardEdit"
+            }
+          ],
+          "mappedReconciliationUpdateTargets": {
+            "optIn": "ReconcileCollectionOrLinks.Update.SetProperty\u003CT\u003E(mappedPropertyName, value)",
+            "collections": [
+              {
+                "navigation": "Items",
+                "kind": "LeafChildren",
+                "maximumItems": 10,
+                "properties": [
+                  {
+                    "name": "Caption",
+                    "type": "global::System.String",
+                    "shadow": false
+                  },
+                  {
+                    "name": "edits",
+                    "type": "global::System.Int32",
+                    "shadow": false
+                  },
+                  {
+                    "name": "revision",
+                    "type": "global::System.Int32",
+                    "shadow": true
+                  },
+                  {
+                    "name": "review remark",
+                    "type": "global::System.String?",
+                    "shadow": false
+                  }
+                ]
+              }
+            ],
+            "names": "ExactFinalModelMetadataNotServiceInputs",
+            "execution": "ChildEntryCurrentValueUnderBoundedReconciliationSnapshotsStageSave",
+            "permissions": "SeparateParentAndPerCollectionChildAllowWrite",
+            "identityChanges": "MatchingKeysOwnershipForeignKeysAndUniqueIdentityExcluded",
+            "generatedTargets": "ExcludedEvenWithAllowWrite",
+            "creation": "ExistingExplicitAddMappingUnchangedMatchedRowSettersNotAppliedToNewRows",
+            "fixture": "IndependentCompleteWriteStateForEachParticipantAndSimulateCollectionWritesOrTypedOverride",
+            "broaderGraphsOrNativeTargets": false
+          },
+          "mappedUpdateTargets": {
+            "optIn": "SetProperty\u003CT\u003E(mappedPropertyName, value)",
+            "properties": [
+              {
+                "name": "revision",
+                "type": "global::System.Int32",
+                "shadow": true
+              }
+            ],
+            "names": "ExactFinalModelMetadataNotServiceInputs",
+            "execution": "EntryCurrentValueUnderTrackedSnapshotStageSave",
+            "identityChanges": "KeysForeignKeysAndUniqueIdentityExcluded",
+            "generatedTargets": "ExcludedEvenWithAllowWrite",
+            "fixture": "IndependentCompleteWriteStateBindingsOrTypedOverride",
+            "nativeReturningOrAtomicTargets": false
+          },
+          "collections": [
+            {
+              "navigation": "Items",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+              "key": "child.Code",
+              "maximumItems": 10,
+              "missingItems": "Keep",
+              "add": false,
+              "updates": [
+                "Caption",
+                "edits",
+                "revision",
+                "review remark"
+              ],
+              "expectedVersions": [
+                "revision"
+              ],
+              "conditional": true,
+              "visibilityPolicies": 0,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+              "protectedWriteProperties": [
+                "review remark"
+              ],
+              "allowedProtectedWrites": [
+                "review remark"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ReplaceAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardView\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "revision"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardEdit"
+            }
+          ],
+          "mappedReconciliationUpdateTargets": {
+            "optIn": "ReconcileCollectionOrLinks.Update.SetProperty\u003CT\u003E(mappedPropertyName, value)",
+            "collections": [
+              {
+                "navigation": "Items",
+                "kind": "LeafChildren",
+                "maximumItems": 10,
+                "properties": [
+                  {
+                    "name": "Caption",
+                    "type": "global::System.String",
+                    "shadow": false
+                  },
+                  {
+                    "name": "edits",
+                    "type": "global::System.Int32",
+                    "shadow": false
+                  },
+                  {
+                    "name": "revision",
+                    "type": "global::System.Int32",
+                    "shadow": true
+                  },
+                  {
+                    "name": "review remark",
+                    "type": "global::System.String?",
+                    "shadow": false
+                  }
+                ]
+              }
+            ],
+            "names": "ExactFinalModelMetadataNotServiceInputs",
+            "execution": "ChildEntryCurrentValueUnderBoundedReconciliationSnapshotsStageSave",
+            "permissions": "SeparateParentAndPerCollectionChildAllowWrite",
+            "identityChanges": "MatchingKeysOwnershipForeignKeysAndUniqueIdentityExcluded",
+            "generatedTargets": "ExcludedEvenWithAllowWrite",
+            "creation": "ExistingExplicitAddMappingUnchangedMatchedRowSettersNotAppliedToNewRows",
+            "fixture": "IndependentCompleteWriteStateForEachParticipantAndSimulateCollectionWritesOrTypedOverride",
+            "broaderGraphsOrNativeTargets": false
+          },
+          "mappedUpdateTargets": {
+            "optIn": "SetProperty\u003CT\u003E(mappedPropertyName, value)",
+            "properties": [
+              {
+                "name": "revision",
+                "type": "global::System.Int32",
+                "shadow": true
+              }
+            ],
+            "names": "ExactFinalModelMetadataNotServiceInputs",
+            "execution": "EntryCurrentValueUnderTrackedSnapshotStageSave",
+            "identityChanges": "KeysForeignKeysAndUniqueIdentityExcluded",
+            "generatedTargets": "ExcludedEvenWithAllowWrite",
+            "fixture": "IndependentCompleteWriteStateBindingsOrTypedOverride",
+            "nativeReturningOrAtomicTargets": false
+          },
+          "collections": [
+            {
+              "navigation": "Items",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+              "key": "child.Code",
+              "maximumItems": 10,
+              "missingItems": "Delete",
+              "add": false,
+              "updates": [
+                "Caption",
+                "edits",
+                "revision",
+                "review remark"
+              ],
+              "expectedVersions": [
+                "revision"
+              ],
+              "conditional": true,
+              "visibilityPolicies": 0,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+              "protectedWriteProperties": [
+                "review remark"
+              ],
+              "allowedProtectedWrites": [
+                "review remark"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "StageReplaceAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "revision"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardEdit"
+            }
+          ],
+          "mappedReconciliationUpdateTargets": {
+            "optIn": "ReconcileCollectionOrLinks.Update.SetProperty\u003CT\u003E(mappedPropertyName, value)",
+            "collections": [
+              {
+                "navigation": "Items",
+                "kind": "LeafChildren",
+                "maximumItems": 10,
+                "properties": [
+                  {
+                    "name": "Caption",
+                    "type": "global::System.String",
+                    "shadow": false
+                  },
+                  {
+                    "name": "edits",
+                    "type": "global::System.Int32",
+                    "shadow": false
+                  },
+                  {
+                    "name": "revision",
+                    "type": "global::System.Int32",
+                    "shadow": true
+                  },
+                  {
+                    "name": "review remark",
+                    "type": "global::System.String?",
+                    "shadow": false
+                  }
+                ]
+              }
+            ],
+            "names": "ExactFinalModelMetadataNotServiceInputs",
+            "execution": "ChildEntryCurrentValueUnderBoundedReconciliationSnapshotsStageSave",
+            "permissions": "SeparateParentAndPerCollectionChildAllowWrite",
+            "identityChanges": "MatchingKeysOwnershipForeignKeysAndUniqueIdentityExcluded",
+            "generatedTargets": "ExcludedEvenWithAllowWrite",
+            "creation": "ExistingExplicitAddMappingUnchangedMatchedRowSettersNotAppliedToNewRows",
+            "fixture": "IndependentCompleteWriteStateForEachParticipantAndSimulateCollectionWritesOrTypedOverride",
+            "broaderGraphsOrNativeTargets": false
+          },
+          "mappedUpdateTargets": {
+            "optIn": "SetProperty\u003CT\u003E(mappedPropertyName, value)",
+            "properties": [
+              {
+                "name": "revision",
+                "type": "global::System.Int32",
+                "shadow": true
+              }
+            ],
+            "names": "ExactFinalModelMetadataNotServiceInputs",
+            "execution": "EntryCurrentValueUnderTrackedSnapshotStageSave",
+            "identityChanges": "KeysForeignKeysAndUniqueIdentityExcluded",
+            "generatedTargets": "ExcludedEvenWithAllowWrite",
+            "fixture": "IndependentCompleteWriteStateBindingsOrTypedOverride",
+            "nativeReturningOrAtomicTargets": false
+          },
+          "collections": [
+            {
+              "navigation": "Items",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+              "key": "child.Code",
+              "maximumItems": 10,
+              "missingItems": "Delete",
+              "add": false,
+              "updates": [
+                "Caption",
+                "edits",
+                "revision",
+                "review remark"
+              ],
+              "expectedVersions": [
+                "revision"
+              ],
+              "conditional": true,
+              "visibilityPolicies": 0,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+              "protectedWriteProperties": [
+                "review remark"
+              ],
+              "allowedProtectedWrites": [
+                "review remark"
+              ]
+            }
+          ]
+        }
+      ],
+      "mappedPropertyBindings": {
+        "scope": "DesignTimeMetadataOnlyNoRuntimePropertyNames",
+        "accessors": [],
+        "expectedVersions": [
+          {
+            "operation": "MergeAsync",
+            "scope": "Entity",
+            "name": "revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          },
+          {
+            "operation": "MergeAsync",
+            "scope": "Collection:Items",
+            "name": "revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          },
+          {
+            "operation": "ReplaceAsync",
+            "scope": "Entity",
+            "name": "revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          },
+          {
+            "operation": "ReplaceAsync",
+            "scope": "Collection:Items",
+            "name": "revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          },
+          {
+            "operation": "StageReplaceAsync",
+            "scope": "Entity",
+            "name": "revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          },
+          {
+            "operation": "StageReplaceAsync",
+            "scope": "Collection:Items",
+            "name": "revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          }
+        ],
+        "assignments": "NoneTokenAdvancementMustBeConfiguredSeparately",
+        "fixtures": "SeePerOperationMappedScalarStateCoverageOrTypedOverride"
+      }
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [],
+      "protectedWriteProperties": [
+        "review remark"
+      ]
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MappedCollectionSetters",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewBoard",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MappedCollectionSetters.ReviewBoardRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "BoardsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardView\u003E\u003E",
+            "script": "OnBoardsAsync",
+            "status": "Generated",
+            "reason": "Explicit typed mapped scalar values from public fixture data on detached read rows; filter/graph permissions remain independent, without tracked state or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "propertyReads": {
+              "optIn": "MapInMemoryProperty",
+              "reads": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewBoard",
+                  "PropertyName": "revision",
+                  "TypeName": "global::System.Int32",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+                  "PropertyName": "Caption",
+                  "TypeName": "global::System.String",
+                  "AccessKind": "FieldBacked"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+                  "PropertyName": "edits",
+                  "TypeName": "global::System.Int32",
+                  "AccessKind": "FieldOnly"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+                  "PropertyName": "review remark",
+                  "TypeName": "global::System.String?",
+                  "AccessKind": "Indexer"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+                  "PropertyName": "revision",
+                  "TypeName": "global::System.Int32",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ExplicitTypedPropertyValuesNotTrackedState",
+              "providerGuarantees": "NotSimulated"
+            },
+            "navigationSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "loading": "ExplicitMappedKeyRelationshipsOnly",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewBoard",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem"
+              ],
+              "relationships": [
+                {
+                  "name": "RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewBoard.Items",
+                  "collection": true,
+                  "required": false,
+                  "sourceKeys": "static entity =\u003E new global::System.Object?[] { entity.Id }",
+                  "targetKeys": "static entity =\u003E new global::System.Object?[] { entity.BoardId }"
+                }
+              ],
+              "relatedVisibility": "NoImplicitRepoGenPolicyInjection",
+              "writes": "NotAdapted"
+            }
+          },
+          {
+            "signature": "MergeAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardEdit)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardView\u003E\u003E",
+            "script": "OnMergeAsync",
+            "status": "Generated",
+            "reason": "Explicit mapped scalar parent/child state in bounded owner-scoped reconciliation; complete round trips, original versions and factories retain Stage/shared Save boundaries without graph or provider inference. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ScalarFixtureStateAndExplicitExpectedVersionsOnly",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "providerEquivalence": false
+            },
+            "collectionSimulation": {
+              "optIn": "SimulateCollectionWrites",
+              "targets": "OwnerScopedVisibleSavedChildren",
+              "ownership": "CompleteMappedPrincipalToForeignKeysNeverInput",
+              "matching": "DefaultClrEquality",
+              "collections": [
+                {
+                  "navigation": "Items",
+                  "childStore": "__RepoGenReviewItemWrites",
+                  "maximumItems": 10,
+                  "missingItems": "Keep",
+                  "additions": false,
+                  "updates": true,
+                  "conditional": true
+                }
+              ],
+              "pendingTargets": "RejectOwnerScopedModifiedAddedDeletedChildrenIncludingHidden",
+              "saving": "SharedUnitOfWorkIncludesUnrelatedPendingWrites",
+              "rollback": "RestoreCommandOnlyBeforeSaveCheckpointForSavedRows",
+              "results": "ExplicitReturnsSavedQuery",
+              "entityGraphs": "NotPersistedOrInferred",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false,
+              "mappedScalarState": {
+                "optIn": "CompleteMapInMemoryWrites(useMappedPropertyState: true)OnEachMappedParticipant",
+                "parent": [
+                  {
+                    "PropertyName": "revision",
+                    "MemberName": "__repoGenProperty0",
+                    "TypeName": "global::System.Int32",
+                    "ValueSource": "row.Revision",
+                    "AccessKind": "Shadow"
+                  }
+                ],
+                "children": [
+                  {
+                    "navigation": "Items",
+                    "properties": [
+                      {
+                        "PropertyName": "Caption",
+                        "MemberName": "__repoGenProperty0",
+                        "TypeName": "global::System.String",
+                        "ValueSource": "row.Caption",
+                        "AccessKind": "FieldBacked"
+                      },
+                      {
+                        "PropertyName": "edits",
+                        "MemberName": "__repoGenProperty1",
+                        "TypeName": "global::System.Int32",
+                        "ValueSource": "row.Edits",
+                        "AccessKind": "FieldOnly"
+                      },
+                      {
+                        "PropertyName": "review remark",
+                        "MemberName": "__repoGenProperty2",
+                        "TypeName": "global::System.String?",
+                        "ValueSource": "row.Remark",
+                        "AccessKind": "Indexer"
+                      },
+                      {
+                        "PropertyName": "revision",
+                        "MemberName": "__repoGenProperty3",
+                        "TypeName": "global::System.Int32",
+                        "ValueSource": "row.Revision",
+                        "AccessKind": "Shadow"
+                      }
+                    ]
+                  }
+                ],
+                "identity": "OrdinaryPrimaryUniqueMatchingAndOwnershipScalarsOnly",
+                "versions": "ExplicitOriginalTokensRecheckedBeforeSharedCommit",
+                "generatedValues": "ExplicitFactoriesOnly",
+                "roundTrip": "FullStructuralReadWriteReadBeforeAnyStoreCommits",
+                "graphShapes": "ExistingDesignedBoundedReconciliationOnly",
+                "providerEquivalence": false
+              }
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewBoard.Items"
+              ],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "ReplaceAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardEdit)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardView\u003E\u003E",
+            "script": "OnReplaceAsync",
+            "status": "Generated",
+            "reason": "Explicit mapped scalar parent/child state in bounded owner-scoped reconciliation; complete round trips, original versions and factories retain Stage/shared Save boundaries without graph or provider inference. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ScalarFixtureStateAndExplicitExpectedVersionsOnly",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "providerEquivalence": false
+            },
+            "collectionSimulation": {
+              "optIn": "SimulateCollectionWrites",
+              "targets": "OwnerScopedVisibleSavedChildren",
+              "ownership": "CompleteMappedPrincipalToForeignKeysNeverInput",
+              "matching": "DefaultClrEquality",
+              "collections": [
+                {
+                  "navigation": "Items",
+                  "childStore": "__RepoGenReviewItemWrites",
+                  "maximumItems": 10,
+                  "missingItems": "Delete",
+                  "additions": false,
+                  "updates": true,
+                  "conditional": true
+                }
+              ],
+              "pendingTargets": "RejectOwnerScopedModifiedAddedDeletedChildrenIncludingHidden",
+              "saving": "SharedUnitOfWorkIncludesUnrelatedPendingWrites",
+              "rollback": "RestoreCommandOnlyBeforeSaveCheckpointForSavedRows",
+              "results": "ExplicitReturnsSavedQuery",
+              "entityGraphs": "NotPersistedOrInferred",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false,
+              "mappedScalarState": {
+                "optIn": "CompleteMapInMemoryWrites(useMappedPropertyState: true)OnEachMappedParticipant",
+                "parent": [
+                  {
+                    "PropertyName": "revision",
+                    "MemberName": "__repoGenProperty0",
+                    "TypeName": "global::System.Int32",
+                    "ValueSource": "row.Revision",
+                    "AccessKind": "Shadow"
+                  }
+                ],
+                "children": [
+                  {
+                    "navigation": "Items",
+                    "properties": [
+                      {
+                        "PropertyName": "Caption",
+                        "MemberName": "__repoGenProperty0",
+                        "TypeName": "global::System.String",
+                        "ValueSource": "row.Caption",
+                        "AccessKind": "FieldBacked"
+                      },
+                      {
+                        "PropertyName": "edits",
+                        "MemberName": "__repoGenProperty1",
+                        "TypeName": "global::System.Int32",
+                        "ValueSource": "row.Edits",
+                        "AccessKind": "FieldOnly"
+                      },
+                      {
+                        "PropertyName": "review remark",
+                        "MemberName": "__repoGenProperty2",
+                        "TypeName": "global::System.String?",
+                        "ValueSource": "row.Remark",
+                        "AccessKind": "Indexer"
+                      },
+                      {
+                        "PropertyName": "revision",
+                        "MemberName": "__repoGenProperty3",
+                        "TypeName": "global::System.Int32",
+                        "ValueSource": "row.Revision",
+                        "AccessKind": "Shadow"
+                      }
+                    ]
+                  }
+                ],
+                "identity": "OrdinaryPrimaryUniqueMatchingAndOwnershipScalarsOnly",
+                "versions": "ExplicitOriginalTokensRecheckedBeforeSharedCommit",
+                "generatedValues": "ExplicitFactoriesOnly",
+                "roundTrip": "FullStructuralReadWriteReadBeforeAnyStoreCommits",
+                "graphShapes": "ExistingDesignedBoundedReconciliationOnly",
+                "providerEquivalence": false
+              }
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewBoard.Items"
+              ],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "StageReplaceAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardEdit)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageReplaceAsync",
+            "status": "Generated",
+            "reason": "Explicit mapped scalar parent/child state in bounded owner-scoped reconciliation; complete round trips, original versions and factories retain Stage/shared Save boundaries without graph or provider inference. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ScalarFixtureStateAndExplicitExpectedVersionsOnly",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "providerEquivalence": false
+            },
+            "collectionSimulation": {
+              "optIn": "SimulateCollectionWrites",
+              "targets": "OwnerScopedVisibleSavedChildren",
+              "ownership": "CompleteMappedPrincipalToForeignKeysNeverInput",
+              "matching": "DefaultClrEquality",
+              "collections": [
+                {
+                  "navigation": "Items",
+                  "childStore": "__RepoGenReviewItemWrites",
+                  "maximumItems": 10,
+                  "missingItems": "Delete",
+                  "additions": false,
+                  "updates": true,
+                  "conditional": true
+                }
+              ],
+              "pendingTargets": "RejectOwnerScopedModifiedAddedDeletedChildrenIncludingHidden",
+              "saving": "SharedUnitOfWorkIncludesUnrelatedPendingWrites",
+              "rollback": "RestoreCommandOnlyBeforeSaveCheckpointForSavedRows",
+              "results": "SavedScalarParentProjectionOnly",
+              "entityGraphs": "NotPersistedOrInferred",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false,
+              "mappedScalarState": {
+                "optIn": "CompleteMapInMemoryWrites(useMappedPropertyState: true)OnEachMappedParticipant",
+                "parent": [
+                  {
+                    "PropertyName": "revision",
+                    "MemberName": "__repoGenProperty0",
+                    "TypeName": "global::System.Int32",
+                    "ValueSource": "row.Revision",
+                    "AccessKind": "Shadow"
+                  }
+                ],
+                "children": [
+                  {
+                    "navigation": "Items",
+                    "properties": [
+                      {
+                        "PropertyName": "Caption",
+                        "MemberName": "__repoGenProperty0",
+                        "TypeName": "global::System.String",
+                        "ValueSource": "row.Caption",
+                        "AccessKind": "FieldBacked"
+                      },
+                      {
+                        "PropertyName": "edits",
+                        "MemberName": "__repoGenProperty1",
+                        "TypeName": "global::System.Int32",
+                        "ValueSource": "row.Edits",
+                        "AccessKind": "FieldOnly"
+                      },
+                      {
+                        "PropertyName": "review remark",
+                        "MemberName": "__repoGenProperty2",
+                        "TypeName": "global::System.String?",
+                        "ValueSource": "row.Remark",
+                        "AccessKind": "Indexer"
+                      },
+                      {
+                        "PropertyName": "revision",
+                        "MemberName": "__repoGenProperty3",
+                        "TypeName": "global::System.Int32",
+                        "ValueSource": "row.Revision",
+                        "AccessKind": "Shadow"
+                      }
+                    ]
+                  }
+                ],
+                "identity": "OrdinaryPrimaryUniqueMatchingAndOwnershipScalarsOnly",
+                "versions": "ExplicitOriginalTokensRecheckedBeforeSharedCommit",
+                "generatedValues": "ExplicitFactoriesOnly",
+                "roundTrip": "FullStructuralReadWriteReadBeforeAnyStoreCommits",
+                "graphShapes": "ExistingDesignedBoundedReconciliationOnly",
+                "providerEquivalence": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MappedCollectionSetters.ReviewItemRepositoryTestDouble",
+        "operations": []
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MappedCollectionSetters.ReviewBoardsContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MappedCollectionSetters.ReviewBoardsContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewBoard",
+          "property": "ReviewBoardStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardSeed(entity.Id, entity.Name, entity.Revision)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewBoardSeed(entity.Id, entity.Name, entity.__repoGenProperty0)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false,
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "DetachedScalarFixtureStateAndExplicitExpectedVersions",
+              "identity": "OrdinaryExplicitPrimaryForeignAndUniqueKeysOnly",
+              "validation": "FullStructuralRoundTripBeforeSharedCommit",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "efTracker": "NotSimulated",
+              "graphWrites": "NotEnabled",
+              "providerEquivalence": false
+            }
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MappedCollectionSetters.__RepoGenReviewBoardReadRow",
+            "members": [
+              "Id",
+              "Name",
+              "__repoGenProperty0"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Items",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MappedCollectionSetters.__RepoGenReviewItemReadRow",
+                "collection": true,
+                "required": false
+              }
+            ],
+            "propertyMappings": {
+              "optIn": "MapInMemoryProperty",
+              "properties": [
+                {
+                  "PropertyName": "revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "application": "DetachedReadAndExplicitScalarFixtureWriteRows",
+              "trackedState": "NotSimulated",
+              "providerGuarantees": "NotSimulated"
+            }
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedCollectionSetters.ReviewItem",
+          "property": "ReviewItemStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewItemSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewItemSeed(entity.Id, entity.BoardId, entity.Code, entity.Caption, entity.Edits, entity.Revision, entity.Remark)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MappedCollectionSetters.ReviewItemSeed(entity.Id, entity.BoardId, entity.Code, entity.__repoGenProperty0, entity.__repoGenProperty1, entity.__repoGenProperty3, entity.__repoGenProperty2)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false,
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "Caption",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.String",
+                  "ValueSource": "row.Caption",
+                  "AccessKind": "FieldBacked"
+                },
+                {
+                  "PropertyName": "edits",
+                  "MemberName": "__repoGenProperty1",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Edits",
+                  "AccessKind": "FieldOnly"
+                },
+                {
+                  "PropertyName": "review remark",
+                  "MemberName": "__repoGenProperty2",
+                  "TypeName": "global::System.String?",
+                  "ValueSource": "row.Remark",
+                  "AccessKind": "Indexer"
+                },
+                {
+                  "PropertyName": "revision",
+                  "MemberName": "__repoGenProperty3",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "DetachedScalarFixtureStateAndExplicitExpectedVersions",
+              "identity": "OrdinaryExplicitPrimaryForeignAndUniqueKeysOnly",
+              "validation": "FullStructuralRoundTripBeforeSharedCommit",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "efTracker": "NotSimulated",
+              "graphWrites": "NotEnabled",
+              "providerEquivalence": false
+            }
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MappedCollectionSetters.__RepoGenReviewItemReadRow",
+            "members": [
+              "Id",
+              "BoardId",
+              "Code",
+              "__repoGenProperty0",
+              "__repoGenProperty1",
+              "__repoGenProperty2",
+              "__repoGenProperty3"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "propertyMappings": {
+              "optIn": "MapInMemoryProperty",
+              "properties": [
+                {
+                  "PropertyName": "Caption",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.String",
+                  "ValueSource": "row.Caption",
+                  "AccessKind": "FieldBacked"
+                },
+                {
+                  "PropertyName": "edits",
+                  "MemberName": "__repoGenProperty1",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Edits",
+                  "AccessKind": "FieldOnly"
+                },
+                {
+                  "PropertyName": "review remark",
+                  "MemberName": "__repoGenProperty2",
+                  "TypeName": "global::System.String?",
+                  "ValueSource": "row.Remark",
+                  "AccessKind": "Indexer"
+                },
+                {
+                  "PropertyName": "revision",
+                  "MemberName": "__repoGenProperty3",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "application": "DetachedReadAndExplicitScalarFixtureWriteRows",
+              "trackedState": "NotSimulated",
+              "providerGuarantees": "NotSimulated"
+            }
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedParticipatingStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": false
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true,
+      "collections": "PerCommandExplicitBoundedOwnerScopedLeafChildStores"
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MappedCollectionSetters"
+}

@@ -1,0 +1,288 @@
+{
+  "generatedBy": "RonSijm.RepoGen",
+  "schemaVersion": 2,
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ShadowVersions.VersionedNotesContext",
+  "contracts": [
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowVersions.IReadVersionedNoteRepository",
+      "bases": [],
+      "methods": [
+        {
+          "signature": "FindAsync(global::System.Int32)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionView?\u003E",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        }
+      ]
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowVersions.IVersionedNoteRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowVersions.IReadVersionedNoteRepository",
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowVersions.IWriteVersionedNoteRepository"
+      ],
+      "methods": []
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowVersions.IWriteVersionedNoteRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.IVersionedNoteWrites"
+      ],
+      "methods": [
+        {
+          "signature": "RenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionView\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "RenameManyAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionBatch)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionView\u003E\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionBatch",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "RenameNativeAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionView\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        }
+      ]
+    }
+  ],
+  "dataContracts": [
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionBatch",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionBatch\u003E"
+      ],
+      "members": [
+        {
+          "name": "Items",
+          "kind": "Property",
+          "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange\u003E",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange\u003E"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange\u003E)",
+          "parameters": [
+            {
+              "name": "Items",
+              "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange\u003E",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange\u003E"
+      ],
+      "members": [
+        {
+          "name": "ExpectedVersion",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "Id",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "Title",
+          "kind": "Property",
+          "type": "global::System.String",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::System.Int32,global::System.String,global::System.Int32)",
+          "parameters": [
+            {
+              "name": "Id",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Title",
+              "type": "global::System.String",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "ExpectedVersion",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionView",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionView\u003E"
+      ],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "Title",
+          "kind": "Property",
+          "type": "global::System.String",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String"
+        },
+        {
+          "name": "Version",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::System.Int32,global::System.String,global::System.Int32)",
+          "parameters": [
+            {
+              "name": "Id",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Title",
+              "type": "global::System.String",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Version",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    }
+  ]
+}

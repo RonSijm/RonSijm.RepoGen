@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeFilters.NativeNotebookContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryNativeFilters",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeFilters.StoredNativeNote",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.INativeNoteReader"
+      ],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.INativeNoteWriter"
+      ],
+      "visibilityPolicies": [
+        "Visible"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "AllAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteSeed\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeFilters.StoredNativeNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [
+            "Visible"
+          ],
+          "inputValidations": 0
+        },
+        {
+          "name": "CardsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteCard\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeFilters.StoredNativeNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "ArchiveAllAsync",
+          "kind": "Update",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteCard\u003E\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": []
+        },
+        {
+          "name": "ConsumeAsync",
+          "kind": "Delete",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteCard\u003E\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "input",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteInput"
+            }
+          ]
+        },
+        {
+          "name": "StageTitleAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "input",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteInput"
+            }
+          ]
+        },
+        {
+          "name": "UpdateAsync",
+          "kind": "Update",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteCard\u003E\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "input",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteInput"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeFilters",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeFilters.StoredNativeNote",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeFilters.StoredNativeNoteRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "AllAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteSeed\u003E\u003E",
+            "script": "OnAllAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          },
+          {
+            "signature": "ArchiveAllAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteCard\u003E\u003E",
+            "script": "OnArchiveAllAsync",
+            "status": "Generated",
+            "reason": "Explicit model-filtered saved selection for scalar native-returning simulation; updated/deleted values are not fresh filtered reads, pending state is retained, and provider equivalence is not inferred. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeFilters.StoredNativeNote",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "SavedRowsBeforeDesignerVisibilityAndPredicates",
+              "savedResults": "NoFreshQuery",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarNativeReturningSavedSelectionNoFreshResultFilterGraphOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated",
+              "returning": "MatchedPostUpdateValuesNoPostMutationFilter"
+            },
+            "immediateSimulation": {
+              "optIn": "SimulateImmediateWrites",
+              "targets": "SavedVisibleMatchingRowsOnly",
+              "assignments": "AllSettersReadOriginalRow",
+              "returning": "UpdatedScalarRows",
+              "preparation": "ValuesFactoriesMappingsAndResultsBeforeCommit",
+              "pendingWrites": "NeitherFlushedNorRefreshed",
+              "transactions": "FixtureCheckpointRollback",
+              "order": "Unspecified",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            }
+          },
+          {
+            "signature": "CardsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteCard\u003E\u003E",
+            "script": "OnCardsAsync",
+            "status": "Generated",
+            "reason": "Explicit final-model scalar filters on detached read roots before designer visibility/pipelines; context/navigation/write/provider semantics are not inferred. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilters": {
+              "optIn": "UseInMemoryModelQueryFilter",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeFilters.StoredNativeNote",
+                  "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+                }
+              ],
+              "application": "BeforeDesignerVisibilityAndQueryPipeline",
+              "bypass": "IgnoreQueryFiltersOnlyNotBypassVisibility",
+              "scope": "RowOnlyReadRootsNoFilteredNavigationGraphsOrWrites",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "ConsumeAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteInput)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteCard\u003E\u003E",
+            "script": "OnConsumeAsync",
+            "status": "Generated",
+            "reason": "Explicit model-filtered saved selection for scalar native-returning simulation; updated/deleted values are not fresh filtered reads, pending state is retained, and provider equivalence is not inferred. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeFilters.StoredNativeNote",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "SavedRowsBeforeDesignerVisibilityAndPredicates",
+              "savedResults": "NoFreshQuery",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarNativeReturningSavedSelectionNoFreshResultFilterGraphOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated",
+              "returning": "MatchedPreDeleteValuesNoPostMutationFilter"
+            },
+            "immediateSimulation": {
+              "optIn": "SimulateImmediateWrites",
+              "targets": "SavedVisibleMatchingRowsOnly",
+              "assignments": "AllSettersReadOriginalRow",
+              "returning": "DeletedScalarRows",
+              "preparation": "ValuesFactoriesMappingsAndResultsBeforeCommit",
+              "pendingWrites": "NeitherFlushedNorRefreshed",
+              "transactions": "FixtureCheckpointRollback",
+              "order": "Unspecified",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            }
+          },
+          {
+            "signature": "StageTitleAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteInput)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageTitleAsync",
+            "status": "Generated",
+            "reason": "Explicit per-command final-model scalar filter on saved selection/fresh result reads, not insertion/shared Save; graph/native/provider semantics remain separate. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeFilters.StoredNativeNote",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "SavedRowsBeforeDesignerVisibilityAndPredicates",
+              "savedResults": "NoFreshQuery",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarWritesNoFilteredGraphsNativeReturningOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "UpdateAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteInput)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteCard\u003E\u003E",
+            "script": "OnUpdateAsync",
+            "status": "Generated",
+            "reason": "Explicit model-filtered saved selection for scalar native-returning simulation; updated/deleted values are not fresh filtered reads, pending state is retained, and provider equivalence is not inferred. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeFilters.StoredNativeNote",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "SavedRowsBeforeDesignerVisibilityAndPredicates",
+              "savedResults": "NoFreshQuery",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarNativeReturningSavedSelectionNoFreshResultFilterGraphOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated",
+              "returning": "MatchedPostUpdateValuesNoPostMutationFilter"
+            },
+            "immediateSimulation": {
+              "optIn": "SimulateImmediateWrites",
+              "targets": "SavedVisibleMatchingRowsOnly",
+              "assignments": "AllSettersReadOriginalRow",
+              "returning": "UpdatedScalarRows",
+              "preparation": "ValuesFactoriesMappingsAndResultsBeforeCommit",
+              "pendingWrites": "NeitherFlushedNorRefreshed",
+              "transactions": "FixtureCheckpointRollback",
+              "order": "Unspecified",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeFilters.NativeNotebookContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeFilters.NativeNotebookContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryNativeFilters.StoredNativeNote",
+          "property": "StoredNativeNoteStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteSeed(entity.Id, entity.Title, entity.Version, entity.Deleted, entity.Hidden)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryNativeFilters.NativeNoteSeed(entity.Id, entity.Title, entity.Version, entity.Deleted, entity.Hidden)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryNativeFilters.__RepoGenStoredNativeNoteReadRow",
+            "members": [
+              "Id",
+              "Title",
+              "Version",
+              "Deleted",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true,
+      "immediate": "PerCommandExplicitSavedScalarUpdateDeleteReturning"
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryNativeFilters"
+}

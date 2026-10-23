@@ -1,0 +1,79 @@
+name: publish-wiki
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "README.md"
+      - "docs/**"
+      - "samples/ConfigurationExamples/**/README.md"
+      - "build/Scripts/Docs/**"
+      - ".github/workflows/publish-wiki.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-wiki
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Test wiki tooling
+        shell: pwsh
+        run: ./build/Scripts/Docs/test-wiki-tools.ps1
+
+      - name: Export documentation
+        shell: pwsh
+        run: ./build/Scripts/Docs/export-docs-to-wiki.ps1 -OutputPath ./build/Artifacts/Wiki
+
+      - name: Publish generated wiki pages
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          WIKI_PUSH_TOKEN: ${{ secrets.WIKI_PUSH_TOKEN }}
+        run: |
+          set -euo pipefail
+          token="${WIKI_PUSH_TOKEN:-$GITHUB_TOKEN}"
+          auth="$(printf 'x-access-token:%s' "$token" | base64 -w 0)"
+          echo "::add-mask::$auth"
+          export GIT_CONFIG_COUNT=1
+          export GIT_CONFIG_KEY_0="http.${GITHUB_SERVER_URL}/.extraheader"
+          export GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $auth"
+          export GIT_TERMINAL_PROMPT=0
+          wiki_path="$RUNNER_TEMP/repogen-wiki"
+
+          report_access_failure() {
+            echo "::error::Could not publish ${GITHUB_REPOSITORY}.wiki.git. Enable the wiki and create its first page once. If GITHUB_TOKEN cannot write to the wiki, add WIKI_PUSH_TOKEN with wiki read/write access."
+          }
+
+          if ! git clone --depth 1 "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}.wiki.git" "$wiki_path"; then
+            report_access_failure
+            exit 1
+          fi
+
+          pwsh -NoProfile -File ./build/Scripts/Docs/sync-generated-wiki.ps1 \
+            -SourcePath ./build/Artifacts/Wiki -WikiPath "$wiki_path"
+
+          git -C "$wiki_path" config user.name "github-actions[bot]"
+          git -C "$wiki_path" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git -C "$wiki_path" add --all
+          if git -C "$wiki_path" diff --cached --quiet; then
+            echo "Wiki is already up to date."
+            exit 0
+          fi
+          git -C "$wiki_path" commit -m "Publish documentation wiki"
+          if ! git -C "$wiki_path" push origin HEAD; then
+            report_access_failure
+            exit 1
+          fi

@@ -1,0 +1,4 @@
+[submodule "examples/AdventureWorks/sql-server-samples"]
+	path = examples/AdventureWorks/sql-server-samples
+	url = https://github.com/microsoft/sql-server-samples.git
+	shallow = true

@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ScriptedNotes.ScriptedNotesContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ScriptedNotes",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ScriptedNotes.ScriptedNote",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.INoteLookup"
+      ],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.INoteWriter"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "FindAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.NoteSummary?\u003E",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ScriptedNotes.ScriptedNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "FindAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.NoteSummary?\u003E",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "global::System.String"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ScriptedNotes.ScriptedNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "ListSelectedAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.NoteSummary\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.SelectedNotes"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ScriptedNotes.ScriptedNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "CreateAsync",
+          "kind": "Create",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.NoteSummary\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.CreateNoteRequest"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testDoubles": {
+    "mode": "Scripted",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ScriptedNotes",
+    "executesDesignerPipeline": false,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ScriptedNotes.ScriptedNote",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.ScriptedNotes.ScriptedNoteRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "CreateAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.CreateNoteRequest)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.NoteSummary\u003E\u003E",
+            "script": "OnCreateAsync",
+            "status": "RequiresOverride",
+            "reason": "Arrange a typed test handler/result before invocation; no query or persistence behavior is inferred.",
+            "stream": false
+          },
+          {
+            "signature": "FindAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.NoteSummary?\u003E",
+            "script": "OnFindAsyncByInt32",
+            "status": "RequiresOverride",
+            "reason": "Arrange a typed test handler/result before invocation; no query or persistence behavior is inferred.",
+            "stream": false
+          },
+          {
+            "signature": "FindAsync(global::System.String)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.NoteSummary?\u003E",
+            "script": "OnFindAsyncByString",
+            "status": "RequiresOverride",
+            "reason": "Arrange a typed test handler/result before invocation; no query or persistence behavior is inferred.",
+            "stream": false
+          },
+          {
+            "signature": "ListSelectedAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.SelectedNotes)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ScriptedNotes.NoteSummary\u003E\u003E",
+            "script": "OnListSelectedAsync",
+            "status": "RequiresOverride",
+            "reason": "Arrange a typed test handler/result before invocation; no query or persistence behavior is inferred.",
+            "stream": false
+          }
+        ]
+      }
+    ]
+  }
+}

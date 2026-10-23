@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <!-- Compile inputs for these .NET 8 examples, not another generated persistence application. -->
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Models/Models.csproj" />
+    <ProjectReference Include="../../../src/RonSijm.RepoGen.EntityFrameworkCore/RonSijm.RepoGen.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="../../../src/RonSijm.RepoGen.Sqlite/RonSijm.RepoGen.Sqlite.csproj" />
+    <ProjectReference Include="../../../src/RonSijm.RepoGen.SqlServer/RonSijm.RepoGen.SqlServer.csproj" />
+    <ProjectReference Include="../../../src/RonSijm.RepoGen.Caching/RonSijm.RepoGen.Caching.csproj" />
+    <ProjectReference Include="../../../src/RonSijm.RepoGen.Testing/RonSijm.RepoGen.Testing.csproj" />
+  </ItemGroup>
+  <Import Project="../../../BuildSettings/RepoGen.CompilationReferences.targets" />
+</Project>

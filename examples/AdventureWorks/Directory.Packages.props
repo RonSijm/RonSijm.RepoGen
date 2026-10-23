@@ -1,0 +1,9 @@
+<Project>
+  <Import Project="../../Directory.Packages.props" />
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.30" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer.HierarchyId" Version="8.0.30" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="8.0.30" />
+    <PackageVersion Include="Microsoft.SqlServer.TransactSql.ScriptDom" Version="161.8910.0" />
+  </ItemGroup>
+</Project>

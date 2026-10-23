@@ -1,0 +1,482 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.RankedNotebookContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryShadowReads",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.IRankedNoteReader"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Visible"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "CardsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedNoteCard\u003E\u003E",
+          "parameters": [
+            {
+              "name": "minimumRank",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "IncludingDeletedAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedNoteCard\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "PageAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedNoteCard\u003E\u003E",
+          "parameters": [
+            {
+              "name": "page",
+              "type": "int"
+            },
+            {
+              "name": "pageSize",
+              "type": "int"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "Paged",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "StreamAsync",
+          "result": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedNoteCard\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "Stream",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "TotalsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedCategoryTotal\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedCategoryTotal",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryShadowReads",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryShadowReads.StoredRankedNoteRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "CardsAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedNoteCard\u003E\u003E",
+            "script": "OnCardsAsync",
+            "status": "Generated",
+            "reason": "Explicit typed mapped scalar values from public fixture data on detached read rows; filter/graph permissions remain independent, without tracked state or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "propertyReads": {
+              "optIn": "MapInMemoryProperty",
+              "reads": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Category",
+                  "TypeName": "global::System.String",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Deleted",
+                  "TypeName": "global::System.Boolean",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Rank",
+                  "TypeName": "global::System.Int32",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ExplicitTypedPropertyValuesNotTrackedState",
+              "providerGuarantees": "NotSimulated"
+            },
+            "modelQueryFilters": {
+              "optIn": "UseInMemoryModelQueryFilter",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PredicateSource": "static entity =\u003E !(entity.__repoGenProperty1)"
+                }
+              ],
+              "application": "BeforeDesignerVisibilityAndQueryPipeline",
+              "bypass": "IgnoreQueryFiltersOnlyNotBypassVisibility",
+              "scope": "RowOnlyReadRootsNoFilteredNavigationGraphsOrWrites",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "IncludingDeletedAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedNoteCard\u003E\u003E",
+            "script": "OnIncludingDeletedAsync",
+            "status": "Generated",
+            "reason": "Explicit typed mapped scalar values from public fixture data on detached read rows; filter/graph permissions remain independent, without tracked state or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "propertyReads": {
+              "optIn": "MapInMemoryProperty",
+              "reads": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Category",
+                  "TypeName": "global::System.String",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Rank",
+                  "TypeName": "global::System.Int32",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ExplicitTypedPropertyValuesNotTrackedState",
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "PageAsync(global::System.Int32,global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedNoteCard\u003E\u003E",
+            "script": "OnPageAsync",
+            "status": "Generated",
+            "reason": "Explicit typed mapped scalar values from public fixture data on detached read rows; filter/graph permissions remain independent, without tracked state or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "propertyReads": {
+              "optIn": "MapInMemoryProperty",
+              "reads": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Category",
+                  "TypeName": "global::System.String",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Deleted",
+                  "TypeName": "global::System.Boolean",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Rank",
+                  "TypeName": "global::System.Int32",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ExplicitTypedPropertyValuesNotTrackedState",
+              "providerGuarantees": "NotSimulated"
+            },
+            "modelQueryFilters": {
+              "optIn": "UseInMemoryModelQueryFilter",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PredicateSource": "static entity =\u003E !(entity.__repoGenProperty1)"
+                }
+              ],
+              "application": "BeforeDesignerVisibilityAndQueryPipeline",
+              "bypass": "IgnoreQueryFiltersOnlyNotBypassVisibility",
+              "scope": "RowOnlyReadRootsNoFilteredNavigationGraphsOrWrites",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "StreamAsync()",
+            "returns": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedNoteCard\u003E",
+            "script": "OnStreamAsync",
+            "status": "Generated",
+            "reason": "Explicit typed mapped scalar values from public fixture data on detached read rows; filter/graph permissions remain independent, without tracked state or provider equivalence. Scripts override generated behavior.",
+            "stream": true,
+            "reasons": [],
+            "propertyReads": {
+              "optIn": "MapInMemoryProperty",
+              "reads": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Category",
+                  "TypeName": "global::System.String",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Deleted",
+                  "TypeName": "global::System.Boolean",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Rank",
+                  "TypeName": "global::System.Int32",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ExplicitTypedPropertyValuesNotTrackedState",
+              "providerGuarantees": "NotSimulated"
+            },
+            "modelQueryFilters": {
+              "optIn": "UseInMemoryModelQueryFilter",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PredicateSource": "static entity =\u003E !(entity.__repoGenProperty1)"
+                }
+              ],
+              "application": "BeforeDesignerVisibilityAndQueryPipeline",
+              "bypass": "IgnoreQueryFiltersOnlyNotBypassVisibility",
+              "scope": "RowOnlyReadRootsNoFilteredNavigationGraphsOrWrites",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "TotalsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedCategoryTotal\u003E\u003E",
+            "script": "OnTotalsAsync",
+            "status": "Generated",
+            "reason": "Explicit typed mapped scalar values from public fixture data on detached read rows; filter/graph permissions remain independent, without tracked state or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "propertyReads": {
+              "optIn": "MapInMemoryProperty",
+              "reads": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Category",
+                  "TypeName": "global::System.String",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Deleted",
+                  "TypeName": "global::System.Boolean",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PropertyName": "Rank",
+                  "TypeName": "global::System.Int32",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ExplicitTypedPropertyValuesNotTrackedState",
+              "providerGuarantees": "NotSimulated"
+            },
+            "modelQueryFilters": {
+              "optIn": "UseInMemoryModelQueryFilter",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+                  "PredicateSource": "static entity =\u003E !(entity.__repoGenProperty1)"
+                }
+              ],
+              "application": "BeforeDesignerVisibilityAndQueryPipeline",
+              "bypass": "IgnoreQueryFiltersOnlyNotBypassVisibility",
+              "scope": "RowOnlyReadRootsNoFilteredNavigationGraphsOrWrites",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryShadowReads.RankedNotebookContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryShadowReads.RankedNotebookContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryShadowReads.StoredRankedNote",
+          "property": "StoredRankedNoteStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedNoteSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryShadowReads.RankedNoteSeed(entity.Id, entity.Text, entity.Hidden, entity.Rank, entity.Category, entity.Deleted)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryShadowReads.__RepoGenStoredRankedNoteReadRow",
+            "members": [
+              "Id",
+              "Text",
+              "Hidden",
+              "__repoGenProperty0",
+              "__repoGenProperty1",
+              "__repoGenProperty2"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "propertyMappings": {
+              "optIn": "MapInMemoryProperty",
+              "properties": [
+                {
+                  "PropertyName": "Category",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.String",
+                  "ValueSource": "row.Category",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "PropertyName": "Deleted",
+                  "MemberName": "__repoGenProperty1",
+                  "TypeName": "global::System.Boolean",
+                  "ValueSource": "row.Deleted",
+                  "AccessKind": "Shadow"
+                },
+                {
+                  "PropertyName": "Rank",
+                  "MemberName": "__repoGenProperty2",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Rank",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "application": "DetachedReadRowsOnly",
+              "trackedState": "NotSimulated",
+              "providerGuarantees": "NotSimulated"
+            }
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryShadowReads"
+}

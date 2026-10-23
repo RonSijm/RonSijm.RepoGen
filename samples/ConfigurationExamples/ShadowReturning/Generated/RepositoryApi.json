@@ -1,0 +1,258 @@
+{
+  "generatedBy": "RonSijm.RepoGen",
+  "schemaVersion": 2,
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ShadowReturning.AuditDocumentsContext",
+  "contracts": [
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowReturning.IAuditDocumentRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowReturning.IReadAuditDocumentRepository",
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowReturning.IWriteAuditDocumentRepository"
+      ],
+      "methods": []
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowReturning.IReadAuditDocumentRepository",
+      "bases": [],
+      "methods": []
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowReturning.IWriteAuditDocumentRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.IAuditDocumentWrites"
+      ],
+      "methods": [
+        {
+          "signature": "RemoveAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentRequest)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentChange\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentRequest",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "RenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentRequest)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentChange\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentRequest",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        }
+      ]
+    }
+  ],
+  "dataContracts": [
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentChange",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentChange\u003E"
+      ],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "NormalizedTitle",
+          "kind": "Property",
+          "type": "global::System.String",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String"
+        },
+        {
+          "name": "Revision",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "SourceTag",
+          "kind": "Property",
+          "type": "global::System.String?",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String?"
+        },
+        {
+          "name": "Title",
+          "kind": "Property",
+          "type": "global::System.String",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String"
+        },
+        {
+          "name": "TitleLength",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::System.Int32,global::System.String,global::System.Int32,global::System.String,global::System.Int32,global::System.String)",
+          "parameters": [
+            {
+              "name": "Id",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Title",
+              "type": "global::System.String",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Revision",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "NormalizedTitle",
+              "type": "global::System.String",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "TitleLength",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "SourceTag",
+              "type": "global::System.String?",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentRequest",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentRequest\u003E"
+      ],
+      "members": [
+        {
+          "name": "ExpectedRevision",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "Id",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "Title",
+          "kind": "Property",
+          "type": "global::System.String",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::System.Int32,global::System.String,global::System.Int32)",
+          "parameters": [
+            {
+              "name": "Id",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Title",
+              "type": "global::System.String",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "ExpectedRevision",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../../BuildSettings/NuGetVersioning.props" />
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Description>Optional SQL Server temporal queries and atomic writes for RonSijm.RepoGen.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../RonSijm.RepoGen.EntityFrameworkCore/RonSijm.RepoGen.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="../RonSijm.RepoGen.Design/RonSijm.RepoGen.Design.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\BuildSettings\NuGetVersioning.props" />
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Description>Optional EF-free repository test doubles, fixtures and application-port contract suites.</Description>
+    <PackageId>RonSijm.RepoGen.Testing</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../RonSijm.RepoGen.Abstractions/RonSijm.RepoGen.Abstractions.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+  </ItemGroup>
+</Project>

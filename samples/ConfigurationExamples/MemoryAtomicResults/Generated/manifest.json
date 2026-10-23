@@ -1,0 +1,326 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicResults.EnrollmentContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryAtomicResults",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": "global::RonSijm.RepoGen.Sqlite.SqliteAtomicWriter",
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicResults.Course",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicResults.Enrollment",
+      "readEnabled": false,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.IEnrollmentWriter"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [
+        {
+          "name": "EnsureAsync",
+          "kind": "InsertIfAbsent",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.EnrollmentReceipt\u003E\u003E",
+          "persistence": "atomicTransaction",
+          "conflictColumns": [
+            "CourseId",
+            "Code"
+          ],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.EnrollmentChange"
+            }
+          ],
+          "atomicSavedResultQuery": {
+            "optIn": "ReturnsSaved",
+            "key": [
+              "Id"
+            ],
+            "selection": "CompleteSavedPrimaryKeyNotCandidateOrMutationPredicate",
+            "tracking": "AsNoTrackingNoSharedSave",
+            "transaction": "SeparateReadBeforeOwnedCommitCallerRollbackForBorrowedTransaction",
+            "outcomes": "InsertedOrUpdatedOnly",
+            "filters": "RootModelFiltersAndDeclaredVisibilityUnlessBypassedRelatedVisibilityExplicit",
+            "failure": "OriginalExceptionNotRepositorySavedResultException",
+            "nativeReturningGraph": false
+          }
+        },
+        {
+          "name": "PutAsync",
+          "kind": "InsertOrUpdate",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.EnrollmentReceipt\u003E\u003E",
+          "persistence": "atomicTransaction",
+          "conflictColumns": [
+            "CourseId",
+            "Code"
+          ],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.EnrollmentChange"
+            }
+          ],
+          "atomicSavedResultQuery": {
+            "optIn": "ReturnsSaved",
+            "key": [
+              "Id"
+            ],
+            "selection": "CompleteSavedPrimaryKeyNotCandidateOrMutationPredicate",
+            "tracking": "AsNoTrackingNoSharedSave",
+            "transaction": "SeparateReadBeforeOwnedCommitCallerRollbackForBorrowedTransaction",
+            "outcomes": "InsertedOrUpdatedOnly",
+            "filters": "RootModelFiltersAndDeclaredVisibilityUnlessBypassedRelatedVisibilityExplicit",
+            "failure": "OriginalExceptionNotRepositorySavedResultException",
+            "nativeReturningGraph": false
+          }
+        }
+      ]
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicResults",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicResults.Course",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicResults.CourseRepositoryTestDouble",
+        "operations": []
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicResults.Enrollment",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicResults.EnrollmentRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "EnsureAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.EnrollmentChange)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.EnrollmentReceipt\u003E\u003E",
+            "script": "OnEnsureAsync",
+            "status": "Generated",
+            "reason": "Explicit atomic saved-result query over a detached prepared root overlay and saved-only declared relationships before fixture publication; pending writes remain, without native graph buffers or provider guarantees. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "atomicSimulation": {
+              "optIn": "SimulateImmediateWrites",
+              "conflicts": "DeclaredTargetOverAllSavedRowsOrdinaryStructuralEquality",
+              "visibility": "UpdateSelectionAndFreshResultOnlyNeverInsertionOrConflictProbe",
+              "assignments": "AllSettersReadOriginalRow",
+              "outcomes": "InsertedUpdatedAlreadyExistsNotMatched",
+              "generatedValues": "ExplicitFactoriesSavedRowsOnlyNoPendingReservations",
+              "preparation": "ValuesFactoriesMappingsAndResultsBeforeCommit",
+              "pendingWrites": "NeitherFlushedNorRefreshed",
+              "transactions": "FixtureCheckpointRollback",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "PreparedRootOverlayWithSavedOnlyRelatedRowsBeforeAtomicCommit",
+              "capture": "DetachedPreparedRootAndParticipatingSavedTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicResults.Course.Enrollments",
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicResults.Enrollment.Course"
+              ],
+              "failure": "OriginalFailureBeforeFixturePublicationOwnedDatabaseCommitCallerRollbackForBorrowedTransaction",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "PutAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.EnrollmentChange)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.EnrollmentReceipt\u003E\u003E",
+            "script": "OnPutAsync",
+            "status": "Generated",
+            "reason": "Explicit atomic saved-result query over a detached prepared root overlay and saved-only declared relationships before fixture publication; pending writes remain, without native graph buffers or provider guarantees. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "atomicSimulation": {
+              "optIn": "SimulateImmediateWrites",
+              "conflicts": "DeclaredTargetOverAllSavedRowsOrdinaryStructuralEquality",
+              "visibility": "UpdateSelectionAndFreshResultOnlyNeverInsertionOrConflictProbe",
+              "assignments": "AllSettersReadOriginalRow",
+              "outcomes": "InsertedUpdatedAlreadyExistsNotMatched",
+              "generatedValues": "ExplicitFactoriesSavedRowsOnlyNoPendingReservations",
+              "preparation": "ValuesFactoriesMappingsAndResultsBeforeCommit",
+              "pendingWrites": "NeitherFlushedNorRefreshed",
+              "transactions": "FixtureCheckpointRollback",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "PreparedRootOverlayWithSavedOnlyRelatedRowsBeforeAtomicCommit",
+              "capture": "DetachedPreparedRootAndParticipatingSavedTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicResults.Course.Enrollments",
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicResults.Enrollment.Course"
+              ],
+              "failure": "OriginalFailureBeforeFixturePublicationOwnedDatabaseCommitCallerRollbackForBorrowedTransaction",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicResults.EnrollmentContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicResults.EnrollmentContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicResults.Course",
+          "property": "CourseStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.CourseSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.CourseSeed(entity.Id, entity.Name)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicResults.__RepoGenCourseReadRow",
+            "members": [
+              "Id",
+              "Name"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Enrollments",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicResults.__RepoGenEnrollmentReadRow",
+                "collection": true,
+                "required": false
+              }
+            ]
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicResults.Enrollment",
+          "property": "EnrollmentStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.EnrollmentSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.EnrollmentSeed(entity.Id, entity.CourseId, entity.Code, entity.Name, entity.Version)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicResults.EnrollmentSeed(entity.Id, entity.CourseId, entity.Code, entity.Name, entity.Version)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicResults.__RepoGenEnrollmentReadRow",
+            "members": [
+              "Id",
+              "CourseId",
+              "Code",
+              "Name",
+              "Version"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Course",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicResults.__RepoGenCourseReadRow",
+                "collection": false,
+                "required": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": false
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true,
+      "atomic": "PerCommandExplicitSavedScalarInsertIfAbsentInsertOrUpdate"
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryAtomicResults"
+}

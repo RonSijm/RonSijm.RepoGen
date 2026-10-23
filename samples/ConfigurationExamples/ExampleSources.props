@@ -1,0 +1,8 @@
+<Project>
+  <!-- Keep design-time inputs beside their example without compiling them into the consumer.
+       The shared Models, Contracts and Designers projects compile these files instead. -->
+  <ItemGroup>
+    <Compile Remove="Configuration/**/*.cs;Model/**/*.cs;Contracts/**/*.cs" />
+    <None Include="Configuration/**/*.cs;Model/**/*.cs;Contracts/**/*.cs" />
+  </ItemGroup>
+</Project>

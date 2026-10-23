@@ -1,0 +1,131 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/RonSijm.RepoGen/RonSijm.RepoGen.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Abstractions/RonSijm.RepoGen.Abstractions.csproj" />
+    <Project Path="src/RonSijm.RepoGen.EntityFrameworkCore/RonSijm.RepoGen.EntityFrameworkCore.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Generator/RonSijm.RepoGen.Generator.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Design/RonSijm.RepoGen.Design.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Tool/RonSijm.RepoGen.Tool.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Generation/RonSijm.RepoGen.Generation.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Validation/RonSijm.RepoGen.Validation.csproj" />
+    <Project Path="src/RonSijm.RepoGen.SqlServer/RonSijm.RepoGen.SqlServer.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Sqlite/RonSijm.RepoGen.Sqlite.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Caching/RonSijm.RepoGen.Caching.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Testing/RonSijm.RepoGen.Testing.csproj" />
+    <Project Path="src/RonSijm.RepoGen.Testing.EntityFrameworkCore/RonSijm.RepoGen.Testing.EntityFrameworkCore.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/RonSijm.RepoGen.Tests/RonSijm.RepoGen.Tests.csproj" />
+    <Project Path="tests/RonSijm.RepoGen.EntityFrameworkCore.Tests/RonSijm.RepoGen.EntityFrameworkCore.Tests.csproj" />
+    <Project Path="tests/RonSijm.RepoGen.Generator.Tests/RonSijm.RepoGen.Generator.Tests.csproj" />
+    <Project Path="tests/RonSijm.RepoGen.Tool.Tests/RonSijm.RepoGen.Tool.Tests.csproj" />
+    <Project Path="tests/RonSijm.RepoGen.Testing.Tests/RonSijm.RepoGen.Testing.Tests.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/RonSijm.RepoGen.Sample/RonSijm.RepoGen.Sample.csproj" />
+  </Folder>
+  <Folder Name="/examples/AdventureWorks/">
+    <Project Path="examples/AdventureWorks/Scaffolding/AdventureWorks.Scaffolding.csproj" />
+    <Project Path="examples/AdventureWorks/Model/AdventureWorks.Model.csproj" />
+    <Project Path="examples/AdventureWorks/Generation/AdventureWorks.Generation.csproj" />
+    <Project Path="examples/AdventureWorks/Demo/AdventureWorks.Demo.csproj" />
+  </Folder>
+  <Folder Name="/samples/ConfigurationExamples/01 Basics/">
+    <Project Path="samples/ConfigurationExamples/Simple/Simple.csproj" />
+    <Project Path="samples/ConfigurationExamples/Configured/Configured.csproj" />
+  </Folder>
+  <Folder Name="/samples/ConfigurationExamples/02 Contract shapes/">
+    <Project Path="samples/ConfigurationExamples/Cqrs/Cqrs.csproj" />
+    <Project Path="samples/ConfigurationExamples/Adapters/Adapters.csproj" />
+    <Project Path="samples/ConfigurationExamples/AccessorAdapters/AccessorAdapters.csproj" />
+    <Project Path="samples/ConfigurationExamples/MappedAccessors/MappedAccessors.csproj" />
+  </Folder>
+  <Folder Name="/samples/ConfigurationExamples/03 Queries and loading/">
+    <Project Path="samples/ConfigurationExamples/Reports/Reports.csproj" />
+    <Project Path="samples/ConfigurationExamples/Library/Library.csproj" />
+    <Project Path="samples/ConfigurationExamples/Membership/Membership.csproj" />
+    <Project Path="samples/ConfigurationExamples/Visibility/Visibility.csproj" />
+  </Folder>
+  <Folder Name="/samples/ConfigurationExamples/04 Writes and infrastructure/">
+    <Project Path="samples/ConfigurationExamples/Inventory/Inventory.csproj" />
+    <Project Path="samples/ConfigurationExamples/ShadowReturning/ShadowReturning.csproj" />
+    <Project Path="samples/ConfigurationExamples/ShadowVersions/ShadowVersions.csproj" />
+    <Project Path="samples/ConfigurationExamples/MappedReturning/MappedReturning.csproj" />
+    <Project Path="samples/ConfigurationExamples/MappedSetters/MappedSetters.csproj" />
+    <Project Path="samples/ConfigurationExamples/MappedBatchSetters/MappedBatchSetters.csproj" />
+    <Project Path="samples/ConfigurationExamples/MappedCollectionSetters/MappedCollectionSetters.csproj" />
+    <Project Path="samples/ConfigurationExamples/Collections/Collections.csproj" />
+    <Project Path="samples/ConfigurationExamples/WriteSafety/WriteSafety.csproj" />
+    <Project Path="samples/ConfigurationExamples/BatchWrites/BatchWrites.csproj" />
+    <Project Path="samples/ConfigurationExamples/Ledger/Ledger.csproj" />
+    <Project Path="samples/ConfigurationExamples/MultiContext/MultiContext.csproj" />
+  </Folder>
+  <Folder Name="/samples/ConfigurationExamples/05 Testing/">
+    <Project Path="samples/ConfigurationExamples/ScriptedPorts/ScriptedPorts.csproj" />
+    <Project Path="samples/ConfigurationExamples/ScriptedStreams/ScriptedStreams.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryFixtures/MemoryFixtures.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryPartitions/MemoryPartitions.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryCriteria/MemoryCriteria.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryCoverage/MemoryCoverage.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryModelFilters/MemoryModelFilters.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryShadowReads/MemoryShadowReads.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryMappedReads/MemoryMappedReads.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryMappedKeys/MemoryMappedKeys.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryMappedWrites/MemoryMappedWrites.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryMappedReturning/MemoryMappedReturning.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryMappedCollections/MemoryMappedCollections.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryAtomicCapture/MemoryAtomicCapture.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryAtomicResults/MemoryAtomicResults.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryNativeResults/MemoryNativeResults.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryModelWrites/MemoryModelWrites.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryLoadingPolicies/MemoryLoadingPolicies.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryJoins/MemoryJoins.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryProxies/MemoryProxies.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryNavigation/MemoryNavigation.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryProxyNavigation/MemoryProxyNavigation.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryManyToMany/MemoryManyToMany.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryOptionalLinks/MemoryOptionalLinks.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryLinks/MemoryLinks.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemorySharedLinks/MemorySharedLinks.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryAdditionalReferences/MemoryAdditionalReferences.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryOptionalReferences/MemoryOptionalReferences.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryNullTargets/MemoryNullTargets.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryRelationshipComparers/MemoryRelationshipComparers.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryTranslations/MemoryTranslations.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryProjectionHelpers/MemoryProjectionHelpers.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryNestedProjections/MemoryNestedProjections.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryWriteTranslations/MemoryWriteTranslations.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryScalarEquality/MemoryScalarEquality.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemorySharedWrites/MemorySharedWrites.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryBatches/MemoryBatches.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryGeneratedValues/MemoryGeneratedValues.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryModelDefaults/MemoryModelDefaults.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryFilteredNavigation/MemoryFilteredNavigation.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemorySavedFilters/MemorySavedFilters.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryNativeFilters/MemoryNativeFilters.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryContextFilters/MemoryContextFilters.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryAtomicFilters/MemoryAtomicFilters.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryFilteredLinks/MemoryFilteredLinks.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryFilteredCollections/MemoryFilteredCollections.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemorySharedReferences/MemorySharedReferences.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryScopedOptional/MemoryScopedOptional.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryProxyWrites/MemoryProxyWrites.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryKeyIdentity/MemoryKeyIdentity.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryImmediateWrites/MemoryImmediateWrites.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryAtomicWrites/MemoryAtomicWrites.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryCollections/MemoryCollections.csproj" />
+    <Project Path="samples/ConfigurationExamples/CompositeCollections/CompositeCollections.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemorySavedResults/MemorySavedResults.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryBatchResults/MemoryBatchResults.csproj" />
+    <Project Path="samples/ConfigurationExamples/MemoryCreateBatches/MemoryCreateBatches.csproj" />
+    <Project Path="samples/ConfigurationExamples/RelationalContractFixture/RelationalContractFixture.csproj" />
+    <Project Path="samples/ConfigurationExamples/RelationalWrites/RelationalWrites.csproj" />
+  </Folder>
+  <Folder Name="/samples/ConfigurationExamples/06 Build support/">
+    <Project Path="samples/ConfigurationExamples/Models/Models.csproj" />
+    <Project Path="samples/ConfigurationExamples/Contracts/Contracts.csproj" />
+    <Project Path="samples/ConfigurationExamples/Designers/Designers.csproj" />
+    <Project Path="samples/ConfigurationExamples/GenerationRunner/GenerationRunner.csproj" />
+    <Project Path="samples/ConfigurationExamples/GenerationInputs/GenerationInputs.csproj" />
+  </Folder>
+</Solution>

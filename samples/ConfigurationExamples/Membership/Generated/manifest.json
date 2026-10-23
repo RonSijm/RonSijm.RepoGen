@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Membership.MembershipDirectoryContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.Membership",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Membership.DirectoryItem",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.IMembershipDirectory"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Active"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "CategoryCountsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryCategoryCount\u003E\u003E",
+          "parameters": [
+            {
+              "name": "categories",
+              "type": "global::System.String[]"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Membership.DirectoryItem"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "Membership",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryCategoryCount",
+              "conditional": true
+            },
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryCategoryCount",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "membershipInputs": [
+            {
+              "element": "global::System.String?",
+              "values": "categories",
+              "negated": false,
+              "nullInput": "Reject",
+              "emptyInput": "EmptySet",
+              "nullValues": "Include",
+              "distinct": true,
+              "maximumRawCount": 16
+            }
+          ]
+        },
+        {
+          "name": "CategoryCountsAtLeastAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryCategoryCount\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryCountSearch"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Membership.DirectoryItem"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "Where",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryCategoryCount",
+              "conditional": true
+            },
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryCategoryCount",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 1
+        },
+        {
+          "name": "FindByIdsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryItemSummary\u003E\u003E",
+          "parameters": [
+            {
+              "name": "ids",
+              "type": "global::System.Int32[]"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Membership.DirectoryItem"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "membershipInputs": [
+            {
+              "element": "global::System.Int32",
+              "values": "ids",
+              "negated": false,
+              "nullInput": "Reject",
+              "emptyInput": "EmptySet",
+              "nullValues": "Include",
+              "distinct": true,
+              "maximumRawCount": 32
+            }
+          ]
+        },
+        {
+          "name": "FirstByCategoryAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyDictionary\u003Cglobal::System.String, global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryItemSummary\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Membership.DirectoryItem"
+          ],
+          "sourceOperators": [],
+          "terminal": "Dictionary",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Membership.DirectoryItem",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "dictionaryDuplicateKeys": "KeepFirst"
+        },
+        {
+          "name": "LastByCategoryAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyDictionary\u003Cglobal::System.String, global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryItemSummary\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Membership.DirectoryItem"
+          ],
+          "sourceOperators": [],
+          "terminal": "Dictionary",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Membership.DirectoryItem",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "dictionaryDuplicateKeys": "KeepLast"
+        },
+        {
+          "name": "SearchAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryItemSummary\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectorySearch"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Membership.DirectoryItem"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 1,
+          "membershipInputs": [
+            {
+              "element": "global::System.String?",
+              "values": "request.Categories",
+              "negated": false,
+              "nullInput": "IgnoreFilter",
+              "emptyInput": "EmptySet",
+              "nullValues": "Ignore",
+              "distinct": true,
+              "maximumRawCount": 16
+            }
+          ]
+        },
+        {
+          "name": "SearchTextAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryItemSummary\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.DirectoryTextSearch"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Membership.DirectoryItem"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 1
+        }
+      ],
+      "commands": []
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ShadowReturning.AuditDocumentsContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowReturning",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ShadowReturning.AuditDocument",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.IAuditDocumentWrites"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [
+        {
+          "name": "RemoveAsync",
+          "kind": "Delete",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentChange\u003E\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Revision"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentRequest"
+            }
+          ],
+          "returningPropertyValues": {
+            "permission": "PerCommandIncludeShadowProperties",
+            "capture": "NativeReturnedScalarBuffer",
+            "properties": [
+              {
+                "name": "Id",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false
+              },
+              {
+                "name": "Archived",
+                "type": "global::System.Boolean",
+                "isShadow": true,
+                "isNullable": false
+              },
+              {
+                "name": "NormalizedTitle",
+                "type": "global::System.String",
+                "isShadow": true,
+                "isNullable": false
+              },
+              {
+                "name": "Revision",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false
+              },
+              {
+                "name": "SourceTag",
+                "type": "global::System.String",
+                "isShadow": true,
+                "isNullable": true
+              },
+              {
+                "name": "Title",
+                "type": "global::System.String",
+                "isShadow": false,
+                "isNullable": false
+              },
+              {
+                "name": "TitleLength",
+                "type": "global::System.Int32",
+                "isShadow": true,
+                "isNullable": false
+              }
+            ],
+            "conversions": "ModelClrValuesIncludingShadowNulls",
+            "tracking": "DetachedNoEntryOrSaveChanges",
+            "keys": "ClrOnly",
+            "assignmentTargets": "ClrOnly",
+            "projections": "LiteralExactTypedMappedScalarReadsNoGraphs",
+            "transaction": "MapBeforeCommitOrReleaseSavepoint",
+            "fixtureSimulation": false
+          }
+        },
+        {
+          "name": "RenameAsync",
+          "kind": "Update",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentChange\u003E\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Revision"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.AuditDocumentRequest"
+            }
+          ],
+          "returningPropertyValues": {
+            "permission": "PerCommandIncludeShadowProperties",
+            "capture": "NativeReturnedScalarBuffer",
+            "properties": [
+              {
+                "name": "Id",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false
+              },
+              {
+                "name": "Archived",
+                "type": "global::System.Boolean",
+                "isShadow": true,
+                "isNullable": false
+              },
+              {
+                "name": "NormalizedTitle",
+                "type": "global::System.String",
+                "isShadow": true,
+                "isNullable": false
+              },
+              {
+                "name": "Revision",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false
+              },
+              {
+                "name": "SourceTag",
+                "type": "global::System.String",
+                "isShadow": true,
+                "isNullable": true
+              },
+              {
+                "name": "Title",
+                "type": "global::System.String",
+                "isShadow": false,
+                "isNullable": false
+              },
+              {
+                "name": "TitleLength",
+                "type": "global::System.Int32",
+                "isShadow": true,
+                "isNullable": false
+              }
+            ],
+            "conversions": "ModelClrValuesIncludingShadowNulls",
+            "tracking": "DetachedNoEntryOrSaveChanges",
+            "keys": "ClrOnly",
+            "assignmentTargets": "ClrOnly",
+            "projections": "LiteralExactTypedMappedScalarReadsNoGraphs",
+            "transaction": "MapBeforeCommitOrReleaseSavepoint",
+            "fixtureSimulation": false
+          }
+        }
+      ]
+    }
+  ],
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.ShadowReturning.Persistence"
+}

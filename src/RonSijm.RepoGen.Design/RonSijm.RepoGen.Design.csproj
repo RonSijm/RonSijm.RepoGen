@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\BuildSettings\NuGetVersioning.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>RonSijm.RepoGen.Design</PackageId>
+    <Description>Code-first design-time configuration API for RonSijm.RepoGen repositories.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Example\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <!-- Explicit import AND explicit opt-in. A normal build never overwrites generated code. -->
+    <RepoGenCheckOnBuild Condition="'$(RepoGenCheckOnBuild)' == ''">false</RepoGenCheckOnBuild>
+    <RepoGenCheckWorkingDirectory Condition="'$(RepoGenCheckWorkingDirectory)' == ''">$(MSBuildProjectDirectory)</RepoGenCheckWorkingDirectory>
+  </PropertyGroup>
+  <Target Name="RepoGenCheckGenerated" BeforeTargets="CoreCompile"
+          Condition="'$(RepoGenCheckOnBuild)' == 'true' and '$(DesignTimeBuild)' != 'true'">
+    <Error Condition="'$(RepoGenCheckCommand)' == ''"
+           Text="RGG0005: RepoGenCheckOnBuild requires a RepoGenCheckCommand that runs an independently built generator in --check mode." />
+    <Exec Command="$(RepoGenCheckCommand)" WorkingDirectory="$(RepoGenCheckWorkingDirectory)" />
+  </Target>
+</Project>

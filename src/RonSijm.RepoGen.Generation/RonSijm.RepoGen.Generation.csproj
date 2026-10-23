@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\BuildSettings\NuGetVersioning.props" />
+  <Import Project="..\..\BuildSettings\RepoGen.CliSources.props" />
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <!-- Preserve existing public API namespaces; only the containing assembly changes. -->
+    <RootNamespace>RonSijm.RepoGen.Tool</RootNamespace>
+    <PackageId>RonSijm.RepoGen.Generation</PackageId>
+    <Description>Code-first EF Core repository generation engine shared with the repogen CLI.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../Shared/ReturningPropertyAccess.cs" Link="Internal/ReturningPropertyAccess.cs" />
+    <!-- Linked, not duplicated: keep existing source paths and in-progress edits intact. -->
+    <Compile Include="../RonSijm.RepoGen.Tool/*.cs"
+             Exclude="@(RepoGenCliSource->'../RonSijm.RepoGen.Tool/%(Identity)')"
+             Link="Engine/%(Filename)%(Extension)" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+    <ProjectReference Include="../RonSijm.RepoGen.Design/RonSijm.RepoGen.Design.csproj" />
+  </ItemGroup>
+</Project>

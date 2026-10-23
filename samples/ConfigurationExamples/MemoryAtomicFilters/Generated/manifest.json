@@ -1,0 +1,396 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicFilters.FilteredReservationContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryAtomicFilters",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": "global::RonSijm.RepoGen.Sqlite.SqliteAtomicWriter",
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicFilters.FilteredReservation",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.IFilteredSlotReader"
+      ],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.IFilteredSlotWriter"
+      ],
+      "visibilityPolicies": [
+        "Visible"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "ListAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotView\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicFilters.FilteredReservation"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "ArchivePutAsync",
+          "kind": "InsertOrUpdate",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotView\u003E\u003E",
+          "persistence": "atomicTransaction",
+          "conflictColumns": [
+            "Scope",
+            "Code"
+          ],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "input",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotInput"
+            }
+          ]
+        },
+        {
+          "name": "EnsureAsync",
+          "kind": "InsertIfAbsent",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotView\u003E\u003E",
+          "persistence": "atomicTransaction",
+          "conflictColumns": [
+            "Scope",
+            "Code"
+          ],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "input",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotInput"
+            }
+          ]
+        },
+        {
+          "name": "PutAsync",
+          "kind": "InsertOrUpdate",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotView\u003E\u003E",
+          "persistence": "atomicTransaction",
+          "conflictColumns": [
+            "Scope",
+            "Code"
+          ],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "input",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotInput"
+            }
+          ]
+        },
+        {
+          "name": "StageValueAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "input",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotInput"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicFilters",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicFilters.FilteredReservation",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicFilters.FilteredReservationRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "ArchivePutAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotInput)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotView\u003E\u003E",
+            "script": "OnArchivePutAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar atomic fixture simulation with unfiltered conflicts/insertion, filtered update selection and model-only updated result reads; pending state remains, without graph or provider guarantees. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicFilters.FilteredReservation",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "UnfilteredConflictProbeAndInsertFilteredUpdateBranchOnly",
+              "savedResults": "NoFreshQuery",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarAtomicInsertAndFilteredUpdateReloadNoGraphOrSqlGuarantees",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            },
+            "atomicSimulation": {
+              "optIn": "SimulateImmediateWrites",
+              "conflicts": "DeclaredTargetOverAllSavedRowsOrdinaryStructuralEquality",
+              "visibility": "UpdateBranchOnlyNeverInsertionOrConflictProbe",
+              "assignments": "AllSettersReadOriginalRow",
+              "outcomes": "InsertedUpdatedAlreadyExistsNotMatched",
+              "generatedValues": "ExplicitFactoriesSavedRowsOnlyNoPendingReservations",
+              "preparation": "ValuesFactoriesMappingsAndResultsBeforeCommit",
+              "pendingWrites": "NeitherFlushedNorRefreshed",
+              "transactions": "FixtureCheckpointRollback",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false,
+              "modelFilter": "UpdateSelectionAndUpdatedModelOnlyResultReadBeforeFixtureCommit"
+            }
+          },
+          {
+            "signature": "EnsureAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotInput)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotView\u003E\u003E",
+            "script": "OnEnsureAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar atomic fixture simulation with unfiltered conflicts/insertion, filtered update selection and model-only updated result reads; pending state remains, without graph or provider guarantees. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicFilters.FilteredReservation",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "UnfilteredConflictProbeAndInsertFilteredUpdateBranchOnly",
+              "savedResults": "NoFreshQuery",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarAtomicInsertAndFilteredUpdateReloadNoGraphOrSqlGuarantees",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            },
+            "atomicSimulation": {
+              "optIn": "SimulateImmediateWrites",
+              "conflicts": "DeclaredTargetOverAllSavedRowsOrdinaryStructuralEquality",
+              "visibility": "UpdateBranchOnlyNeverInsertionOrConflictProbe",
+              "assignments": "AllSettersReadOriginalRow",
+              "outcomes": "InsertedUpdatedAlreadyExistsNotMatched",
+              "generatedValues": "ExplicitFactoriesSavedRowsOnlyNoPendingReservations",
+              "preparation": "ValuesFactoriesMappingsAndResultsBeforeCommit",
+              "pendingWrites": "NeitherFlushedNorRefreshed",
+              "transactions": "FixtureCheckpointRollback",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false,
+              "modelFilter": "NoInsertOrConflictFilteringNoUpdatedResultRead"
+            }
+          },
+          {
+            "signature": "ListAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotView\u003E\u003E",
+            "script": "OnListAsync",
+            "status": "Generated",
+            "reason": "Explicit final-model scalar filters on detached read roots before designer visibility/pipelines; context/navigation/write/provider semantics are not inferred. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilters": {
+              "optIn": "UseInMemoryModelQueryFilter",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicFilters.FilteredReservation",
+                  "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+                }
+              ],
+              "application": "BeforeDesignerVisibilityAndQueryPipeline",
+              "bypass": "IgnoreQueryFiltersOnlyNotBypassVisibility",
+              "scope": "RowOnlyReadRootsNoFilteredNavigationGraphsOrWrites",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "PutAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotInput)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotView\u003E\u003E",
+            "script": "OnPutAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar atomic fixture simulation with unfiltered conflicts/insertion, filtered update selection and model-only updated result reads; pending state remains, without graph or provider guarantees. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicFilters.FilteredReservation",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "UnfilteredConflictProbeAndInsertFilteredUpdateBranchOnly",
+              "savedResults": "NoFreshQuery",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarAtomicInsertAndFilteredUpdateReloadNoGraphOrSqlGuarantees",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            },
+            "atomicSimulation": {
+              "optIn": "SimulateImmediateWrites",
+              "conflicts": "DeclaredTargetOverAllSavedRowsOrdinaryStructuralEquality",
+              "visibility": "UpdateBranchOnlyNeverInsertionOrConflictProbe",
+              "assignments": "AllSettersReadOriginalRow",
+              "outcomes": "InsertedUpdatedAlreadyExistsNotMatched",
+              "generatedValues": "ExplicitFactoriesSavedRowsOnlyNoPendingReservations",
+              "preparation": "ValuesFactoriesMappingsAndResultsBeforeCommit",
+              "pendingWrites": "NeitherFlushedNorRefreshed",
+              "transactions": "FixtureCheckpointRollback",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false,
+              "modelFilter": "UpdateSelectionAndUpdatedModelOnlyResultReadBeforeFixtureCommit"
+            }
+          },
+          {
+            "signature": "StageValueAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotInput)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageValueAsync",
+            "status": "Generated",
+            "reason": "Explicit per-command final-model scalar filter on saved selection/fresh result reads, not insertion/shared Save; graph/native/provider semantics remain separate. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicFilters.FilteredReservation",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "SavedRowsBeforeDesignerVisibilityAndPredicates",
+              "savedResults": "NoFreshQuery",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarWritesNoFilteredGraphsNativeReturningOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicFilters.FilteredReservationContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicFilters.FilteredReservationContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryAtomicFilters.FilteredReservation",
+          "property": "FilteredReservationStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotSeed(entity.Id, entity.Scope, entity.Code, entity.Value, entity.Version, entity.Deleted, entity.Hidden)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryAtomicFilters.FilteredSlotSeed(entity.Id, entity.Scope, entity.Code, entity.Value, entity.Version, entity.Deleted, entity.Hidden)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryAtomicFilters.__RepoGenFilteredReservationReadRow",
+            "members": [
+              "Id",
+              "Scope",
+              "Code",
+              "Value",
+              "Version",
+              "Deleted",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true,
+      "atomic": "PerCommandExplicitSavedScalarInsertIfAbsentInsertOrUpdate"
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryAtomicFilters"
+}

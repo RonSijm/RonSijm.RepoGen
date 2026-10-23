@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.VisibilityContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.Visibility",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.IReviewedLibrary"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "CurrentDocuments"
+      ],
+      "loadProfiles": [
+        {
+          "name": "PublicDetail",
+          "paths": [
+            "Owner",
+            "Comments"
+          ]
+        }
+      ],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "GetDetailsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ReviewedDocumentDetails?\u003E",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [
+            "PublicDetail"
+          ],
+          "loading": [
+            {
+              "path": "Owner",
+              "collection": false,
+              "filtered": false
+            },
+            {
+              "path": "Comments",
+              "collection": true,
+              "filtered": true
+            }
+          ],
+          "loadingStrategy": "SplitQuery",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "GetSummariesAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ReviewedDocumentSummary\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Owner",
+              "collection": false,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "GetTrustedHistoryAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ReviewedDocumentSummary\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [
+            {
+              "path": "Owner",
+              "collection": false,
+              "filtered": false
+            }
+          ],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "GetWithoutOwnersAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseOwner"
+          ],
+          "sourceOperators": [
+            "Any",
+            "OrderBy",
+            "Select",
+            "Where"
+          ],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "navigationVisibility": {
+    "requiredByDefault": true,
+    "operations": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument",
+        "operation": "GetDetailsAsync(global::System.Int32)",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument",
+            "navigation": "Comments",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseComment",
+            "policy": "PublicComments",
+            "reviewReason": "The attached profile explicitly loads only public comments.",
+            "reviewScope": "query"
+          },
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument",
+            "navigation": "Owner",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseOwner",
+            "policy": "ActiveOwners",
+            "reviewReason": "The EF global filter protects the loaded owner reference.",
+            "reviewScope": "query"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument",
+        "operation": "GetSummariesAsync()",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument",
+            "navigation": "Owner",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseOwner",
+            "policy": "ActiveOwners",
+            "reviewReason": "The EF global filter protects optional owner navigation on ordinary reads.",
+            "reviewScope": "projection"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument",
+        "operation": "GetTrustedHistoryAsync()",
+        "kind": "query",
+        "required": true,
+        "accesses": [
+          {
+            "declaringEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument",
+            "navigation": "Owner",
+            "targetEntity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseOwner",
+            "policy": "ActiveOwners",
+            "reviewReason": "Trusted historical view deliberately includes inactive owners; current document policy remains active.",
+            "reviewScope": "query"
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Visibility.ShowcaseDocument",
+        "operation": "GetWithoutOwnersAsync()",
+        "kind": "query",
+        "required": true,
+        "accesses": []
+      }
+    ]
+  }
+}

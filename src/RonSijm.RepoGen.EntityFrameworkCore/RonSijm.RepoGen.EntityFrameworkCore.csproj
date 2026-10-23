@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\BuildSettings\NuGetVersioning.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Description>Entity Framework Core integration dependency for RonSijm.RepoGen.</Description>
+    <PackageId>RonSijm.RepoGen.EntityFrameworkCore</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../Shared/ReturningPropertyAccess.cs" Link="Internal/ReturningPropertyAccess.cs" />
+    <ProjectReference Include="../RonSijm.RepoGen/RonSijm.RepoGen.csproj" />
+    <ProjectReference Include="../RonSijm.RepoGen.Abstractions/RonSijm.RepoGen.Abstractions.csproj" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+  </ItemGroup>
+</Project>

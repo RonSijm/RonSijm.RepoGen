@@ -1,0 +1,212 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ShadowVersions.VersionedNotesContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.ShadowVersions",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.ShadowVersions.VersionedNote",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.IVersionedNoteWrites"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "FindAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionView?\u003E",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.ShadowVersions.VersionedNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "SingleOrDefault",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "RenameAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionView\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange"
+            }
+          ]
+        },
+        {
+          "name": "RenameManyAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionView\u003E\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionBatch"
+            }
+          ],
+          "batch": {
+            "item": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange",
+            "key": "Id",
+            "maximumItems": 10,
+            "updates": [
+              "Title",
+              "ChangeCounter"
+            ],
+            "expectedVersions": [
+              "Version"
+            ],
+            "missingItems": "NotFound",
+            "saveScope": "sharedContext",
+            "resultOrder": "input"
+          }
+        },
+        {
+          "name": "RenameNativeAsync",
+          "kind": "Update",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionView\u003E\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.NoteVersionChange"
+            }
+          ],
+          "returningPropertyValues": {
+            "permission": "PerCommandIncludeShadowProperties",
+            "capture": "NativeReturnedScalarBuffer",
+            "properties": [
+              {
+                "name": "Id",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false
+              },
+              {
+                "name": "Archived",
+                "type": "global::System.Boolean",
+                "isShadow": true,
+                "isNullable": false
+              },
+              {
+                "name": "ChangeCounter",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false
+              },
+              {
+                "name": "Title",
+                "type": "global::System.String",
+                "isShadow": false,
+                "isNullable": false
+              },
+              {
+                "name": "Version",
+                "type": "global::System.Int32",
+                "isShadow": true,
+                "isNullable": false
+              }
+            ],
+            "conversions": "ModelClrValuesIncludingShadowNulls",
+            "tracking": "DetachedNoEntryOrSaveChanges",
+            "keys": "ClrOnly",
+            "assignmentTargets": "ClrOnly",
+            "projections": "LiteralExactTypedMappedScalarReadsNoGraphs",
+            "transaction": "MapBeforeCommitOrReleaseSavepoint",
+            "fixtureSimulation": false
+          }
+        }
+      ],
+      "mappedPropertyBindings": {
+        "scope": "DesignTimeMetadataOnlyNoRuntimePropertyNames",
+        "accessors": [],
+        "expectedVersions": [
+          {
+            "operation": "RenameAsync",
+            "scope": "Entity",
+            "name": "Version",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          },
+          {
+            "operation": "RenameManyAsync",
+            "scope": "BatchItem",
+            "name": "Version",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          },
+          {
+            "operation": "RenameNativeAsync",
+            "scope": "Entity",
+            "name": "Version",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          }
+        ],
+        "assignments": "NoneTokenAdvancementMustBeConfiguredSeparately",
+        "fixtures": "ShadowAndNonPublicTokenStateRequiresTypedOverride"
+      }
+    }
+  ],
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.ShadowVersions.Persistence"
+}

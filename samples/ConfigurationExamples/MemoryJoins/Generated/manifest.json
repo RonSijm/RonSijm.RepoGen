@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.OrderReports.OrderReportsContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.OrderReports",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Accounts"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": []
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.IOrderReports"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Orders"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "DirectoryAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount"
+          ],
+          "sourceOperators": [
+            "Select"
+          ],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::System.String",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "IdentifiersAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry"
+          ],
+          "sourceOperators": [
+            "Select",
+            "Union"
+          ],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::System.Int32",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "JoinedAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderAccountRow\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry"
+          ],
+          "sourceOperators": [
+            "Join"
+          ],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderAccountRow",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "LeftJoinedAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderAccountRow\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry"
+          ],
+          "sourceOperators": [
+            "DefaultIfEmpty",
+            "GroupJoin",
+            "SelectMany"
+          ],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderAccountRow",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "StreamAsync",
+          "result": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderAccountRow\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry"
+          ],
+          "sourceOperators": [
+            "Join"
+          ],
+          "terminal": "Stream",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderAccountRow",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "TotalsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.AccountOrderTotal\u003E\u003E",
+          "parameters": [
+            {
+              "name": "criteria",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderReportCriteria"
+            },
+            {
+              "name": "page",
+              "type": "int"
+            },
+            {
+              "name": "pageSize",
+              "type": "int"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry"
+          ],
+          "sourceOperators": [
+            "Join",
+            "Where"
+          ],
+          "terminal": "Paged",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "GroupBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderAccountRow",
+              "conditional": false
+            },
+            {
+              "kind": "Where",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.AccountOrderTotal",
+              "conditional": false
+            },
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.AccountOrderTotal",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 1
+        },
+        {
+          "name": "UnmatchedAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": false,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount",
+            "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry"
+          ],
+          "sourceOperators": [
+            "Any",
+            "Select",
+            "Where"
+          ],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::System.Int32",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.OrderReports",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.OrderReports.DirectoryAccountRepositoryTestDouble",
+        "operations": []
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.OrderReports.OrderEntryRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "DirectoryAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String\u003E\u003E",
+            "script": "OnDirectoryAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "sourceSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount"
+              ],
+              "operators": [
+                "Select"
+              ],
+              "visibility": "EachRootBeforeComposition"
+            }
+          },
+          {
+            "signature": "IdentifiersAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+            "script": "OnIdentifiersAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "sourceSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount"
+              ],
+              "operators": [
+                "Select",
+                "Union"
+              ],
+              "visibility": "EachRootBeforeComposition"
+            }
+          },
+          {
+            "signature": "JoinedAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderAccountRow\u003E\u003E",
+            "script": "OnJoinedAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "sourceSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount"
+              ],
+              "operators": [
+                "Join"
+              ],
+              "visibility": "EachRootBeforeComposition"
+            }
+          },
+          {
+            "signature": "LeftJoinedAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderAccountRow\u003E\u003E",
+            "script": "OnLeftJoinedAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "sourceSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount"
+              ],
+              "operators": [
+                "GroupJoin",
+                "SelectMany"
+              ],
+              "visibility": "EachRootBeforeComposition"
+            }
+          },
+          {
+            "signature": "StreamAsync()",
+            "returns": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderAccountRow\u003E",
+            "script": "OnStreamAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": true,
+            "reasons": [],
+            "sourceSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount"
+              ],
+              "operators": [
+                "Join"
+              ],
+              "visibility": "EachRootBeforeComposition"
+            }
+          },
+          {
+            "signature": "TotalsAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderReportCriteria,global::System.Int32,global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.PagedResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.AccountOrderTotal\u003E\u003E",
+            "script": "OnTotalsAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "sourceSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount"
+              ],
+              "operators": [
+                "Join",
+                "Where"
+              ],
+              "visibility": "EachRootBeforeComposition"
+            }
+          },
+          {
+            "signature": "UnmatchedAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+            "script": "OnUnmatchedAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "sourceSnapshot": {
+              "scope": "ParticipatingStoresInOneContextPartition",
+              "capture": "DetachedCopiesUnderOneContextLock",
+              "roots": [
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry",
+                "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount"
+              ],
+              "operators": [
+                "Any",
+                "Select",
+                "Where"
+              ],
+              "visibility": "EachRootBeforeComposition"
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.OrderReports.OrderReportsContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.OrderReports.OrderReportsContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount",
+          "property": "DirectoryAccountStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount",
+          "shape": "EntityShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.DirectoryAccount() { Id = entity.Id, Name = entity.Name, Region = entity.Region, Hidden = entity.Hidden }",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly"
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry",
+          "property": "OrderEntryStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry",
+          "shape": "EntityShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.OrderReports.OrderEntry() { Id = entity.Id, AccountId = entity.AccountId, Region = entity.Region, Quantity = entity.Quantity, Hidden = entity.Hidden }",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly"
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedParticipatingStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.OrderReports"
+}

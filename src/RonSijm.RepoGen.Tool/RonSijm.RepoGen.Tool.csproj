@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\BuildSettings\NuGetVersioning.props" />
+  <Import Project="..\..\BuildSettings\RepoGen.CliSources.props" />
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <!--
+        Targets the highest TFM this generator needs to load target-project assemblies for.
+        A .NET runtime can load lower-TFM assemblies (net8.0, net9.0, ...) via roll-forward, but not
+        the reverse - loading a net10.0 assembly from a net8.0 host process fails outright. Keeping
+        this generator on the newest supported TFM avoids that failure for consumers on newer TFMs.
+    -->
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>RonSijm.RepoGen.Tool</AssemblyName>
+    <RootNamespace>RonSijm.RepoGen.Tool</RootNamespace>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>repogen</ToolCommandName>
+    <PackageId>RonSijm.RepoGen.Tool</PackageId>
+    <Description>Design-time EF Core repository generator for RonSijm.RepoGen.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="*.cs" />
+    <Compile Include="@(RepoGenCliSource)" />
+    <ProjectReference Include="../RonSijm.RepoGen.Generation/RonSijm.RepoGen.Generation.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RonSijm.RepoGen.Design\RonSijm.RepoGen.Design.csproj" />
+  </ItemGroup>
+</Project>

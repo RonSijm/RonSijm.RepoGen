@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryModelDefaults.DefaultSettingsContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryModelDefaults",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryModelDefaults.StoredDefaultSetting",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.IDefaultSettingReader"
+      ],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.IDefaultSettingWriter"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "RowsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryModelDefaults.StoredDefaultSetting"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "CreateAsync",
+          "kind": "Create",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed"
+            }
+          ]
+        },
+        {
+          "name": "CreateManyAsync",
+          "kind": "Create",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed\u003E\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "requests",
+              "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed\u003E"
+            }
+          ],
+          "createMany": {
+            "item": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed",
+            "maximumItems": 4,
+            "preparation": "AllMappedRowsBeforeAnyStaging",
+            "emptyInput": "NoChangesBeforeContextAcquisition",
+            "saveScope": "sharedContext",
+            "resultOrder": "input",
+            "matchingKeyRequired": false,
+            "nativeBulkInsert": false,
+            "graphInsertion": false
+          }
+        },
+        {
+          "name": "ResetCreditsAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ]
+        },
+        {
+          "name": "StageAsync",
+          "kind": "Create",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryModelDefaults",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryModelDefaults.StoredDefaultSetting",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryModelDefaults.StoredDefaultSettingRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "CreateAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed\u003E\u003E",
+            "script": "OnCreateAsync",
+            "status": "Generated",
+            "reason": "Explicit saved-state result query after shared save; detached declared relationships, projection-owned related visibility, no atomic returning/provider guarantees.",
+            "stream": false,
+            "reasons": [],
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "CreateManyAsync(global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed\u003E)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed\u003E\u003E\u003E",
+            "script": "OnCreateManyAsync",
+            "status": "Generated",
+            "reason": "Explicit saved-state result query after shared save; detached declared relationships, projection-owned related visibility, no atomic returning/provider guarantees.",
+            "stream": false,
+            "reasons": [],
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated",
+              "batchOrder": "OneResultPerInputInInputOrder",
+              "batchCapture": "OneCoordinatedSnapshotForAllSavedInputKeys"
+            }
+          },
+          {
+            "signature": "ResetCreditsAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnResetCreditsAsync",
+            "status": "Generated",
+            "reason": "Portable staged/shared-save fixture write; scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          },
+          {
+            "signature": "RowsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed\u003E\u003E",
+            "script": "OnRowsAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          },
+          {
+            "signature": "StageAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageAsync",
+            "status": "Generated",
+            "reason": "Portable staged/shared-save fixture write; scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryModelDefaults.DefaultSettingsContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryModelDefaults.DefaultSettingsContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryModelDefaults.StoredDefaultSetting",
+          "property": "StoredDefaultSettingStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed(entity.Id, entity.Credits, entity.Enabled, entity.Level, entity.Origin)",
+          "generatedValues": "ExplicitFactoriesAndOptedInModelConstants",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "valueAdapters": {
+            "properties": [
+              {
+                "property": "Credits",
+                "onCreate": true,
+                "onUpdate": false,
+                "insertCondition": "global::RonSijm.RepoGen.Testing.InMemoryValueEquality.AreEqual(__repoGenEntity.Credits, (global::System.Int32)(-1))",
+                "source": "5"
+              },
+              {
+                "property": "Enabled",
+                "onCreate": true,
+                "onUpdate": false,
+                "insertCondition": "global::RonSijm.RepoGen.Testing.InMemoryValueEquality.AreEqual(__repoGenEntity.Enabled, (global::System.Boolean)(true))",
+                "source": "true"
+              },
+              {
+                "property": "Level",
+                "onCreate": true,
+                "onUpdate": false,
+                "insertCondition": "global::RonSijm.RepoGen.Testing.InMemoryValueEquality.AreEqual(__repoGenEntity.Level, (global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingLevel)((global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingLevel)(99)))",
+                "source": "(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingLevel)(1)"
+              },
+              {
+                "property": "Origin",
+                "onCreate": true,
+                "onUpdate": false,
+                "insertCondition": "global::RonSijm.RepoGen.Testing.InMemoryValueEquality.AreEqual(__repoGenEntity.Origin, default(global::System.String))",
+                "source": "\u0022model\u0022"
+              }
+            ],
+            "allocation": "DetachedSavedAndReservedRowsBeforeStage",
+            "updates": "AtomicSavePreparationOnly",
+            "resets": "RowDerivedFactoriesNoExternalCounterReset",
+            "relationalEquivalence": false
+          },
+          "insertPolicies": {
+            "modelDefaults": "OptInConstantInsertOnlyNotSqlIdentityComputedOrConstraints",
+            "ordering": "ExplicitFactoriesInDeclarationOrderThenModelConstantsByPropertyName",
+            "properties": [
+              {
+                "property": "Credits",
+                "modelDefault": "5",
+                "sentinel": "(global::System.Int32)(-1)"
+              },
+              {
+                "property": "Enabled",
+                "modelDefault": "true",
+                "sentinel": "(global::System.Boolean)(true)"
+              },
+              {
+                "property": "Level",
+                "modelDefault": "(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingLevel)(1)",
+                "sentinel": "(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingLevel)((global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingLevel)(99))"
+              },
+              {
+                "property": "Origin",
+                "modelDefault": "\u0022model\u0022",
+                "sentinel": null
+              }
+            ],
+            "suppliedValues": "PreserveUnlessEqualToModelSentinel",
+            "saving": "NoDefaultOnUpdateOrSeed",
+            "relationalEquivalence": false
+          },
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryModelDefaults.DefaultSettingSeed(entity.Id, entity.Credits, entity.Enabled, entity.Level, entity.Origin)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryModelDefaults.__RepoGenStoredDefaultSettingReadRow",
+            "members": [
+              "Id",
+              "Credits",
+              "Enabled",
+              "Level",
+              "Origin"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": false
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryModelDefaults"
+}

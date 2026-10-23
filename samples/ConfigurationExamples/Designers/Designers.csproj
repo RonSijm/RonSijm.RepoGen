@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>RonSijm.RepoGen.ConfigurationExamples.Designers</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Inputs live with the example that owns them, not in this build-support folder. -->
+    <Compile Include="../*/Configuration/*.cs" Link="%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Models/Models.csproj" />
+    <ProjectReference Include="../Contracts/Contracts.csproj" />
+    <ProjectReference Include="../../../src/RonSijm.RepoGen.Design/RonSijm.RepoGen.Design.csproj" />
+    <ProjectReference Include="../../../src/RonSijm.RepoGen.Testing/RonSijm.RepoGen.Testing.csproj" />
+    <ProjectReference Include="../../../src/RonSijm.RepoGen.Sqlite/RonSijm.RepoGen.Sqlite.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedReturning.CapturedNotesContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MappedReturning",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MappedReturning.CapturedNote",
+      "readEnabled": false,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ICapturedNoteWrites"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [
+        {
+          "name": "RemoveAsync",
+          "kind": "Delete",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.CapturedNoteChange\u003E\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CapturedNoteRequest"
+            }
+          ],
+          "returningPropertyValues": {
+            "permission": "PerCommandIncludeMappedProperties",
+            "capture": "NativeReturnedScalarBuffer",
+            "properties": [
+              {
+                "name": "Id",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false,
+                "accessKind": "FieldBacked"
+              },
+              {
+                "name": "Archived",
+                "type": "global::System.Boolean",
+                "isShadow": true,
+                "isNullable": false,
+                "accessKind": "Shadow"
+              },
+              {
+                "name": "ChangeCounter",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false,
+                "accessKind": "FieldBacked"
+              },
+              {
+                "name": "NormalizedTitle",
+                "type": "global::System.String",
+                "isShadow": false,
+                "isNullable": false,
+                "accessKind": "FieldBacked"
+              },
+              {
+                "name": "SourceTag",
+                "type": "global::System.String",
+                "isShadow": false,
+                "isNullable": true,
+                "accessKind": "Indexer"
+              },
+              {
+                "name": "Title",
+                "type": "global::System.String",
+                "isShadow": false,
+                "isNullable": false,
+                "accessKind": "FieldBacked"
+              },
+              {
+                "name": "version",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false,
+                "accessKind": "FieldOnly"
+              }
+            ],
+            "conversions": "ModelClrValuesIncludingFieldIndexerAndShadowNulls",
+            "tracking": "DetachedNoEntryOrSaveChanges",
+            "keys": "ClrOnly",
+            "assignmentTargets": "ClrOnly",
+            "projections": "LiteralExactTypedMappedScalarReadsNoGraphs",
+            "transaction": "MapBeforeCommitOrReleaseSavepoint",
+            "fixtureSimulation": false,
+            "materialization": "EfConfiguredWritableMemberNoTrackerEntry",
+            "memberReads": "MappedScalarBufferNotEntityGetterBehavior"
+          }
+        },
+        {
+          "name": "RenameAsync",
+          "kind": "Update",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.MutationResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.CapturedNoteChange\u003E\u003E",
+          "persistence": "setBased",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CapturedNoteRequest"
+            }
+          ],
+          "returningPropertyValues": {
+            "permission": "PerCommandIncludeMappedProperties",
+            "capture": "NativeReturnedScalarBuffer",
+            "properties": [
+              {
+                "name": "Id",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false,
+                "accessKind": "FieldBacked"
+              },
+              {
+                "name": "Archived",
+                "type": "global::System.Boolean",
+                "isShadow": true,
+                "isNullable": false,
+                "accessKind": "Shadow"
+              },
+              {
+                "name": "ChangeCounter",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false,
+                "accessKind": "FieldBacked"
+              },
+              {
+                "name": "NormalizedTitle",
+                "type": "global::System.String",
+                "isShadow": false,
+                "isNullable": false,
+                "accessKind": "FieldBacked"
+              },
+              {
+                "name": "SourceTag",
+                "type": "global::System.String",
+                "isShadow": false,
+                "isNullable": true,
+                "accessKind": "Indexer"
+              },
+              {
+                "name": "Title",
+                "type": "global::System.String",
+                "isShadow": false,
+                "isNullable": false,
+                "accessKind": "FieldBacked"
+              },
+              {
+                "name": "version",
+                "type": "global::System.Int32",
+                "isShadow": false,
+                "isNullable": false,
+                "accessKind": "FieldOnly"
+              }
+            ],
+            "conversions": "ModelClrValuesIncludingFieldIndexerAndShadowNulls",
+            "tracking": "DetachedNoEntryOrSaveChanges",
+            "keys": "ClrOnly",
+            "assignmentTargets": "ClrOnly",
+            "projections": "LiteralExactTypedMappedScalarReadsNoGraphs",
+            "transaction": "MapBeforeCommitOrReleaseSavepoint",
+            "fixtureSimulation": false,
+            "materialization": "EfConfiguredWritableMemberNoTrackerEntry",
+            "memberReads": "MappedScalarBufferNotEntityGetterBehavior"
+          }
+        }
+      ],
+      "mappedPropertyBindings": {
+        "scope": "DesignTimeMetadataOnlyNoRuntimePropertyNames",
+        "accessors": [],
+        "expectedVersions": [
+          {
+            "operation": "RemoveAsync",
+            "scope": "Entity",
+            "name": "version",
+            "modelType": "global::System.Int32",
+            "shadow": false
+          },
+          {
+            "operation": "RenameAsync",
+            "scope": "Entity",
+            "name": "version",
+            "modelType": "global::System.Int32",
+            "shadow": false
+          }
+        ],
+        "assignments": "NoneTokenAdvancementMustBeConfiguredSeparately",
+        "fixtures": "ShadowAndNonPublicTokenStateRequiresTypedOverride"
+      }
+    }
+  ],
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.MappedReturning.Persistence"
+}

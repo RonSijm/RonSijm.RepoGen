@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Collections.CollectionsContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.Collections",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Collections.Checklist",
+      "readEnabled": false,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [
+        {
+          "name": "MergeItemsAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Collections.SaveChecklistItemsRequest"
+            }
+          ],
+          "collections": [
+            {
+              "navigation": "Items",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Collections.ChecklistItem",
+              "key": "child.Key",
+              "maximumItems": 100,
+              "missingItems": "Keep",
+              "add": false,
+              "updates": [
+                "Text"
+              ],
+              "expectedVersions": [],
+              "conditional": false,
+              "visibilityPolicies": 0,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.Collections.ChecklistItem"
+            }
+          ]
+        },
+        {
+          "name": "SaveItemsAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.Collections.ChecklistView\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Collections.SaveChecklistItemsRequest"
+            }
+          ],
+          "collections": [
+            {
+              "navigation": "Items",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Collections.ChecklistItem",
+              "key": "child.Key",
+              "maximumItems": 100,
+              "missingItems": "Delete",
+              "add": true,
+              "updates": [
+                "Text"
+              ],
+              "expectedVersions": [],
+              "conditional": false,
+              "visibilityPolicies": 0,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.Collections.ChecklistItem"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

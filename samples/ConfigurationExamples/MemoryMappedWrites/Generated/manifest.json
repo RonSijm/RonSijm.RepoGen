@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedWrites.RevisionNotebookContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryMappedWrites",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedWrites.RevisionNote",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.IRevisionNoteReader"
+      ],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.IRevisionNoteWriter"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "ListAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.RevisionCard\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedWrites.RevisionNote"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "RenameAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.RevisionCard\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Revision"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.RevisionChange"
+            }
+          ]
+        },
+        {
+          "name": "StageRenameAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Revision"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.RevisionChange"
+            }
+          ]
+        }
+      ],
+      "mappedPropertyBindings": {
+        "scope": "DesignTimeMetadataOnlyNoRuntimePropertyNames",
+        "accessors": [],
+        "expectedVersions": [
+          {
+            "operation": "RenameAsync",
+            "scope": "Entity",
+            "name": "Revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          },
+          {
+            "operation": "StageRenameAsync",
+            "scope": "Entity",
+            "name": "Revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          }
+        ],
+        "assignments": "NoneTokenAdvancementMustBeConfiguredSeparately",
+        "fixtures": "SeePerOperationMappedScalarStateCoverageOrTypedOverride"
+      }
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedWrites",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedWrites.RevisionNote",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedWrites.RevisionNoteRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "ListAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.RevisionCard\u003E\u003E",
+            "script": "OnListAsync",
+            "status": "Generated",
+            "reason": "Explicit typed mapped scalar values from public fixture data on detached read rows; filter/graph permissions remain independent, without tracked state or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "propertyReads": {
+              "optIn": "MapInMemoryProperty",
+              "reads": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedWrites.RevisionNote",
+                  "PropertyName": "Revision",
+                  "TypeName": "global::System.Int32",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ExplicitTypedPropertyValuesNotTrackedState",
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "RenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.RevisionChange)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.RevisionCard\u003E\u003E",
+            "script": "OnRenameAsync",
+            "status": "Generated",
+            "reason": "Explicit typed mapped scalar fixture state with full round-trip validation and explicit expected-version/factory semantics; ordinary identity, graph and provider boundaries remain. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "Revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ScalarFixtureStateAndExplicitExpectedVersionsOnly",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "providerEquivalence": false
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "StageRenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.RevisionChange)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageRenameAsync",
+            "status": "Generated",
+            "reason": "Explicit typed mapped scalar fixture state with full round-trip validation and explicit expected-version/factory semantics; ordinary identity, graph and provider boundaries remain. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "Revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ScalarFixtureStateAndExplicitExpectedVersionsOnly",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "providerEquivalence": false
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedWrites.RevisionNotebookContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedWrites.RevisionNotebookContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedWrites.RevisionNote",
+          "property": "RevisionNoteStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.RevisionSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.RevisionSeed(entity.Id, entity.Title, entity.Counter, entity.Revision)",
+          "generatedValues": "ExplicitDesignerFactories",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "valueAdapters": {
+            "properties": [
+              {
+                "property": "Revision",
+                "onCreate": true,
+                "onUpdate": true,
+                "insertCondition": "true",
+                "source": "(__repoGenEntity.Counter \u002B 1)"
+              }
+            ],
+            "allocation": "DetachedSavedAndReservedRowsBeforeStage",
+            "updates": "AtomicSavePreparationOnly",
+            "resets": "RowDerivedFactoriesNoExternalCounterReset",
+            "relationalEquivalence": false
+          },
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedWrites.RevisionSeed(entity.Id, entity.Title, entity.Counter, entity.__repoGenProperty0)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false,
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "Revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "DetachedScalarFixtureStateAndExplicitExpectedVersions",
+              "identity": "OrdinaryExplicitPrimaryForeignAndUniqueKeysOnly",
+              "validation": "FullStructuralRoundTripBeforeSharedCommit",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "efTracker": "NotSimulated",
+              "graphWrites": "NotEnabled",
+              "providerEquivalence": false
+            }
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedWrites.__RepoGenRevisionNoteReadRow",
+            "members": [
+              "Id",
+              "Title",
+              "Counter",
+              "__repoGenProperty0"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "propertyMappings": {
+              "optIn": "MapInMemoryProperty",
+              "properties": [
+                {
+                  "PropertyName": "Revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "application": "DetachedReadAndExplicitScalarFixtureWriteRows",
+              "trackedState": "NotSimulated",
+              "providerGuarantees": "NotSimulated"
+            }
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryMappedWrites"
+}

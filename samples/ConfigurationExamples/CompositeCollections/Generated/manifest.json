@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.TranslationCatalogContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.CompositeCollections",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.LocalizedDocument",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [
+        {
+          "name": "SaveTranslationsAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Int32\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.TranslationChange"
+            }
+          ],
+          "collections": [
+            {
+              "navigation": "Texts",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.LocalizedText",
+              "key": "global::RonSijm.RepoGen.Abstractions.RepositoryCollectionKeys.Require(new global::System.ValueTuple\u003Cglobal::System.String, global::System.String\u003E(child.Code, child.Locale))",
+              "maximumItems": 5,
+              "missingItems": "Delete",
+              "add": true,
+              "updates": [
+                "Text",
+                "Version"
+              ],
+              "expectedVersions": [
+                "Version"
+              ],
+              "conditional": false,
+              "visibilityPolicies": 1,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.LocalizedText",
+              "compositeMatchingKey": {
+                "properties": [
+                  "Code",
+                  "Locale"
+                ],
+                "equality": "DefaultClrValueTuple",
+                "nullComponents": "RejectBeforeMutation",
+                "scope": "SelectedOwnerVisibleChildren",
+                "mutable": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "StageTranslationsAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Version"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.TranslationChange"
+            }
+          ],
+          "collections": [
+            {
+              "navigation": "Texts",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.LocalizedText",
+              "key": "global::RonSijm.RepoGen.Abstractions.RepositoryCollectionKeys.Require(new global::System.ValueTuple\u003Cglobal::System.String, global::System.String\u003E(child.Code, child.Locale))",
+              "maximumItems": 5,
+              "missingItems": "Delete",
+              "add": true,
+              "updates": [
+                "Text",
+                "Version"
+              ],
+              "expectedVersions": [
+                "Version"
+              ],
+              "conditional": false,
+              "visibilityPolicies": 1,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.LocalizedText",
+              "compositeMatchingKey": {
+                "properties": [
+                  "Code",
+                  "Locale"
+                ],
+                "equality": "DefaultClrValueTuple",
+                "nullComponents": "RejectBeforeMutation",
+                "scope": "SelectedOwnerVisibleChildren",
+                "mutable": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.LocalizedText",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Visible"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "ListTranslationsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.TranslationView\u003E\u003E",
+          "parameters": [
+            {
+              "name": "address",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.TranslationAddress"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.LocalizedText"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.CompositeCollections",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.LocalizedDocument",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.CompositeCollections.LocalizedDocumentRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "SaveTranslationsAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.TranslationChange)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Int32\u003E\u003E",
+            "script": "OnSaveTranslationsAsync",
+            "status": "Generated",
+            "reason": "Explicit bounded child-store reconciliation; mapped ownership, scalar writes, shared Stage/Save, no entity-graph or provider guarantees.",
+            "stream": false,
+            "reasons": [],
+            "collectionSimulation": {
+              "optIn": "SimulateCollectionWrites",
+              "targets": "OwnerScopedVisibleSavedChildren",
+              "ownership": "CompleteMappedPrincipalToForeignKeysNeverInput",
+              "matching": "DefaultClrEquality",
+              "collections": [
+                {
+                  "navigation": "Texts",
+                  "childStore": "__RepoGenLocalizedTextWrites",
+                  "maximumItems": 5,
+                  "missingItems": "Delete",
+                  "additions": true,
+                  "updates": true,
+                  "conditional": false
+                }
+              ],
+              "pendingTargets": "RejectOwnerScopedModifiedAddedDeletedChildrenIncludingHidden",
+              "saving": "SharedUnitOfWorkIncludesUnrelatedPendingWrites",
+              "rollback": "RestoreCommandOnlyBeforeSaveCheckpointForSavedRows",
+              "results": "SavedScalarParentProjectionOnly",
+              "entityGraphs": "NotPersistedOrInferred",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            }
+          },
+          {
+            "signature": "StageTranslationsAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.TranslationChange)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageTranslationsAsync",
+            "status": "Generated",
+            "reason": "Explicit bounded child-store reconciliation; mapped ownership, scalar writes, shared Stage/Save, no entity-graph or provider guarantees.",
+            "stream": false,
+            "reasons": [],
+            "collectionSimulation": {
+              "optIn": "SimulateCollectionWrites",
+              "targets": "OwnerScopedVisibleSavedChildren",
+              "ownership": "CompleteMappedPrincipalToForeignKeysNeverInput",
+              "matching": "DefaultClrEquality",
+              "collections": [
+                {
+                  "navigation": "Texts",
+                  "childStore": "__RepoGenLocalizedTextWrites",
+                  "maximumItems": 5,
+                  "missingItems": "Delete",
+                  "additions": true,
+                  "updates": true,
+                  "conditional": false
+                }
+              ],
+              "pendingTargets": "RejectOwnerScopedModifiedAddedDeletedChildrenIncludingHidden",
+              "saving": "SharedUnitOfWorkIncludesUnrelatedPendingWrites",
+              "rollback": "RestoreCommandOnlyBeforeSaveCheckpointForSavedRows",
+              "results": "SavedScalarParentProjectionOnly",
+              "entityGraphs": "NotPersistedOrInferred",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false
+            }
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.LocalizedText",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.CompositeCollections.LocalizedTextRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "ListTranslationsAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.TranslationAddress)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.TranslationView\u003E\u003E",
+            "script": "OnListTranslationsAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.CompositeCollections.TranslationCatalogContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.CompositeCollections.TranslationCatalogContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.LocalizedDocument",
+          "property": "LocalizedDocumentStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.DocumentSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E",
+          "keySource": "static entity =\u003E new global::System.ValueTuple\u003Cglobal::System.Int32, global::System.Int32\u003E(entity.TenantId, entity.Id)",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.DocumentSeed(entity.TenantId, entity.Id, entity.Version)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.DocumentSeed(entity.TenantId, entity.Id, entity.Version)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.CompositeCollections.__RepoGenLocalizedDocumentReadRow",
+            "members": [
+              "TenantId",
+              "Id",
+              "Version"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.CompositeCollections.LocalizedText",
+          "property": "LocalizedTextStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.TranslationSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.TranslationSeed(entity.Id, entity.TenantId, entity.DocumentId, entity.Code, entity.Locale, entity.Text, entity.Version, entity.Hidden)",
+          "generatedValues": "ExplicitDesignerFactories",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "valueAdapters": {
+            "properties": [
+              {
+                "property": "Id",
+                "onCreate": true,
+                "onUpdate": false,
+                "insertCondition": "global::RonSijm.RepoGen.Testing.InMemoryValueEquality.AreEqual(__repoGenEntity.Id, default(global::System.Int32))",
+                "source": "checked((global::System.Linq.Enumerable.Max(global::System.Linq.Enumerable.DefaultIfEmpty(global::System.Linq.Enumerable.Select(__repoGenRows, __repoGenNested2 =\u003E __repoGenNested2.Id))) \u002B 1))"
+              }
+            ],
+            "allocation": "DetachedSavedAndReservedRowsBeforeStage",
+            "updates": "AtomicSavePreparationOnly",
+            "resets": "RowDerivedFactoriesNoExternalCounterReset",
+            "relationalEquivalence": false
+          },
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CompositeCollections.TranslationSeed(entity.Id, entity.TenantId, entity.DocumentId, entity.Code, entity.Locale, entity.Text, entity.Version, entity.Hidden)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.CompositeCollections.__RepoGenLocalizedTextReadRow",
+            "members": [
+              "Id",
+              "TenantId",
+              "DocumentId",
+              "Code",
+              "Locale",
+              "Text",
+              "Version",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true,
+      "collections": "PerCommandExplicitBoundedOwnerScopedLeafChildStores"
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.CompositeCollections"
+}

@@ -1,0 +1,668 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.SavedShelfContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemorySavedFilters",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.ISavedEntryReader"
+      ],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.ISavedEntryWriter"
+      ],
+      "visibilityPolicies": [
+        "Visible"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "AllAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntrySeed\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [
+            "Visible"
+          ],
+          "inputValidations": 0
+        }
+      ],
+      "commands": [
+        {
+          "name": "ArchiveAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryCard\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ]
+        },
+        {
+          "name": "CreateAsync",
+          "kind": "Create",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryCard\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "input",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryInput"
+            }
+          ]
+        },
+        {
+          "name": "CreateManyAsync",
+          "kind": "Create",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryCard\u003E\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "inputs",
+              "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryInput\u003E"
+            }
+          ],
+          "createMany": {
+            "item": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryInput",
+            "maximumItems": 3,
+            "preparation": "AllMappedRowsBeforeAnyStaging",
+            "emptyInput": "NoChangesBeforeContextAcquisition",
+            "saveScope": "sharedContext",
+            "resultOrder": "input",
+            "matchingKeyRequired": false,
+            "nativeBulkInsert": false,
+            "graphInsertion": false
+          }
+        },
+        {
+          "name": "RenameAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryCard\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "input",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryInput"
+            }
+          ]
+        },
+        {
+          "name": "RenameManyAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryCard\u003E\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "inputs",
+              "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryInput\u003E"
+            }
+          ],
+          "batch": {
+            "item": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryInput",
+            "key": "Id",
+            "maximumItems": 3,
+            "updates": [
+              "Title"
+            ],
+            "expectedVersions": [],
+            "missingItems": "NotFound",
+            "saveScope": "sharedContext",
+            "resultOrder": "input"
+          }
+        }
+      ]
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf",
+      "readEnabled": false,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.ISavedShelfWriter"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [
+        {
+          "name": "StageArchiveAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "id",
+              "type": "global::System.Int32"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySavedFilters",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySavedFilters.StoredSavedEntryRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "AllAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntrySeed\u003E\u003E",
+            "script": "OnAllAsync",
+            "status": "Generated",
+            "reason": "Portable detached fixture read; explicit scripts override generated behavior.",
+            "stream": false,
+            "reasons": []
+          },
+          {
+            "signature": "ArchiveAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryCard\u003E\u003E",
+            "script": "OnArchiveAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar command selection and filtered ordinary saved DTO graphs after shared Save; related graph permissions and local null guards remain, without graph mutations or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "SavedRowsBeforeDesignerVisibilityAndPredicates",
+              "savedResults": "ReappliedToFreshSavedRows",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarWritesAndFilteredSavedReadsNoGraphMutationsNativeReturningOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedModelQueryFilters": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+                  "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                }
+              ],
+              "relatedOptIn": "PerEntityUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "application": "AfterSharedSaveBeforeNavigationLoadingAndResultVisibility",
+              "rootReadPermission": "CommandOwnedNotInheritedFromEntityReads",
+              "mutations": "ScalarOnlyNoFilteredReconciliationOrGraphPersistence",
+              "missingResults": "PostSaveFailureNeverSilentlyShortenBatches",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry.Shelf",
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf.Entries"
+              ],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "CreateAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryInput)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryCard\u003E\u003E",
+            "script": "OnCreateAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar command selection and filtered ordinary saved DTO graphs after shared Save; related graph permissions and local null guards remain, without graph mutations or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "NoInsertFilter",
+              "savedResults": "ReappliedToFreshSavedRows",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarWritesAndFilteredSavedReadsNoGraphMutationsNativeReturningOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedModelQueryFilters": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+                  "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                }
+              ],
+              "relatedOptIn": "PerEntityUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "application": "AfterSharedSaveBeforeNavigationLoadingAndResultVisibility",
+              "rootReadPermission": "CommandOwnedNotInheritedFromEntityReads",
+              "mutations": "ScalarOnlyNoFilteredReconciliationOrGraphPersistence",
+              "missingResults": "PostSaveFailureNeverSilentlyShortenBatches",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry.Shelf",
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf.Entries"
+              ],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "CreateManyAsync(global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryInput\u003E)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryCard\u003E\u003E\u003E",
+            "script": "OnCreateManyAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar command selection and filtered ordinary saved DTO graphs after shared Save; related graph permissions and local null guards remain, without graph mutations or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "NoInsertFilter",
+              "savedResults": "ReappliedToFreshSavedRows",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarWritesAndFilteredSavedReadsNoGraphMutationsNativeReturningOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedModelQueryFilters": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+                  "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                }
+              ],
+              "relatedOptIn": "PerEntityUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "application": "AfterSharedSaveBeforeNavigationLoadingAndResultVisibility",
+              "rootReadPermission": "CommandOwnedNotInheritedFromEntityReads",
+              "mutations": "ScalarOnlyNoFilteredReconciliationOrGraphPersistence",
+              "missingResults": "PostSaveFailureNeverSilentlyShortenBatches",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry.Shelf",
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf.Entries"
+              ],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated",
+              "batchOrder": "OneResultPerInputInInputOrder",
+              "batchCapture": "OneCoordinatedSnapshotForAllSavedInputKeys"
+            }
+          },
+          {
+            "signature": "RenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryInput)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryCard\u003E\u003E",
+            "script": "OnRenameAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar command selection and filtered ordinary saved DTO graphs after shared Save; related graph permissions and local null guards remain, without graph mutations or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "SavedRowsBeforeDesignerVisibilityAndPredicates",
+              "savedResults": "ReappliedToFreshSavedRows",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarWritesAndFilteredSavedReadsNoGraphMutationsNativeReturningOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedModelQueryFilters": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+                  "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                }
+              ],
+              "relatedOptIn": "PerEntityUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "application": "AfterSharedSaveBeforeNavigationLoadingAndResultVisibility",
+              "rootReadPermission": "CommandOwnedNotInheritedFromEntityReads",
+              "mutations": "ScalarOnlyNoFilteredReconciliationOrGraphPersistence",
+              "missingResults": "PostSaveFailureNeverSilentlyShortenBatches",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry.Shelf",
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf.Entries"
+              ],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "RenameManyAsync(global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryInput\u003E)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntryCard\u003E\u003E\u003E",
+            "script": "OnRenameManyAsync",
+            "status": "Generated",
+            "reason": "Explicit scalar command selection and filtered ordinary saved DTO graphs after shared Save; related graph permissions and local null guards remain, without graph mutations or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+                "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+              },
+              "selection": "SavedRowsBeforeDesignerVisibilityAndPredicates",
+              "savedResults": "ReappliedToFreshSavedRows",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarWritesAndFilteredSavedReadsNoGraphMutationsNativeReturningOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedModelQueryFilters": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "roots": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+                  "PredicateSource": "static entity =\u003E !(entity.Deleted)"
+                },
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf",
+                  "PredicateSource": "static entity =\u003E !(entity.Archived)"
+                }
+              ],
+              "relatedOptIn": "PerEntityUseInMemoryModelQueryFilter(includeNavigations: true)",
+              "application": "AfterSharedSaveBeforeNavigationLoadingAndResultVisibility",
+              "rootReadPermission": "CommandOwnedNotInheritedFromEntityReads",
+              "mutations": "ScalarOnlyNoFilteredReconciliationOrGraphPersistence",
+              "missingResults": "PostSaveFailureNeverSilentlyShortenBatches",
+              "providerGuarantees": "NotSimulated"
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry.Shelf",
+                "RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf.Entries"
+              ],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated",
+              "batchOrder": "OneResultPerInputInInputOrder",
+              "batchCapture": "OneCoordinatedSnapshotForAllSavedInputKeys"
+            }
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySavedFilters.StoredSavedShelfRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "StageArchiveAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageArchiveAsync",
+            "status": "Generated",
+            "reason": "Explicit per-command final-model scalar filter on saved selection/fresh result reads, not insertion/shared Save; graph/native/provider semantics remain separate. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "modelQueryFilter": {
+              "optIn": "PerCommandUseInMemoryModelQueryFilter",
+              "root": {
+                "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf",
+                "PredicateSource": "static entity =\u003E !(entity.Archived)"
+              },
+              "selection": "SavedRowsBeforeDesignerVisibilityAndPredicates",
+              "savedResults": "NoFreshQuery",
+              "bypass": "DesignerVisibilityBypassDoesNotBypassModelFilter",
+              "saving": "SharedSaveDoesNotRecheckQueryFilter",
+              "scope": "ScalarWritesNoFilteredGraphsNativeReturningOrUpsert",
+              "capturedContext": "NotEvaluated",
+              "providerGuarantees": "NotSimulated"
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySavedFilters.SavedShelfContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySavedFilters.SavedShelfContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedEntry",
+          "property": "StoredSavedEntryStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntrySeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntrySeed(entity.Id, entity.ShelfId, entity.Title, entity.Deleted, entity.Hidden)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedEntrySeed(entity.Id, entity.ShelfId, entity.Title, entity.Deleted, entity.Hidden)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySavedFilters.__RepoGenStoredSavedEntryReadRow",
+            "members": [
+              "Id",
+              "ShelfId",
+              "Title",
+              "Deleted",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Shelf",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySavedFilters.__RepoGenStoredSavedShelfReadRow",
+                "collection": false,
+                "required": false
+              }
+            ]
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemorySavedFilters.StoredSavedShelf",
+          "property": "StoredSavedShelfStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedShelfSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedShelfSeed(entity.Id, entity.Archived)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemorySavedFilters.SavedShelfSeed(entity.Id, entity.Archived)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySavedFilters.__RepoGenStoredSavedShelfReadRow",
+            "members": [
+              "Id",
+              "Archived"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "navigationSlots": [
+              {
+                "name": "Entries",
+                "targetReadRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemorySavedFilters.__RepoGenStoredSavedEntryReadRow",
+                "collection": true,
+                "required": false
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemorySavedFilters"
+}

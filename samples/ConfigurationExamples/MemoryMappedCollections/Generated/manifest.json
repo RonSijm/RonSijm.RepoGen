@@ -1,0 +1,618 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklistContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryMappedCollections",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklist",
+      "readEnabled": false,
+      "writeEnabled": true,
+      "readPorts": [],
+      "writePorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.IVersionedChecklistWriter"
+      ],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [],
+      "commands": [
+        {
+          "name": "ReplaceAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Int32\u003E\u003E",
+          "persistence": "save",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Revision"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedChecklistChange"
+            }
+          ],
+          "collections": [
+            {
+              "navigation": "Items",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklistItem",
+              "key": "child.Code",
+              "maximumItems": 10,
+              "missingItems": "Delete",
+              "add": true,
+              "updates": [
+                "Text",
+                "Counter"
+              ],
+              "expectedVersions": [
+                "Revision"
+              ],
+              "conditional": false,
+              "visibilityPolicies": 0,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklistItem"
+            }
+          ]
+        },
+        {
+          "name": "StageAsync",
+          "kind": "Patch",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+          "persistence": "stage",
+          "conflictColumns": [],
+          "expectedVersions": [
+            "Revision"
+          ],
+          "bypassedVisibility": [],
+          "inputValidations": 0,
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedChecklistChange"
+            }
+          ],
+          "collections": [
+            {
+              "navigation": "Items",
+              "child": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklistItem",
+              "key": "child.Code",
+              "maximumItems": 10,
+              "missingItems": "Delete",
+              "add": true,
+              "updates": [
+                "Text",
+                "Counter"
+              ],
+              "expectedVersions": [
+                "Revision"
+              ],
+              "conditional": false,
+              "visibilityPolicies": 0,
+              "cacheTag": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklistItem"
+            }
+          ]
+        }
+      ],
+      "mappedPropertyBindings": {
+        "scope": "DesignTimeMetadataOnlyNoRuntimePropertyNames",
+        "accessors": [],
+        "expectedVersions": [
+          {
+            "operation": "ReplaceAsync",
+            "scope": "Entity",
+            "name": "Revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          },
+          {
+            "operation": "ReplaceAsync",
+            "scope": "Collection:Items",
+            "name": "Revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          },
+          {
+            "operation": "StageAsync",
+            "scope": "Entity",
+            "name": "Revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          },
+          {
+            "operation": "StageAsync",
+            "scope": "Collection:Items",
+            "name": "Revision",
+            "modelType": "global::System.Int32",
+            "shadow": true
+          }
+        ],
+        "assignments": "NoneTokenAdvancementMustBeConfiguredSeparately",
+        "fixtures": "SeePerOperationMappedScalarStateCoverageOrTypedOverride"
+      }
+    },
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklistItem",
+      "readEnabled": true,
+      "writeEnabled": true,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.IVersionedChecklistItems"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "ListAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedItemCard\u003E\u003E",
+          "parameters": [
+            {
+              "name": "checklistId",
+              "type": "global::System.Int32"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklistItem"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsAndWritesWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedCollections",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklist",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedCollections.VersionedChecklistRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "ReplaceAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedChecklistChange)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::System.Int32\u003E\u003E",
+            "script": "OnReplaceAsync",
+            "status": "Generated",
+            "reason": "Explicit mapped scalar parent/child state in bounded owner-scoped reconciliation; complete round trips, original versions and factories retain Stage/shared Save boundaries without graph or provider inference. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "Revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ScalarFixtureStateAndExplicitExpectedVersionsOnly",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "providerEquivalence": false
+            },
+            "collectionSimulation": {
+              "optIn": "SimulateCollectionWrites",
+              "targets": "OwnerScopedVisibleSavedChildren",
+              "ownership": "CompleteMappedPrincipalToForeignKeysNeverInput",
+              "matching": "DefaultClrEquality",
+              "collections": [
+                {
+                  "navigation": "Items",
+                  "childStore": "__RepoGenVersionedChecklistItemWrites",
+                  "maximumItems": 10,
+                  "missingItems": "Delete",
+                  "additions": true,
+                  "updates": true,
+                  "conditional": false
+                }
+              ],
+              "pendingTargets": "RejectOwnerScopedModifiedAddedDeletedChildrenIncludingHidden",
+              "saving": "SharedUnitOfWorkIncludesUnrelatedPendingWrites",
+              "rollback": "RestoreCommandOnlyBeforeSaveCheckpointForSavedRows",
+              "results": "ExplicitReturnsSavedQuery",
+              "entityGraphs": "NotPersistedOrInferred",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false,
+              "mappedScalarState": {
+                "optIn": "CompleteMapInMemoryWrites(useMappedPropertyState: true)OnEachMappedParticipant",
+                "parent": [
+                  {
+                    "PropertyName": "Revision",
+                    "MemberName": "__repoGenProperty0",
+                    "TypeName": "global::System.Int32",
+                    "ValueSource": "row.Revision",
+                    "AccessKind": "Shadow"
+                  }
+                ],
+                "children": [
+                  {
+                    "navigation": "Items",
+                    "properties": [
+                      {
+                        "PropertyName": "Revision",
+                        "MemberName": "__repoGenProperty0",
+                        "TypeName": "global::System.Int32",
+                        "ValueSource": "row.Revision",
+                        "AccessKind": "Shadow"
+                      }
+                    ]
+                  }
+                ],
+                "identity": "OrdinaryPrimaryUniqueMatchingAndOwnershipScalarsOnly",
+                "versions": "ExplicitOriginalTokensRecheckedBeforeSharedCommit",
+                "generatedValues": "ExplicitFactoriesOnly",
+                "roundTrip": "FullStructuralReadWriteReadBeforeAnyStoreCommits",
+                "graphShapes": "ExistingDesignedBoundedReconciliationOnly",
+                "providerEquivalence": false
+              }
+            },
+            "savedResultQuery": {
+              "optIn": "ReturnsSaved",
+              "key": "CompleteSavedPrimaryKeyNotMutationPredicate",
+              "state": "SavedRowsAfterSharedUnitOfWorkSave",
+              "capture": "DetachedParticipatingTablesInOneFixturePartition",
+              "rootVisibility": "DeclaredPoliciesUnlessExplicitlyBypassed",
+              "relatedVisibility": "ExplicitInProjectionNoImplicitPolicyInjection",
+              "relationships": [],
+              "failure": "RepositorySavedResultExceptionWriteAlreadySaved",
+              "atomicReturning": false,
+              "providerGuarantees": "NotSimulated"
+            }
+          },
+          {
+            "signature": "StageAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedChecklistChange)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003E",
+            "script": "OnStageAsync",
+            "status": "Generated",
+            "reason": "Explicit mapped scalar parent/child state in bounded owner-scoped reconciliation; complete round trips, original versions and factories retain Stage/shared Save boundaries without graph or provider inference. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "Revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ScalarFixtureStateAndExplicitExpectedVersionsOnly",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "providerEquivalence": false
+            },
+            "collectionSimulation": {
+              "optIn": "SimulateCollectionWrites",
+              "targets": "OwnerScopedVisibleSavedChildren",
+              "ownership": "CompleteMappedPrincipalToForeignKeysNeverInput",
+              "matching": "DefaultClrEquality",
+              "collections": [
+                {
+                  "navigation": "Items",
+                  "childStore": "__RepoGenVersionedChecklistItemWrites",
+                  "maximumItems": 10,
+                  "missingItems": "Delete",
+                  "additions": true,
+                  "updates": true,
+                  "conditional": false
+                }
+              ],
+              "pendingTargets": "RejectOwnerScopedModifiedAddedDeletedChildrenIncludingHidden",
+              "saving": "SharedUnitOfWorkIncludesUnrelatedPendingWrites",
+              "rollback": "RestoreCommandOnlyBeforeSaveCheckpointForSavedRows",
+              "results": "SavedScalarParentProjectionOnly",
+              "entityGraphs": "NotPersistedOrInferred",
+              "providerGuarantees": "NotSimulated",
+              "relationalEquivalence": false,
+              "mappedScalarState": {
+                "optIn": "CompleteMapInMemoryWrites(useMappedPropertyState: true)OnEachMappedParticipant",
+                "parent": [
+                  {
+                    "PropertyName": "Revision",
+                    "MemberName": "__repoGenProperty0",
+                    "TypeName": "global::System.Int32",
+                    "ValueSource": "row.Revision",
+                    "AccessKind": "Shadow"
+                  }
+                ],
+                "children": [
+                  {
+                    "navigation": "Items",
+                    "properties": [
+                      {
+                        "PropertyName": "Revision",
+                        "MemberName": "__repoGenProperty0",
+                        "TypeName": "global::System.Int32",
+                        "ValueSource": "row.Revision",
+                        "AccessKind": "Shadow"
+                      }
+                    ]
+                  }
+                ],
+                "identity": "OrdinaryPrimaryUniqueMatchingAndOwnershipScalarsOnly",
+                "versions": "ExplicitOriginalTokensRecheckedBeforeSharedCommit",
+                "generatedValues": "ExplicitFactoriesOnly",
+                "roundTrip": "FullStructuralReadWriteReadBeforeAnyStoreCommits",
+                "graphShapes": "ExistingDesignedBoundedReconciliationOnly",
+                "providerEquivalence": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklistItem",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedCollections.VersionedChecklistItemRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "ListAsync(global::System.Int32)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedItemCard\u003E\u003E",
+            "script": "OnListAsync",
+            "status": "Generated",
+            "reason": "Explicit typed mapped scalar values from public fixture data on detached read rows; filter/graph permissions remain independent, without tracked state or provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "propertyReads": {
+              "optIn": "MapInMemoryProperty",
+              "reads": [
+                {
+                  "EntityTypeName": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklistItem",
+                  "PropertyName": "Revision",
+                  "TypeName": "global::System.Int32",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "ExplicitTypedPropertyValuesNotTrackedState",
+              "providerGuarantees": "NotSimulated"
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedCollections.VersionedChecklistContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedCollections.VersionedChecklistContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklist",
+          "property": "VersionedChecklistStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedChecklistSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedChecklistSeed(entity.Id, entity.Title, entity.Counter, entity.Revision)",
+          "generatedValues": "ExplicitDesignerFactories",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "valueAdapters": {
+            "properties": [
+              {
+                "property": "Revision",
+                "onCreate": true,
+                "onUpdate": true,
+                "insertCondition": "true",
+                "source": "(__repoGenEntity.Counter \u002B 1)"
+              }
+            ],
+            "allocation": "DetachedSavedAndReservedRowsBeforeStage",
+            "updates": "AtomicSavePreparationOnly",
+            "resets": "RowDerivedFactoriesNoExternalCounterReset",
+            "relationalEquivalence": false
+          },
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedChecklistSeed(entity.Id, entity.Title, entity.Counter, entity.__repoGenProperty0)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false,
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "Revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "DetachedScalarFixtureStateAndExplicitExpectedVersions",
+              "identity": "OrdinaryExplicitPrimaryForeignAndUniqueKeysOnly",
+              "validation": "FullStructuralRoundTripBeforeSharedCommit",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "efTracker": "NotSimulated",
+              "graphWrites": "NotEnabled",
+              "providerEquivalence": false
+            }
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedCollections.__RepoGenVersionedChecklistReadRow",
+            "members": [
+              "Id",
+              "Title",
+              "Counter",
+              "__repoGenProperty0"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "propertyMappings": {
+              "optIn": "MapInMemoryProperty",
+              "properties": [
+                {
+                  "PropertyName": "Revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "application": "DetachedReadAndExplicitScalarFixtureWriteRows",
+              "trackedState": "NotSimulated",
+              "providerGuarantees": "NotSimulated"
+            }
+          }
+        },
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryMappedCollections.VersionedChecklistItem",
+          "property": "VersionedChecklistItemStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedItemSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedItemSeed(entity.Id, entity.ChecklistId, entity.Code, entity.Text, entity.Counter, entity.Revision)",
+          "generatedValues": "ExplicitDesignerFactories",
+          "writes": "DeclaredTrackedCommandsOnly",
+          "valueAdapters": {
+            "properties": [
+              {
+                "property": "Revision",
+                "onCreate": true,
+                "onUpdate": true,
+                "insertCondition": "true",
+                "source": "(__repoGenEntity.Counter \u002B 1)"
+              }
+            ],
+            "allocation": "DetachedSavedAndReservedRowsBeforeStage",
+            "updates": "AtomicSavePreparationOnly",
+            "resets": "RowDerivedFactoriesNoExternalCounterReset",
+            "relationalEquivalence": false
+          },
+          "writeMapping": {
+            "kind": "ExplicitScalarWriteAdapter",
+            "source": "static (entity, saved) =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryMappedCollections.VersionedItemSeed(entity.Id, entity.ChecklistId, entity.Code, entity.Text, entity.Counter, entity.__repoGenProperty0)",
+            "savedData": "CurrentDetachedRowOnUpdateNullOnCreate",
+            "preparation": "BeforeAnySharedStoreCommit",
+            "roundTrip": "FullScalarAndPrimaryKeyValidation",
+            "constructsPersistenceEntity": false,
+            "reverseProjectionInferred": false,
+            "navigationWrites": false,
+            "relationalEquivalence": false,
+            "mappedPropertyState": {
+              "optIn": "MapInMemoryWrites(useMappedPropertyState: true)",
+              "properties": [
+                {
+                  "PropertyName": "Revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "scope": "DetachedScalarFixtureStateAndExplicitExpectedVersions",
+              "identity": "OrdinaryExplicitPrimaryForeignAndUniqueKeysOnly",
+              "validation": "FullStructuralRoundTripBeforeSharedCommit",
+              "tokenAdvancement": "ExplicitFactoriesOrAssignmentsOnly",
+              "efTracker": "NotSimulated",
+              "graphWrites": "NotEnabled",
+              "providerEquivalence": false
+            }
+          },
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryMappedCollections.__RepoGenVersionedChecklistItemReadRow",
+            "members": [
+              "Id",
+              "ChecklistId",
+              "Code",
+              "Text",
+              "Counter",
+              "__repoGenProperty0"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted",
+            "propertyMappings": {
+              "optIn": "MapInMemoryProperty",
+              "properties": [
+                {
+                  "PropertyName": "Revision",
+                  "MemberName": "__repoGenProperty0",
+                  "TypeName": "global::System.Int32",
+                  "ValueSource": "row.Revision",
+                  "AccessKind": "Shadow"
+                }
+              ],
+              "application": "DetachedReadAndExplicitScalarFixtureWriteRows",
+              "trackedState": "NotSimulated",
+              "providerGuarantees": "NotSimulated"
+            }
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    },
+    "writeSimulation": {
+      "operations": "ExplicitTrackedScalarCreatePatchDelete",
+      "batches": "ExplicitBoundedPatchManyLeafDeleteMany",
+      "batchMatching": "DeclaredUniqueScalarInputOrder",
+      "batchTargets": "RejectPendingModificationsAllTargetsRequired",
+      "reads": "SavedRowsOnly",
+      "stage": "PendingAssignmentsSeparateFromStoreRows",
+      "save": "AtomicPreparationThenSharedStoreCommit",
+      "unitOfWork": "ExplicitConsumerRegistrationForOneFixturePartition",
+      "transactions": "SharedFixtureCheckpointRollbackNoParallelIsolation",
+      "generatedValues": "NotInferred",
+      "versions": "ExplicitOrdinaryScalarBinaryTokens",
+      "caches": "NotSimulated",
+      "strictCommands": true,
+      "collections": "PerCommandExplicitBoundedOwnerScopedLeafChildStores"
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryMappedCollections"
+}

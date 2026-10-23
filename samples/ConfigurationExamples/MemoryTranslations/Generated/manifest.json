@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "RonSijm.RepoGen",
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.PatternCatalogContext",
+  "surface": "closedOperations",
+  "contractNamespace": "RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.MemoryTranslations",
+  "contextLifetime": "borrowed",
+  "contextKeyType": null,
+  "commandTimeoutSeconds": null,
+  "features": {
+    "cacheDecorator": false,
+    "closedCaching": false,
+    "atomicWriter": null,
+    "batchOperations": false,
+    "setBasedSelectorOperations": false,
+    "concurrencyRetry": false,
+    "transactionHelpers": false,
+    "synchronousMethods": true,
+    "selectorTrackingMethods": false
+  },
+  "tracking": {
+    "defaultSelector": "Unspecified",
+    "defaultReadOnly": "NoTracking",
+    "noTrackingMethod": null,
+    "trackingMethod": null,
+    "noTrackingWithIdentityResolutionMethod": null
+  },
+  "entities": [
+    {
+      "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.StoredPatternEntry",
+      "readEnabled": true,
+      "writeEnabled": false,
+      "readPorts": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.IPatternCatalog"
+      ],
+      "writePorts": [],
+      "visibilityPolicies": [
+        "Visible"
+      ],
+      "loadProfiles": [],
+      "defaultLoading": [],
+      "queries": [
+        {
+          "name": "EscapedAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+          "parameters": [
+            {
+              "name": "pattern",
+              "type": "global::System.String"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.StoredPatternEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "SearchAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternCard\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternSearch"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.StoredPatternEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 1
+        },
+        {
+          "name": "StreamAsync",
+          "result": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternCard\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternSearch"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.StoredPatternEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "Stream",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "SummariesAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+          "parameters": [
+            {
+              "name": "pattern",
+              "type": "global::System.String"
+            }
+          ],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.StoredPatternEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        },
+        {
+          "name": "TotalsAsync",
+          "result": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternTotals\u003E\u003E",
+          "parameters": [],
+          "tracking": "NoTracking",
+          "useDefaultSort": true,
+          "loadProfiles": [],
+          "loading": [],
+          "loadingStrategy": "Unspecified",
+          "sources": [
+            "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.StoredPatternEntry"
+          ],
+          "sourceOperators": [],
+          "terminal": "List",
+          "pageConsistency": "BestEffort",
+          "cursorOnResults": false,
+          "resultStages": [
+            {
+              "kind": "OrderBy",
+              "input": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternTotals",
+              "conditional": false
+            }
+          ],
+          "cache": false,
+          "bypassedVisibility": [],
+          "inputValidations": 0
+        }
+      ],
+      "commands": []
+    }
+  ],
+  "testDoubles": {
+    "mode": "PortableReadsWithScriptedOverrides",
+    "namespace": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryTranslations",
+    "executesDesignerPipeline": true,
+    "repositories": [
+      {
+        "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.StoredPatternEntry",
+        "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryTranslations.StoredPatternEntryRepositoryTestDouble",
+        "operations": [
+          {
+            "signature": "EscapedAsync(global::System.String)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+            "script": "OnEscapedAsync",
+            "status": "Generated",
+            "reason": "Designer-declared expression translations over detached fixture snapshots; test semantics are explicit, not provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "expressionTranslations": {
+              "matching": "ExactClosedMethodOverloadAndFixedCallShape",
+              "semantics": "DesignerDeclaredFixtureOnlyNotProviderEquivalence",
+              "productionExpressions": "Unchanged",
+              "expressionExecutionDuringGeneration": "Never",
+              "translations": [
+                {
+                  "Name": "EscapedOrdinalIgnoreCasePatterns",
+                  "Method": "Microsoft.EntityFrameworkCore.DbFunctionsExtensions.Boolean Like(Microsoft.EntityFrameworkCore.DbFunctions, System.String, System.String, System.String)"
+                }
+              ]
+            }
+          },
+          {
+            "signature": "SearchAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternSearch)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternCard\u003E\u003E",
+            "script": "OnSearchAsync",
+            "status": "Generated",
+            "reason": "Designer-declared expression translations over detached fixture snapshots; test semantics are explicit, not provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "expressionTranslations": {
+              "matching": "ExactClosedMethodOverloadAndFixedCallShape",
+              "semantics": "DesignerDeclaredFixtureOnlyNotProviderEquivalence",
+              "productionExpressions": "Unchanged",
+              "expressionExecutionDuringGeneration": "Never",
+              "translations": [
+                {
+                  "Name": "FixtureLength",
+                  "Method": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.PatternFunctions.Int32 Length(System.String)"
+                },
+                {
+                  "Name": "OrdinalIgnoreCasePatterns",
+                  "Method": "Microsoft.EntityFrameworkCore.DbFunctionsExtensions.Boolean Like(Microsoft.EntityFrameworkCore.DbFunctions, System.String, System.String)"
+                }
+              ]
+            }
+          },
+          {
+            "signature": "StreamAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternSearch)",
+            "returns": "global::System.Collections.Generic.IAsyncEnumerable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternCard\u003E",
+            "script": "OnStreamAsync",
+            "status": "Generated",
+            "reason": "Designer-declared expression translations over detached fixture snapshots; test semantics are explicit, not provider equivalence. Scripts override generated behavior.",
+            "stream": true,
+            "reasons": [],
+            "expressionTranslations": {
+              "matching": "ExactClosedMethodOverloadAndFixedCallShape",
+              "semantics": "DesignerDeclaredFixtureOnlyNotProviderEquivalence",
+              "productionExpressions": "Unchanged",
+              "expressionExecutionDuringGeneration": "Never",
+              "translations": [
+                {
+                  "Name": "FixtureLength",
+                  "Method": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.PatternFunctions.Int32 Length(System.String)"
+                },
+                {
+                  "Name": "OrdinalIgnoreCasePatterns",
+                  "Method": "Microsoft.EntityFrameworkCore.DbFunctionsExtensions.Boolean Like(Microsoft.EntityFrameworkCore.DbFunctions, System.String, System.String)"
+                }
+              ]
+            }
+          },
+          {
+            "signature": "SummariesAsync(global::System.String)",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.Int32\u003E\u003E",
+            "script": "OnSummariesAsync",
+            "status": "Generated",
+            "reason": "Designer-declared expression translations over detached fixture snapshots; test semantics are explicit, not provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "expressionTranslations": {
+              "matching": "ExactClosedMethodOverloadAndFixedCallShape",
+              "semantics": "DesignerDeclaredFixtureOnlyNotProviderEquivalence",
+              "productionExpressions": "Unchanged",
+              "expressionExecutionDuringGeneration": "Never",
+              "translations": [
+                {
+                  "Name": "OrdinalIgnoreCasePatterns",
+                  "Method": "Microsoft.EntityFrameworkCore.DbFunctionsExtensions.Boolean Like(Microsoft.EntityFrameworkCore.DbFunctions, System.String, System.String)"
+                }
+              ]
+            }
+          },
+          {
+            "signature": "TotalsAsync()",
+            "returns": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternTotals\u003E\u003E",
+            "script": "OnTotalsAsync",
+            "status": "Generated",
+            "reason": "Designer-declared expression translations over detached fixture snapshots; test semantics are explicit, not provider equivalence. Scripts override generated behavior.",
+            "stream": false,
+            "reasons": [],
+            "expressionTranslations": {
+              "matching": "ExactClosedMethodOverloadAndFixedCallShape",
+              "semantics": "DesignerDeclaredFixtureOnlyNotProviderEquivalence",
+              "productionExpressions": "Unchanged",
+              "expressionExecutionDuringGeneration": "Never",
+              "translations": [
+                {
+                  "Name": "FixtureLength",
+                  "Method": "RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.PatternFunctions.Int32 Length(System.String)"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "stores": {
+      "fixture": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryTranslations.PatternCatalogContextRepositoryFixture",
+      "data": "RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryTranslations.PatternCatalogContextRepositoryData",
+      "contextKey": null,
+      "lifetime": "ScopedUnlessExplicitlyRegistered",
+      "copyPolicy": "ExplicitDetachedAdapter",
+      "baselineScope": "AllStoresInOneContextPartition",
+      "executesDesignerPipeline": true,
+      "entities": [
+        {
+          "entity": "global::RonSijm.RepoGen.ConfigurationExamples.Models.MemoryTranslations.StoredPatternEntry",
+          "property": "StoredPatternEntryStore",
+          "row": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternSeed",
+          "shape": "ExplicitDataShape",
+          "key": "global::System.Int32",
+          "keySource": "static entity =\u003E entity.Id",
+          "copySource": "static entity =\u003E new global::RonSijm.RepoGen.ConfigurationExamples.Contracts.MemoryTranslations.PatternSeed(entity.Id, entity.Title, entity.Summary, entity.Price, entity.Hidden)",
+          "generatedValues": "ExplicitSeedKeys",
+          "writes": "FixtureArrangementOnly",
+          "readMapping": {
+            "kind": "ExplicitScalarAssignments",
+            "readRow": "global::RonSijm.RepoGen.ConfigurationExamples.TestDoubles.MemoryTranslations.__RepoGenStoredPatternEntryReadRow",
+            "members": [
+              "Id",
+              "Title",
+              "Summary",
+              "Price",
+              "Hidden"
+            ],
+            "constructsPersistenceEntity": false,
+            "writes": "NotAdapted"
+          }
+        }
+      ]
+    },
+    "execution": {
+      "semantics": "LINQ-to-Objects",
+      "reads": "OneDetachedStoreSnapshotPerInvocation",
+      "partitions": "DesignerContextKey",
+      "overrides": "MatchingRulesThenExplicitHandlerThenGeneratedBackend",
+      "reset": "ClearsScriptsAndCallsRetainsBackendAndFixtureData",
+      "caching": "NotSimulated",
+      "tracking": "DetachedCopiesOnly",
+      "relationalGuarantees": "NotSimulated",
+      "strictQueries": true
+    }
+  },
+  "generatedNamespace": "RonSijm.RepoGen.ConfigurationExamples.Persistence.MemoryTranslations"
+}

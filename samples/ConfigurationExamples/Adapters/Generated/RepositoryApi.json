@@ -1,0 +1,504 @@
+{
+  "generatedBy": "RonSijm.RepoGen",
+  "schemaVersion": 2,
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.TaskDesk.TaskDeskContext",
+  "contracts": [
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.TaskDesk.IDeskTaskRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.TaskDesk.IReadDeskTaskRepository",
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.TaskDesk.IWriteDeskTaskRepository"
+      ],
+      "methods": []
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.TaskDesk.IReadDeskTaskRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ITaskDeskReads"
+      ],
+      "methods": [
+        {
+          "signature": "ByBucketAsync()",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyDictionary\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskBucket\u003Cglobal::System.String?\u003E, global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskSummary\u003E\u003E\u003E",
+          "parameters": [
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "FindAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskSummary?\u003E",
+          "parameters": [
+            {
+              "name": "taskId",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "ListByProjectAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskSummary\u003E\u003E",
+          "parameters": [
+            {
+              "name": "project",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        }
+      ]
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.TaskDesk.IWriteDeskTaskRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ITaskDeskWrites"
+      ],
+      "methods": [
+        {
+          "signature": "CreateAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CreateTask)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskSummary\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CreateTask",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "LoadForRenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskSummary?\u003E",
+          "parameters": [
+            {
+              "name": "taskId",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "RenameAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.RenameTask)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.Abstractions.CommandResult\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskSummary\u003E\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.RenameTask",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        }
+      ]
+    }
+  ],
+  "dataContracts": [
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.CreateTask",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.CreateTask\u003E"
+      ],
+      "members": [
+        {
+          "name": "Project",
+          "kind": "Property",
+          "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId"
+        },
+        {
+          "name": "Tag",
+          "kind": "Property",
+          "type": "global::System.String?",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String?"
+        },
+        {
+          "name": "Title",
+          "kind": "Property",
+          "type": "global::System.String",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId,global::System.String,global::System.String)",
+          "parameters": [
+            {
+              "name": "Project",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Title",
+              "type": "global::System.String",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Tag",
+              "type": "global::System.String?",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId",
+      "kind": "Struct",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId\u003E"
+      ],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "Property",
+          "type": "global::System.Guid",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Guid"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "()",
+          "parameters": [],
+          "setsRequiredMembers": false
+        },
+        {
+          "signature": "(global::System.Guid)",
+          "parameters": [
+            {
+              "name": "Value",
+              "type": "global::System.Guid",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.RenameTask",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.RenameTask\u003E"
+      ],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "Property",
+          "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId"
+        },
+        {
+          "name": "Title",
+          "kind": "Property",
+          "type": "global::System.String",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId,global::System.String)",
+          "parameters": [
+            {
+              "name": "Id",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Title",
+              "type": "global::System.String",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskBucket\u00601",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskBucket\u003CTTag\u003E\u003E"
+      ],
+      "members": [
+        {
+          "name": "Project",
+          "kind": "Property",
+          "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId"
+        },
+        {
+          "name": "Tag",
+          "kind": "Property",
+          "type": "TTag?",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "TTag?"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId,TTag)",
+          "parameters": [
+            {
+              "name": "Project",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Tag",
+              "type": "TTag?",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [
+        {
+          "name": "TTag",
+          "attributes": "None",
+          "constraints": [],
+          "nullableConstraint": 2
+        }
+      ],
+      "enumUnderlyingType": null,
+      "flags": false
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId",
+      "kind": "Struct",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId\u003E"
+      ],
+      "members": [
+        {
+          "name": "Value",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "()",
+          "parameters": [],
+          "setsRequiredMembers": false
+        },
+        {
+          "signature": "(global::System.Int32)",
+          "parameters": [
+            {
+              "name": "Value",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskSummary",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskSummary\u003E"
+      ],
+      "members": [
+        {
+          "name": "Id",
+          "kind": "Property",
+          "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId"
+        },
+        {
+          "name": "Project",
+          "kind": "Property",
+          "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId"
+        },
+        {
+          "name": "Tag",
+          "kind": "Property",
+          "type": "global::System.String?",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String?"
+        },
+        {
+          "name": "Title",
+          "kind": "Property",
+          "type": "global::System.String",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId,global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId,global::System.String,global::System.String)",
+          "parameters": [
+            {
+              "name": "Id",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.TaskId",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Project",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ProjectId",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Title",
+              "type": "global::System.String",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Tag",
+              "type": "global::System.String?",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    }
+  ]
+}

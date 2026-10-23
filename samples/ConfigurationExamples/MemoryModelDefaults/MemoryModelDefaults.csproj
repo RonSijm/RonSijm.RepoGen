@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net8.0</TargetFramework><IsPackable>false</IsPackable></PropertyGroup>
+  <Import Project="../ExampleSources.props" />
+  <ItemGroup>
+    <Compile Remove="Persistence/**/*.cs" /><None Include="Persistence/**/*.cs" />
+    <ProjectReference Include="../Contracts/Contracts.csproj" />
+    <ProjectReference Include="../../../src/RonSijm.RepoGen.Testing/RonSijm.RepoGen.Testing.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+</Project>

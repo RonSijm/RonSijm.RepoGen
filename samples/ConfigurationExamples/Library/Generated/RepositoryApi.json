@@ -1,0 +1,355 @@
+{
+  "generatedBy": "RonSijm.RepoGen",
+  "schemaVersion": 2,
+  "context": "global::RonSijm.RepoGen.ConfigurationExamples.Models.Library.LibraryContext",
+  "contracts": [
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.IBookRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.IReadBookRepository"
+      ],
+      "methods": []
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.Generated.IReadBookRepository",
+      "bases": [
+        "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.IBookLibrary"
+      ],
+      "methods": [
+        {
+          "signature": "GetAuthorNamesAsync(global::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String\u003E)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String?\u003E\u003E",
+          "parameters": [
+            {
+              "name": "titles",
+              "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String?\u003E?",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        },
+        {
+          "signature": "GetBookDetailsAsync(global::RonSijm.RepoGen.ConfigurationExamples.Contracts.BookDetailsRequest)",
+          "returnType": "global::System.Threading.Tasks.Task\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.BookDetails?\u003E",
+          "parameters": [
+            {
+              "name": "request",
+              "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.BookDetailsRequest",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "cancellationToken",
+              "type": "global::System.Threading.CancellationToken",
+              "optional": true,
+              "defaultValue": "default"
+            }
+          ],
+          "requiresImplementation": true
+        }
+      ]
+    }
+  ],
+  "dataContracts": [
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.BookDetails",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.BookDetails\u003E"
+      ],
+      "members": [
+        {
+          "name": "Author",
+          "kind": "Property",
+          "type": "global::System.String?",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String?"
+        },
+        {
+          "name": "Chapters",
+          "kind": "Property",
+          "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ChapterDetails\u003E",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ChapterDetails\u003E"
+        },
+        {
+          "name": "City",
+          "kind": "Property",
+          "type": "global::System.String?",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String?"
+        },
+        {
+          "name": "Id",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "Reviews",
+          "kind": "Property",
+          "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String\u003E",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String\u003E"
+        },
+        {
+          "name": "Title",
+          "kind": "Property",
+          "type": "global::System.String",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::System.Int32,global::System.String,global::System.String,global::System.String,global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ChapterDetails\u003E,global::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String\u003E)",
+          "parameters": [
+            {
+              "name": "Id",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Title",
+              "type": "global::System.String",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Author",
+              "type": "global::System.String?",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "City",
+              "type": "global::System.String?",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Chapters",
+              "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ChapterDetails\u003E",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Reviews",
+              "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String\u003E",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.BookDetailsRequest",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.BookDetailsRequest\u003E"
+      ],
+      "members": [
+        {
+          "name": "FirstChapter",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "Id",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "IncludeInternalNotes",
+          "kind": "Property",
+          "type": "global::System.Boolean",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Boolean"
+        },
+        {
+          "name": "MaximumNotesPerChapter",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "MinimumRating",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::System.Int32,global::System.Int32,global::System.Int32,global::System.Int32,global::System.Boolean)",
+          "parameters": [
+            {
+              "name": "Id",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "FirstChapter",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "MaximumNotesPerChapter",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "MinimumRating",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "IncludeInternalNotes",
+              "type": "global::System.Boolean",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    },
+    {
+      "type": "global::RonSijm.RepoGen.ConfigurationExamples.Contracts.ChapterDetails",
+      "kind": "Class",
+      "abstract": false,
+      "sealed": true,
+      "bases": [
+        "global::System.IEquatable\u003Cglobal::RonSijm.RepoGen.ConfigurationExamples.Contracts.ChapterDetails\u003E"
+      ],
+      "members": [
+        {
+          "name": "Notes",
+          "kind": "Property",
+          "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String\u003E",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String\u003E"
+        },
+        {
+          "name": "Number",
+          "kind": "Property",
+          "type": "global::System.Int32",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.Int32"
+        },
+        {
+          "name": "Title",
+          "kind": "Property",
+          "type": "global::System.String",
+          "readable": true,
+          "writable": true,
+          "initOnly": true,
+          "required": false,
+          "writeType": "global::System.String"
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "(global::System.Int32,global::System.String,global::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String\u003E)",
+          "parameters": [
+            {
+              "name": "Number",
+              "type": "global::System.Int32",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Title",
+              "type": "global::System.String",
+              "optional": false,
+              "defaultValue": null
+            },
+            {
+              "name": "Notes",
+              "type": "global::System.Collections.Generic.IReadOnlyList\u003Cglobal::System.String\u003E",
+              "optional": false,
+              "defaultValue": null
+            }
+          ],
+          "setsRequiredMembers": false
+        }
+      ],
+      "enumValues": [],
+      "genericParameters": [],
+      "enumUnderlyingType": null,
+      "flags": false
+    }
+  ]
+}
